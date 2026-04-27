@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Drawer Flat File Cabinet: A Complete Buying and Setup Guide | Optic Art Supply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    /* ─── POST HERO ─────────────────────────────────────────────── */
+    .post-hero {
+      background: var(--navy-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero-img-wrap {
+      position: relative;
+      max-height: 480px;
+      overflow: hidden;
+    }
+    .post-hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(10,15,30,0)   0%,
+        rgba(10,15,30,0)  40%,
+        rgba(10,15,30,.6) 75%,
+        rgba(10,15,30,.92) 100%);
+    }
+    .post-hero-img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    .post-hero-meta {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      padding: 32px 0 36px;
+    }
+    .post-hero-cat {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(232,160,32,.3);
+      padding: 5px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      margin-bottom: 14px;
+    }
+    .post-hero-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 760px;
+    }
+    .post-hero-byline {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.3);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .post-hero-byline-text { font-size: 13.5px; }
+    .post-hero-author { color: #fff; font-weight: 600; }
+    .post-hero-date  { color: rgba(255,255,255,.6); }
+    .post-hero-sep   { color: rgba(255,255,255,.3); margin: 0 4px; }
+
+    /* ─── POST BODY LAYOUT ──────────────────────────────────────── */
+    .post-body {
+      background: var(--bg-warm);
+      padding: 44px 0 72px;
+    }
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ─── ARTICLE CONTENT ───────────────────────────────────────── */
+    .article-wrap {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 44px 48px;
+    }
+    .article-lead {
+      font-size: 17px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* Article typography */
+    .article-content h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      color: var(--navy);
+      margin-top: 44px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      scroll-margin-top: 100px;
+    }
+    .article-content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 12px;
+      scroll-margin-top: 100px;
+    }
+    .article-content p {
+      font-size: 15.5px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .article-content ul { list-style: disc; }
+    .article-content ol { list-style: decimal; }
+    .article-content li {
+      font-size: 15.5px;
+      color: #333;
+      line-height: 1.7;
+    }
+    .article-content li strong { color: var(--navy); }
+    .article-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .article-content a:hover { color: var(--accent-hov); }
+    .article-content strong { font-weight: 700; color: var(--text); }
+
+    /* Article image */
+    .article-img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      margin: 28px 0;
+      border: 1px solid var(--border-light);
+    }
+    .article-img-caption {
+      font-size: 12.5px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: -18px;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    /* Comparison table */
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 28px;
+      font-size: 14px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .article-content th {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 13px;
+    }
+    .article-content td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border-light);
+      color: #333;
+      line-height: 1.5;
+    }
+    .article-content tr:last-child td { border-bottom: none; }
+    .article-content tr:nth-child(even) td { background: var(--bg-warm); }
+
+    /* Product recommend card (inline) */
+    .product-card-inline {
+      background: var(--bg-warm);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin: 28px 0;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color .2s;
+    }
+    .product-card-inline:hover { border-color: var(--accent); }
+    .product-card-inline-img {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .product-card-inline-body { flex: 1; }
+    .product-card-inline-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .product-card-inline-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .product-card-inline-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .product-card-inline-footer { display: flex; align-items: center; gap: 10px; }
+    .btn-shop {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn-shop:hover { background: var(--accent-hov); }
+    .btn-shop-secondary {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-mid);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      background: #fff;
+      transition: all .15s;
+    }
+    .btn-shop-secondary:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* Key takeaway box */
+    .key-takeaway {
+      background: #EBF4FF;
+      border-left: 4px solid var(--navy);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: 18px 22px;
+      margin: 28px 0;
+    }
+    .key-takeaway-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .key-takeaway p {
+      font-size: 14.5px !important;
+      color: var(--navy) !important;
+      margin-bottom: 0 !important;
+      line-height: 1.65 !important;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────────────────────── */
+    .post-sidebar {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sidebar-box {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+    }
+    .sidebar-box-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    /* Buy box */
+    .buy-box {
+      background: linear-gradient(135deg, var(--navy) 0%, #2A3D6B 100%);
+      border: none;
+    }
+    .buy-box .sidebar-box-title { color: rgba(255,255,255,.5); }
+    .buy-box-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .buy-box-sub {
+      font-size: 12.5px;
+      color: #8AA0C0;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .buy-links { display: flex; flex-direction: column; gap: 9px; }
+    .buy-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: all .15s;
+      cursor: pointer;
+    }
+    .buy-link--primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .buy-link--primary:hover { background: var(--accent-hov); }
+    .buy-link--secondary {
+      background: rgba(255,255,255,.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .buy-link--secondary:hover { background: rgba(255,255,255,.18); }
+    .buy-link-arrow {
+      font-size: 16px;
+      opacity: .7;
+    }
+    .buy-note {
+      font-size: 11px;
+      color: rgba(255,255,255,.4);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* TOC */
+    .toc { display: flex; flex-direction: column; gap: 2px; }
+    .toc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-mid);
+      padding: 6px 8px;
+      border-radius: var(--radius);
+      transition: all .15s;
+      line-height: 1.4;
+    }
+    .toc-item:hover { color: var(--navy); background: var(--bg-warm); }
+    .toc-item.active { color: var(--accent); background: var(--accent-light); font-weight: 600; }
+    .toc-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-light);
+      flex-shrink: 0;
+      margin-top: 1px;
+      min-width: 16px;
+    }
+    .toc-item.active .toc-num { color: var(--accent); }
+
+    /* Author card */
+    .author-card { display: flex; gap: 14px; align-items: flex-start; }
+    .author-card-img {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .author-card-name { font-size: 14.5px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .author-card-bio  { font-size: 12.5px; color: var(--text-mid); line-height: 1.55; }
+
+    /* ─── RELATED POSTS ─────────────────────────────────────────── */
+    .related-posts { padding: 56px 0 64px; background: var(--bg); }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .related-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .related-card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .related-card-body { padding: 14px 16px 16px; }
+    .related-card-cat {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .related-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .related-card-meta { font-size: 12px; color: var(--text-light); }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <strong>Expert art supply guides,</strong> written by working artists — updated weekly.
+  <a href="/about-colin/">Meet the author →</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-logo">Optic <span>Art</span> Supply</a>
+      <div class="search-bar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search guides, supplies, brands…">
+      </div>
+      <nav class="header-nav">
+        <a href="/drawing/">Drawing</a>
+        <a href="/paint/">Paint</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/brushes/">Brushes</a>
+        <a href="/paper/">Paper</a>
+        <a href="/easels/">Easels</a>
+        <a href="/flat-files/" class="active">Flat Files</a>
+        <a href="/brands/">Brands</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/flat-files/">Flat Files</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">5 Drawer Flat File Cabinet</span>
+    </div>
+  </div>
+</nav>
+
+<!-- POST HERO -->
+<div class="post-hero">
+  <div class="post-hero-img-wrap">
+    <img class="post-hero-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w1200/2025/11/5-drawer-flat-file-cabinet.jpg" alt="5 Drawer Flat File Cabinet">
+    <div class="post-hero-meta">
+      <div class="container">
+        <div class="post-hero-cat">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          Flat Files · Buying Guide
+        </div>
+        <h1 class="post-hero-title">5 Drawer Flat File Cabinet: A Complete Buying and Setup Guide</h1>
+        <div class="post-hero-byline">
+          <img class="author-avatar" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w160/2025/01/colin.jpg" alt="Colin">
+          <div class="post-hero-byline-text">
+            <span class="post-hero-author">By Colin</span>
+            <span class="post-hero-sep">·</span>
+            <span class="post-hero-date">November 20, 2025</span>
+            <span class="post-hero-sep">·</span>
+            <span class="post-hero-date">5 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POST BODY -->
+<div class="post-body">
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ARTICLE -->
+      <article>
+        <div class="article-wrap">
+          <p class="article-lead">A 5-drawer flat file cabinet gives you serious storage without taking over your floor plan, keeping large sheets perfectly flat, easy to sort, and safely protected. Whether you manage a busy studio, an architecture office, or a classroom with rotating projects, the right cabinet turns piles into a clean, professional archive that speeds your work and preserves your best pieces.</p>
+
+          <div class="article-content">
+
+            <h2 id="what-is">What Is a 5 Drawer Flat File Cabinet?</h2>
+            <p>A 5-drawer flat file cabinet is a low, wide cabinet with five shallow, full-extension drawers for storing large papers and boards completely flat. In contrast to vertical filing systems, where weight rests on the top and bottom of papers, the weight of flat files is distributed over the entire sheet.</p>
+            <p>Typical footprints are built around common formats such as 18×24, 24×36, 30×42, and A-series sizes, while internal clearances hover around two inches — enough room for interleaving sheets, folders, and rigid backers. The result is gentle handling, quick retrieval, and consistent protection for drawings, watercolors, prints, photographs, blueprints, maps, and presentation boards that should never be folded or rolled.</p>
+
+            <h2 id="why-5-drawer">Why Choose a 5 Drawer Model Over Others?</h2>
+            <p>The 5-drawer model is the perfect compromise of usable volume, ergonomic height, and floor or shelf space that fits under all windows. Three-drawer stacks may not be large enough to keep projects or media separate, while ten-drawer towers can be tall, heavy, and overwhelming in compact rooms.</p>
+            <p>With five drawers, you get real sorting power without compromising access or stability — and you can always stack a second unit later with a riser base for counter-height work.</p>
+            <ul>
+              <li><strong>Versus 3-drawer:</strong> more separation by medium or project, better working height, similar footprint.</li>
+              <li><strong>Versus 10-drawer:</strong> easier to move or reconfigure, less visual bulk, simpler for shared spaces.</li>
+              <li><strong>Studios:</strong> editioned prints, mixed paper sizes, flat storage for in-progress work.</li>
+              <li><strong>Offices:</strong> plan sets, construction documents, presentation graphics, marketing posters.</li>
+              <li><strong>Classrooms:</strong> portfolios, charts, laminated materials, student projects by course or term.</li>
+            </ul>
+
+            <h2 id="key-features">Key Features to Look for</h2>
+            <p>The best five drawer flat file cabinet combines durable materials, smooth drawer mechanics, sensible security, and a modular design that lets you expand as your archive grows. Focus on building quality in the case and slides, the right drawer depth, and features that protect fragile surfaces during daily use.</p>
+
+            <h3 id="material">Material: Steel vs. Wood</h3>
+            <ul>
+              <li><strong>Steel:</strong> Highly durable, stackable, easy to wipe clean; ideal for busy studios, schools, and shared spaces. Powder-coated finishes resist scratches and scuffs.</li>
+              <li><strong>Wood:</strong> Furniture-grade look that blends with desks and gallery interiors; great for client-facing rooms and home studios. Choose sealed finishes and quality slides.</li>
+            </ul>
+
+            <h3 id="drawer-depth">Drawer Depth and Glide System</h3>
+            <ul>
+              <li><strong>Depth:</strong> Around 2" internal clearance supports interleaving sheets, Mylar or glassine, and rigid backers without snagging.</li>
+              <li><strong>Glides:</strong> Ball-bearing or equivalent slides should offer full extension and stay square under load, protecting edges and preventing jams.</li>
+              <li><strong>Support:</strong> Even bottom support across the drawer reduces sagging with heavy stacks or mounted work.</li>
+            </ul>
+
+            <h3 id="locking">Locking Mechanism and Security</h3>
+            <ul>
+              <li><strong>Central lock or per-drawer locks</strong> for sensitive plans, student exams, pre-release designs, or valuable artwork.</li>
+              <li><strong>Lockable bases or casters</strong> help in shared environments or rooms that reconfigure frequently.</li>
+            </ul>
+
+            <h3 id="stackable">Stackability and Modularity</h3>
+            <ul>
+              <li><strong>Add-on stacks</strong> let you place a second 5-drawer cabinet on top for instant capacity.</li>
+              <li><strong>Riser bases</strong> raise the unit to counter height, add toe clearance, and create a practical work surface.</li>
+              <li><strong>Alignment hardware</strong> keeps stacked units stable and square.</li>
+            </ul>
+
+            <h2 id="best-uses">Best Uses by Profession</h2>
+
+            <h3>Artists & Designers</h3>
+            <p>Flat files preserve fragile surfaces and make pulling work for framing, photography, or client meetings painless. Separate drawers by medium — charcoal, watercolor, screenprint, ink — and interleave friable media with glassine. Keep small pieces in folders or sleeves inside larger drawers so nothing slides under heavier sheets.</p>
+
+            <h3>Architects & Engineers</h3>
+            <p>Plan sets remain flat, legible, and ready for quick collation during reviews or site meetings. Label drawers by project, phase, or discipline for instant access. Stage current sets in the top drawer and archive previous issues below.</p>
+
+            <h3>Educators & Collectors</h3>
+            <p>Central, flat storage protects posters, charts, large photos, and vintage papers from creasing and light exposure. Use archival sleeves for delicate or irreplaceable items and create sign-out sheets for class use or lending.</p>
+
+            <h2 id="top-cabinets">Top 5 Drawer Flat File Cabinets to Consider</h2>
+            <p>The best options pair smooth drawer action with dependable builds and stackable growth, so you can start practical and expand when your archive outgrows a single cabinet.</p>
+
+            <!-- Product card: Safco -->
+            <div class="product-card-inline">
+              <img class="product-card-inline-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Safco-Flat-Files.jpg" alt="Safco Flat Files">
+              <div class="product-card-inline-body">
+                <div class="product-card-inline-label">⭐ Top Pick — Steel</div>
+                <div class="product-card-inline-title">Safco 5-Drawer Steel Flat Files</div>
+                <div class="product-card-inline-desc">Welded-steel strength, reliable slides, and protective features that keep edges and surfaces safe during daily use. Offered in footprints aligned to common formats; easy to stack with matching bases.</div>
+                <div class="product-card-inline-footer">
+                  <a href="#" class="btn-shop">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                    Shop at Blick
+                  </a>
+                  <a href="#" class="btn-shop-secondary">Amazon →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product card: Diversified -->
+            <div class="product-card-inline">
+              <img class="product-card-inline-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Diversified-Spaces-Flat-File--1--1.jpg" alt="Diversified Spaces Flat File">
+              <div class="product-card-inline-body">
+                <div class="product-card-inline-label">🪵 Best Wood Option</div>
+                <div class="product-card-inline-title">Diversified Spaces Flat File System</div>
+                <div class="product-card-inline-desc">Furniture-grade wood construction that looks at home in design offices, galleries, and client-facing spaces. Warm aesthetics without sacrificing practical storage.</div>
+                <div class="product-card-inline-footer">
+                  <a href="#" class="btn-shop">Shop at Blick</a>
+                  <a href="#" class="btn-shop-secondary">Amazon →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product card: Hann -->
+            <div class="product-card-inline">
+              <img class="product-card-inline-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Hann-Mobile-Art-Storage.jpg" alt="Hann Mobile Art Storage Cart">
+              <div class="product-card-inline-body">
+                <div class="product-card-inline-label">🎨 Best Mobile Option</div>
+                <div class="product-card-inline-title">Hann Mobile Paper Storage Cart</div>
+                <div class="product-card-inline-desc">Mobility for rooms that reconfigure daily. Keep work near presses, printers, or teaching stations. A strong companion to a stationary flat file.</div>
+                <div class="product-card-inline-footer">
+                  <a href="#" class="btn-shop">Shop at Blick</a>
+                  <a href="#" class="btn-shop-secondary">Amazon →</a>
+                </div>
+              </div>
+            </div>
+
+            <h2 id="maintenance">How to Maintain Your Cabinet</h2>
+            <p>Regular, gentle maintenance keeps drawers gliding, documents clean, and finishes looking professional, extending the life of both the cabinet and your collection.</p>
+            <ul>
+              <li><strong>Cleaning and humidity control:</strong> Wipe steel surfaces with a soft, barely damp cloth and dry immediately. Keep relative humidity moderate and stable to prevent paper cockling or adhesive failure.</li>
+              <li><strong>Preventing rust or drawer jams:</strong> Vacuum beneath and behind the unit to limit dust migration. Clear debris from slides instead of forcing a sticky drawer. Distribute weight evenly to avoid twisting tracks.</li>
+              <li><strong>Periodic inspection:</strong> Each quarter, check labels, slide action, and lock performance. Apply a manufacturer-approved lubricant sparingly to slides if needed.</li>
+            </ul>
+
+            <h2 id="setup">Setup Tips: Get It Right on Day One</h2>
+            <p>Thoughtful setup protects your collection from the start and saves headaches later when capacity grows or rooms change.</p>
+            <ul>
+              <li><strong>Measure the route:</strong> Confirm doorways, corridors, and elevator clearances before delivery.</li>
+              <li><strong>Plan the footprint:</strong> Allow full drawer extension and safe standing room in front.</li>
+              <li><strong>Level the base:</strong> Use shims if needed — leveled cabinets glide better and reduce long-term wear.</li>
+              <li><strong>Label immediately:</strong> Size, series, date range, or project codes; add a master drawer map on the cabinet side.</li>
+              <li><strong>Protect sensitive media:</strong> Interleave friable works with glassine and fold small pieces so they don't slide under larger sheets.</li>
+            </ul>
+
+            <div class="key-takeaway">
+              <div class="key-takeaway-label">✓ Key Takeaway</div>
+              <p>A 5-drawer flat file is the sweet spot for most studios, offices, and classrooms — real sorting power in a manageable package. Choose materials and slides that match your workload, plan the footprint for full-extension access, and label from day one. With steady maintenance and smart interleaving, your cabinet will protect drawings, prints, plans, and posters for years.</p>
+            </div>
+
+          </div><!-- /article-content -->
+        </div><!-- /article-wrap -->
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="post-sidebar">
+
+        <!-- BUY BOX -->
+        <div class="sidebar-box buy-box">
+          <div class="sidebar-box-title">Shop This Guide</div>
+          <div class="buy-box-title">5-Drawer Flat Files</div>
+          <div class="buy-box-sub">Find the cabinets reviewed in this guide at trusted retailers below.</div>
+          <div class="buy-links">
+            <a href="#" class="buy-link buy-link--primary">
+              Blick Art Materials
+              <span class="buy-link-arrow">→</span>
+            </a>
+            <a href="#" class="buy-link buy-link--secondary">
+              Amazon
+              <span class="buy-link-arrow">→</span>
+            </a>
+          </div>
+          <p class="buy-note">Affiliate links help support this site at no extra cost to you. Prices updated weekly.</p>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">In This Guide</div>
+          <nav class="toc">
+            <a href="#what-is"       class="toc-item"><span class="toc-num">01</span>What Is a Flat File Cabinet?</a>
+            <a href="#why-5-drawer"  class="toc-item"><span class="toc-num">02</span>Why Choose a 5-Drawer Model?</a>
+            <a href="#key-features"  class="toc-item active"><span class="toc-num">03</span>Key Features to Look For</a>
+            <a href="#best-uses"     class="toc-item"><span class="toc-num">04</span>Best Uses by Profession</a>
+            <a href="#top-cabinets"  class="toc-item"><span class="toc-num">05</span>Top Cabinets to Consider</a>
+            <a href="#maintenance"   class="toc-item"><span class="toc-num">06</span>Maintenance Tips</a>
+            <a href="#setup"         class="toc-item"><span class="toc-num">07</span>Setup Guide</a>
+          </nav>
+        </div>
+
+        <!-- AUTHOR -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">About the Author</div>
+          <div class="author-card">
+            <img class="author-card-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w160/2025/01/colin.jpg" alt="Colin">
+            <div>
+              <div class="author-card-name">Colin</div>
+              <div class="author-card-bio">Working artist and founder of Optic Art Supply. Tests every product personally before writing about it.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MORE FROM THIS CATEGORY -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">More in Flat Files</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <a href="/flat-files/safco-flat-files-durable-professional-storage-for-artists/" style="display:flex; gap:10px; align-items:flex-start;">
+              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Safco-Flat-Files.jpg" style="width:56px;height:56px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid var(--border-light);">
+              <span style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">Safco Flat Files – Durable & Professional Storage</span>
+            </a>
+            <a href="/flat-files/hann-mobile-art-storage-cart-organized-paper-storage-on-the-move/" style="display:flex; gap:10px; align-items:flex-start;">
+              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Hann-Mobile-Art-Storage.jpg" style="width:56px;height:56px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid var(--border-light);">
+              <span style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">Hann Mobile Art Storage Cart</span>
+            </a>
+            <a href="/flat-files/flat-files-vs-portfolios-which-is-the-best-storage-solution-for-your-art/" style="display:flex; gap:10px; align-items:flex-start;">
+              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/07/flat-file-vs-portfolio-for-artists.webp" style="width:56px;height:56px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid var(--border-light);">
+              <span style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">Flat Files vs. Portfolios: Which is Best?</span>
+            </a>
+            <a href="/flat-files/" style="font-size:13px;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:4px;margin-top:4px;">View all Flat File guides →</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED POSTS -->
+<section class="related-posts">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">You Might Also Like</h2>
+        <p class="section-subtitle">More guides to keep your studio organized and your work protected</p>
+      </div>
+      <a href="/flat-files/" class="view-all">All Flat File guides →</a>
+    </div>
+    <div class="related-grid">
+      <a href="/flat-files/art-paper-storage-cabinet-keep-artwork-flat-clean-ready-to-use/" class="related-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Art-paper-storage-cabinet.png" alt="Art Paper Storage Cabinet">
+        <div class="related-card-body">
+          <div class="related-card-cat">Flat Files · Buying Guide</div>
+          <div class="related-card-title">Art Paper Storage Cabinet – Keep Artwork Flat, Clean & Ready to Use</div>
+          <div class="related-card-meta">5 min · Nov 2025</div>
+        </div>
+      </a>
+      <a href="/flat-files/diversified-spaces-flat-file-reliable-storage-for-artists/" class="related-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Diversified-Spaces-Flat-File--1--1.jpg" alt="Diversified Spaces Flat File">
+        <div class="related-card-body">
+          <div class="related-card-cat">Flat Files · Product Review</div>
+          <div class="related-card-title">Diversified Spaces Flat File – Reliable Storage for Artists</div>
+          <div class="related-card-meta">4 min · Nov 2025</div>
+        </div>
+      </a>
+      <a href="/flat-files/why-every-artist-needs-a-flat-file-for-storing-artwork/" class="related-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/05/why-every-artist-needs-a-flat-file-for-storing-artwork.webp" alt="Why Artists Need Flat Files">
+        <div class="related-card-body">
+          <div class="related-card-cat">Flat Files · Guide</div>
+          <div class="related-card-title">Why Every Artist Needs a Flat File for Storing Artwork</div>
+          <div class="related-card-meta">4 min · May 2025</div>
+        </div>
+      </a>
+      <a href="/flat-files/flat-files-vs-portfolios-which-is-the-best-storage-solution-for-your-art/" class="related-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/07/flat-file-vs-portfolio-for-artists.webp" alt="Flat Files vs Portfolios">
+        <div class="related-card-body">
+          <div class="related-card-cat">Flat Files · Comparison</div>
+          <div class="related-card-title">Flat Files vs. Portfolios: Which is the Best Storage Solution?</div>
+          <div class="related-card-meta">5 min · Jul 2025</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Get the guide before you buy</h2>
+    <p>New reviews and technique guides in your inbox — no fluff, no sponsored nonsense.</p>
+    <form class="newsletter-form" onsubmit="return false">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Optic <span>Art</span> Supply</div>
+        <p class="footer-tagline">Expert art supply reviews and buying guides written by a working artist. No filler — just the information you need to choose the right materials.</p>
+        <div class="footer-socials">
+          <div class="footer-social-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#8AA0C0"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></div>
+          <div class="footer-social-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#8AA0C0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/paint/">Paint</a></li>
+          <li><a href="/surfaces/">Surfaces</a></li>
+          <li><a href="/brushes/">Brushes</a></li>
+          <li><a href="/paper/">Paper</a></li>
+          <li><a href="/drawing/">Drawing</a></li>
+          <li><a href="/easels/">Easels</a></li>
+          <li><a href="/flat-files/">Flat Files</a></li>
+          <li><a href="/linen-canvas/">Linen Canvas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/tips-techniques/">Tips & Techniques</a></li>
+          <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
+          <li><a href="/brands/">Browse Brands</a></li>
+          <li><a href="/about-colin/">About Colin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Top Brands</h4>
+        <ul>
+          <li><a href="/tag/arches/">Arches</a></li>
+          <li><a href="/tag/gamblin/">Gamblin</a></li>
+          <li><a href="/tag/holbein/">Holbein</a></li>
+          <li><a href="/tag/faber-castell/">Faber-Castell</a></li>
+          <li><a href="/tag/ampersand/">Ampersand</a></li>
+          <li><a href="/tag/copic/">Copic</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Optic Art Supply. All rights reserved.</span>
+      <span>Built for artists, by an artist.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

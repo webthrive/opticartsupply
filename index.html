@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optic Art Supply — Expert Art Supply Reviews & Buying Guides</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* ─── DESIGN TOKENS ──────────────────────────────────────────── */
+    :root {
+      --navy:       #1A2744;
+      --navy-dark:  #111B30;
+      --accent:     #D95F2B;
+      --accent-hov: #C04E1F;
+      --gold:       #E8A020;
+      --bg:         #FFFFFF;
+      --bg-warm:    #F8F7F3;
+      --bg-light:   #F2F0EB;
+      --text:       #1A1A1A;
+      --text-mid:   #555555;
+      --text-light: #888888;
+      --border:     #E2DDD7;
+      --border-light: #EDE9E4;
+      --radius:     6px;
+      --radius-lg:  10px;
+      --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md:  0 4px 16px rgba(0,0,0,0.10);
+      --shadow-lg:  0 8px 32px rgba(0,0,0,0.13);
+      --font-body:  'Inter', sans-serif;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --max-w:      1240px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ─── UTILITIES ──────────────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 3px;
+      background: var(--bg-light);
+      color: var(--text-mid);
+    }
+    .badge--accent { background: var(--accent); color: #fff; }
+    .badge--navy   { background: var(--navy);   color: #fff; }
+    .badge--gold   { background: var(--gold);   color: #fff; }
+
+    /* ─── ANNOUNCEMENT BAR ───────────────────────────────────────── */
+    .announce {
+      background: var(--navy-dark);
+      color: #CBD5E8;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 9px 24px;
+      letter-spacing: .01em;
+    }
+    .announce a { color: #F0E0C8; text-decoration: underline; }
+    .announce strong { color: #fff; }
+
+    /* ─── HEADER ─────────────────────────────────────────────────── */
+    .site-header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 68px;
+    }
+    .site-logo {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--navy);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .site-logo span { color: var(--accent); }
+
+    .search-bar {
+      flex: 1;
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      background: var(--bg-warm);
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 0 16px;
+      gap: 10px;
+      transition: border-color .2s;
+    }
+    .search-bar:focus-within { border-color: var(--accent); background: #fff; }
+    .search-bar svg { color: var(--text-light); flex-shrink: 0; }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text);
+      padding: 10px 0;
+      outline: none;
+    }
+    .search-bar input::placeholder { color: var(--text-light); }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+    }
+    .header-nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      transition: color .15s, background .15s;
+      white-space: nowrap;
+    }
+    .header-nav a:hover { color: var(--navy); background: var(--bg-warm); }
+    .header-nav a.active { color: var(--navy); font-weight: 600; }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, #2A3D6B 50%, #1E3058 100%);
+      padding: 72px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-copy {}
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hero-headline em { color: var(--gold); font-style: italic; }
+    .hero-sub {
+      font-size: 17px;
+      color: #A8B8D4;
+      line-height: 1.65;
+      max-width: 460px;
+      margin-bottom: 32px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: var(--accent-hov); }
+    .btn--outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.35); }
+    .btn--outline:hover { background: rgba(255,255,255,.08); }
+    .btn--dark { background: var(--navy); color: #fff; }
+    .btn--dark:hover { background: var(--navy-dark); }
+
+    .hero-featured-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .hero-card-body { padding: 20px 22px 22px; }
+    .hero-card-body .badge { margin-bottom: 10px; }
+    .hero-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .hero-card-excerpt {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .hero-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--text-light);
+    }
+    .read-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap .15s;
+    }
+    .read-link:hover { gap: 8px; }
+
+    /* ─── TRUST BAR ──────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--border-light);
+      padding: 14px 0;
+    }
+    .trust-items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+    .trust-item svg { color: var(--accent); flex-shrink: 0; }
+    .trust-item strong { color: var(--text); }
+
+    /* ─── SECTION SHARED ─────────────────────────────────────────── */
+    section { padding: 60px 0; }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 16px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin-top: 6px;
+      max-width: 480px;
+    }
+    .view-all {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: gap .15s;
+    }
+    .view-all:hover { gap: 8px; }
+
+    /* ─── CATEGORIES ─────────────────────────────────────────────── */
+    .categories { background: var(--bg); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .cat-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: var(--navy);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .cat-card--wide { grid-column: span 2; aspect-ratio: 8/3; }
+    .cat-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .75;
+      transition: opacity .25s, transform .35s;
+    }
+    .cat-card:hover img { opacity: .65; transform: scale(1.04); }
+    .cat-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,15,30,.75) 0%, rgba(10,15,30,.1) 60%);
+    }
+    .cat-card-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 18px 20px;
+    }
+    .cat-card-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+      text-shadow: 0 1px 4px rgba(0,0,0,.4);
+    }
+    .cat-card-count {
+      font-size: 12px;
+      color: rgba(255,255,255,.7);
+      font-weight: 500;
+    }
+    .cat-card-arrow {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .2s;
+      backdrop-filter: blur(4px);
+    }
+    .cat-card:hover .cat-card-arrow { opacity: 1; }
+
+    /* ─── PRODUCT CARDS / GUIDE CARDS ────────────────────────────── */
+    .guides { background: var(--bg-warm); }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .guide-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .guide-card-img-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--bg-light);
+      overflow: hidden;
+    }
+    .guide-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s;
+    }
+    .guide-card:hover .guide-card-img-wrap img { transform: scale(1.04); }
+    .guide-card-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+    }
+    .guide-card-body {
+      padding: 18px 18px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .guide-card-category {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .guide-card-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 9px;
+      flex: 1;
+    }
+    .guide-card-excerpt {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .guide-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+      margin-top: auto;
+    }
+    .guide-card-meta {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .guide-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      padding: 7px 14px;
+      border-radius: var(--radius);
+      transition: background .15s, transform .15s;
+    }
+    .guide-card-cta:hover { background: var(--accent-hov); transform: translateY(-1px); }
+
+    /* ─── TOP PICKS (featured large) ────────────────────────────── */
+    .top-picks { background: var(--bg); }
+    .picks-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .pick-hero {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: box-shadow .2s;
+    }
+    .pick-hero:hover { box-shadow: var(--shadow-md); }
+    .pick-hero-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .pick-hero-body { padding: 22px; }
+    .pick-hero-cat {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .pick-hero-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .pick-hero-excerpt {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .pick-hero-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pick-side { display: flex; flex-direction: column; gap: 16px; }
+    .pick-mini {
+      display: flex;
+      gap: 14px;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      align-items: flex-start;
+      transition: box-shadow .2s, transform .2s;
+      cursor: pointer;
+    }
+    .pick-mini:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+    .pick-mini-img {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .pick-mini-body { flex: 1; min-width: 0; }
+    .pick-mini-cat {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .pick-mini-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .pick-mini-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    .pick-mini-meta { font-size: 11.5px; color: var(--text-light); }
+
+    /* ─── BRANDS ─────────────────────────────────────────────────── */
+    .brands { background: var(--bg-warm); }
+    .brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy);
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 18px;
+      transition: border-color .15s, background .15s, transform .15s;
+      cursor: pointer;
+    }
+    .brand-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      background: #fff;
+    }
+    .brand-pill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity .15s;
+    }
+    .brand-pill:hover .brand-pill-dot { opacity: 1; }
+
+    /* ─── EDITORIAL STRIP ────────────────────────────────────────── */
+    .editorial { background: var(--navy); padding: 56px 0; }
+    .editorial .section-title { color: #fff; }
+    .editorial .section-subtitle { color: #8AA0C0; }
+    .editorial .view-all { color: var(--gold); }
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .editorial-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-lg);
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      align-items: flex-start;
+      transition: background .2s;
+      cursor: pointer;
+    }
+    .editorial-card:hover { background: rgba(255,255,255,.09); }
+    .editorial-card img {
+      width: 96px;
+      height: 96px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .editorial-cat {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .editorial-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .editorial-excerpt {
+      font-size: 12.5px;
+      color: #8AA0C0;
+      line-height: 1.5;
+    }
+
+    /* ─── NEWSLETTER ─────────────────────────────────────────────── */
+    .newsletter {
+      background: linear-gradient(135deg, #E05C2B 0%, #C84018 100%);
+      padding: 52px 0;
+      text-align: center;
+    }
+    .newsletter h2 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .newsletter p {
+      font-size: 15px;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 28px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      border: none;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      outline: none;
+      backdrop-filter: blur(4px);
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.6); }
+    .newsletter-form input:focus { background: rgba(255,255,255,.25); }
+    .newsletter-form button {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      border: none;
+      background: #fff;
+      color: var(--accent);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .newsletter-form button:hover { background: var(--bg-warm); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--navy-dark);
+      color: #8AA0C0;
+      padding: 56px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-tagline { font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social-btn {
+      width: 36px; height: 36px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s;
+      cursor: pointer;
+    }
+    .footer-social-btn:hover { background: rgba(255,255,255,.14); }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a {
+      font-size: 13.5px;
+      color: #8AA0C0;
+      transition: color .15s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+    }
+
+    /* ─── DIVIDER ────────────────────────────────────────────────── */
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <strong>Expert art supply guides,</strong> written by working artists — updated weekly.
+  <a href="/about-colin/">Meet the author →</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-logo">Optic <span>Art</span> Supply</a>
+
+      <div class="search-bar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search guides, supplies, brands…">
+      </div>
+
+      <nav class="header-nav">
+        <a href="/drawing/">Drawing</a>
+        <a href="/paint/">Paint</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/brushes/">Brushes</a>
+        <a href="/paper/">Paper</a>
+        <a href="/easels/">Easels</a>
+        <a href="/flat-files/">Flat Files</a>
+        <a href="/brands/">Brands</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">🎨 Trusted by Working Artists</p>
+        <h1 class="hero-headline">
+          The right supplies,<br>
+          <em>backed by real testing</em>
+        </h1>
+        <p class="hero-sub">
+          In-depth reviews, buying guides, and technique breakdowns for painters, drawers, and mixed-media artists — no filler, no affiliate fluff.
+        </p>
+        <div class="hero-ctas">
+          <a href="/surfaces/" class="btn btn--primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Browse Surfaces
+          </a>
+          <a href="/tips-techniques/" class="btn btn--outline">Tips & Techniques</a>
+        </div>
+      </div>
+
+      <!-- Featured card in hero -->
+      <div class="hero-featured-card">
+        <img class="hero-card-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w1200/2025/11/5-drawer-flat-file-cabinet.jpg" alt="5 Drawer Flat File Cabinet" loading="lazy">
+        <div class="hero-card-body">
+          <span class="badge badge--accent">Editor's Pick</span>
+          <h3 class="hero-card-title">5 Drawer Flat File Cabinet: A Complete Buying Guide</h3>
+          <p class="hero-card-excerpt">Find the perfect flat file cabinet for your studio. We break down steel vs. wood, drawer depth, and the best models for every budget.</p>
+          <div class="hero-card-meta">
+            <span>By Colin · 5 min read</span>
+            <a href="/flat-files/5-drawer-flat-file-cabinet-a-complete-buying-and-setup-guide/" class="read-link">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span><strong>Expert tested</strong> — every guide is hands-on</span>
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span><strong>Updated weekly</strong> — guides stay current</span>
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span><strong>173 guides</strong> across 10+ categories</span>
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span><strong>No guesswork</strong> — clear buying recommendations</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-subtitle">Find the right guide for every medium and material</p>
+      </div>
+      <a href="/" class="view-all">All categories →</a>
+    </div>
+
+    <div class="cat-grid">
+
+      <a href="/paint/" class="cat-card cat-card--wide">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/10/Paint.png" alt="Paint">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Paint</div>
+          <div class="cat-card-count">Acrylic · Oil · Watercolor · Gouache</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/surfaces/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/08/Art-Surfaces.webp" alt="Surfaces">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Surfaces</div>
+          <div class="cat-card-count">Canvas · Panels · Boards</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/linen-canvas/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Linen-Canvas.jpg" alt="Linen Canvas">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Linen Canvas</div>
+          <div class="cat-card-count">Stretched · Rolls · Pre-primed</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/easels/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/how-to-choose-the-perfect-easel-for-your-art-style-and-medium.webp" alt="Easels">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Easels</div>
+          <div class="cat-card-count">Studio · Tabletop · Plein Air</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/flat-files/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Flat-Files.webp" alt="Flat Files">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Flat Files</div>
+          <div class="cat-card-count">Cabinets · Storage · Organization</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/artist-tools-accessories/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/12/Artist-Tools.jpg" alt="Artist Tools">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Artist Tools</div>
+          <div class="cat-card-count">Knives · Pens · Accessories</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/drawing/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2026/01/Art-Boards.jpg" alt="Drawing">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Drawing</div>
+          <div class="cat-card-count">Pencils · Pens · Boards</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <a href="/paper/" class="cat-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/11/Acrylic-Paint.png" alt="Paper">
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-name">Paper</div>
+          <div class="cat-card-count">Watercolor · Drawing · Crafts</div>
+        </div>
+        <div class="cat-card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FEATURED GUIDES (product card grid) -->
+<section class="guides">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Latest Guides</h2>
+        <p class="section-subtitle">Detailed buying guides and product reviews — updated regularly</p>
+      </div>
+      <a href="/" class="view-all">View all guides →</a>
+    </div>
+
+    <div class="guide-grid">
+
+      <div class="guide-card">
+        <div class="guide-card-img-wrap">
+          <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2026/02/Gatorfoam-Board-.jpg" alt="Gatorfoam Board">
+          <span class="guide-card-badge badge badge--accent">New</span>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-category">Surfaces</div>
+          <h3 class="guide-card-title">Gatorfoam Board for Artists: Rigid Support for Professional Artwork</h3>
+          <p class="guide-card-excerpt">Upgrade your artwork with Gatorfoam board — rigid, warp-resistant support made for professional painting, mounting, and display.</p>
+          <div class="guide-card-footer">
+            <span class="guide-card-meta">5 min read · Feb 2026</span>
+            <a href="/gatorfoam-board-for-artists-rigid-support-for-professional-artwork/" class="guide-card-cta">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-img-wrap">
+          <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2026/02/How-to-Cut-Gatorfoam-Board-.jpg" alt="How to Cut Gatorfoam Board">
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-category">Tips & Techniques</div>
+          <h3 class="guide-card-title">How to Cut Gatorfoam Board for Art Projects</h3>
+          <p class="guide-card-excerpt">Cutting Gatorfoam cleanly takes more control than regular foam board. Avoid chipping, jagged edges, and dragging blades with these pro tips.</p>
+          <div class="guide-card-footer">
+            <span class="guide-card-meta">4 min read · Feb 2026</span>
+            <a href="/how-to-cut-gatorfoam-board-for-art-projects/" class="guide-card-cta">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-img-wrap">
+          <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2026/01/Blackcore-Foam-Board.jpg" alt="Blackcore Foam Board">
+          <span class="guide-card-badge badge badge--navy">Popular</span>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-category">Surfaces</div>
+          <h3 class="guide-card-title">Blackcore Foam Board: Clean Edges for Professional Displays</h3>
+          <p class="guide-card-excerpt">Get sharp black-edge foam board for polished presentations. Blackcore foam board stays clean, flat, and professional every time.</p>
+          <div class="guide-card-footer">
+            <span class="guide-card-meta">4 min read · Jan 2026</span>
+            <a href="/blackcore-foam-board-clean-edges-for-professional-displays/" class="guide-card-cta">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-img-wrap">
+          <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2026/01/Art-Boards.jpg" alt="Art Boards">
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-category">Surfaces</div>
+          <h3 class="guide-card-title">Art Boards Explained: Types, Uses & How to Choose</h3>
+          <p class="guide-card-excerpt">From illustration boards to gesso panels — a clear breakdown of every board type and which medium works best on each.</p>
+          <div class="guide-card-footer">
+            <span class="guide-card-meta">6 min read · Jan 2026</span>
+            <a href="/surfaces/" class="guide-card-cta">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-img-wrap">
+          <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Linen-Canvas.jpg" alt="Linen Canvas">
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-category">Linen Canvas</div>
+          <h3 class="guide-card-title">Linen Canvas for Acrylic Painting: Everything You Need to Know</h3>
+          <p class="guide-card-excerpt">Should you use linen or cotton canvas for acrylics? We cover texture, absorbency, prep, and top picks for every level.</p>
+          <div class="guide-card-footer">
+            <span class="guide-card-meta">5 min read · 2025</span>
+            <a href="/linen-canvas/linen-canvas-for-acrylic-painting-everything-you-need-to-know/" class="guide-card-cta">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-card-img-wrap">
+          <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/12/Artist-Tools.jpg" alt="Artist Tools">
+          <span class="guide-card-badge badge badge--gold">Guide</span>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-category">Artist Tools</div>
+          <h3 class="guide-card-title">How to Choose the Right Art Knife for Drawing, Cutting & Mixed Media</h3>
+          <p class="guide-card-excerpt">The right art knife makes all the difference. We compare blade types, handle weights, and the best knives for every studio use.</p>
+          <div class="guide-card-footer">
+            <span class="guide-card-meta">5 min read · 2025</span>
+            <a href="/artist-tools-accessories/how-to-choose-the-right-art-knife-for-drawing-cutting-and-mixed-media-art/" class="guide-card-cta">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TOP PICKS -->
+<section class="top-picks">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Top Picks This Month</h2>
+        <p class="section-subtitle">Our most-read and most-recommended guides right now</p>
+      </div>
+      <a href="/" class="view-all">See all picks →</a>
+    </div>
+
+    <div class="picks-grid">
+
+      <!-- Hero pick -->
+      <a href="/easels/a-complete-guide-on-painting-at-an-easel-for-better-results/" class="pick-hero">
+        <img class="pick-hero-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/how-to-choose-the-perfect-easel-for-your-art-style-and-medium.webp" alt="Easels">
+        <div class="pick-hero-body">
+          <div class="pick-hero-cat">Easels</div>
+          <h3 class="pick-hero-title">A Complete Guide to Painting at an Easel</h3>
+          <p class="pick-hero-excerpt">Height, angle, stability — the details that separate a productive studio session from a frustrating one. Everything you need to set up your easel properly.</p>
+          <div class="pick-hero-footer">
+            <span class="guide-card-meta" style="font-size:12.5px;color:var(--text-light)">7 min read · By Colin</span>
+            <span class="read-link">Read Guide →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Side picks -->
+      <div class="pick-side">
+        <a href="/flat-files/art-paper-storage-cabinet-keep-artwork-flat-clean-ready-to-use/" class="pick-mini">
+          <img class="pick-mini-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Flat-Files.webp" alt="Art Paper Storage">
+          <div class="pick-mini-body">
+            <div class="pick-mini-cat">Flat Files</div>
+            <div class="pick-mini-title">Art Paper Storage Cabinet: Keep Artwork Flat, Clean & Ready to Use</div>
+            <div class="pick-mini-footer">
+              <span class="pick-mini-meta">5 min · 2025</span>
+              <span class="read-link" style="font-size:12px">Read →</span>
+            </div>
+          </div>
+        </a>
+        <a href="/linen-canvas/stretched-linen-canvas-explained-types-quality-and-how-to-choose/" class="pick-mini">
+          <img class="pick-mini-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Linen-Canvas.jpg" alt="Stretched Linen Canvas">
+          <div class="pick-mini-body">
+            <div class="pick-mini-cat">Linen Canvas</div>
+            <div class="pick-mini-title">Stretched Linen Canvas Explained: Types, Quality & How to Choose</div>
+            <div class="pick-mini-footer">
+              <span class="pick-mini-meta">6 min · 2025</span>
+              <span class="read-link" style="font-size:12px">Read →</span>
+            </div>
+          </div>
+        </a>
+        <a href="/artist-tools-accessories/pottery-wheels-explained-how-they-work-what-to-buy-and-how-to-start/" class="pick-mini">
+          <img class="pick-mini-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/12/Artist-Tools.jpg" alt="Pottery Wheels">
+          <div class="pick-mini-body">
+            <div class="pick-mini-cat">Artist Tools</div>
+            <div class="pick-mini-title">Pottery Wheels Explained: How They Work, What to Buy & How to Start</div>
+            <div class="pick-mini-footer">
+              <span class="pick-mini-meta">8 min · 2025</span>
+              <span class="read-link" style="font-size:12px">Read →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="pick-side">
+        <a href="/paint/5-best-watercolor-pencils-to-buy-in-2026-tested-by-artists/" class="pick-mini">
+          <img class="pick-mini-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/11/Acrylic-Paint.png" alt="Watercolor Pencils">
+          <div class="pick-mini-body">
+            <div class="pick-mini-cat">Paint</div>
+            <div class="pick-mini-title">5 Best Watercolor Pencils to Buy in 2026 — Tested by Artists</div>
+            <div class="pick-mini-footer">
+              <span class="pick-mini-meta">7 min · 2026</span>
+              <span class="read-link" style="font-size:12px">Read →</span>
+            </div>
+          </div>
+        </a>
+        <a href="/acrylic-vs-oil-paint-a-complete-guide-to-choosing-the-right-paint/" class="pick-mini">
+          <img class="pick-mini-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/10/Paint.png" alt="Acrylic vs Oil Paint">
+          <div class="pick-mini-body">
+            <div class="pick-mini-cat">Paint</div>
+            <div class="pick-mini-title">Acrylic vs Oil Paint: A Complete Guide to Choosing the Right Paint</div>
+            <div class="pick-mini-footer">
+              <span class="pick-mini-meta">9 min · 2025</span>
+              <span class="read-link" style="font-size:12px">Read →</span>
+            </div>
+          </div>
+        </a>
+        <a href="/artist-tools-accessories/how-to-use-rapidograph-pens-techniques-maintenance-and-best-practices/" class="pick-mini">
+          <img class="pick-mini-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2026/01/Art-Boards.jpg" alt="Rapidograph Pens">
+          <div class="pick-mini-body">
+            <div class="pick-mini-cat">Artist Tools</div>
+            <div class="pick-mini-title">How to Use Rapidograph Pens: Techniques, Maintenance & Best Practices</div>
+            <div class="pick-mini-footer">
+              <span class="pick-mini-meta">6 min · 2025</span>
+              <span class="read-link" style="font-size:12px">Read →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Browse by Brand</h2>
+        <p class="section-subtitle">Guides for the brands artists actually use</p>
+      </div>
+      <a href="/brands/" class="view-all">All brands →</a>
+    </div>
+    <div class="brand-row">
+      <a href="/tag/arches/" class="brand-pill"><span class="brand-pill-dot"></span>Arches</a>
+      <a href="/tag/gamblin/" class="brand-pill"><span class="brand-pill-dot"></span>Gamblin</a>
+      <a href="/tag/holbein/" class="brand-pill"><span class="brand-pill-dot"></span>Holbein</a>
+      <a href="/tag/williamsburg/" class="brand-pill"><span class="brand-pill-dot"></span>Williamsburg</a>
+      <a href="/tag/ampersand/" class="brand-pill"><span class="brand-pill-dot"></span>Ampersand</a>
+      <a href="/tag/canson/" class="brand-pill"><span class="brand-pill-dot"></span>Canson</a>
+      <a href="/tag/faber-castell/" class="brand-pill"><span class="brand-pill-dot"></span>Faber-Castell</a>
+      <a href="/tag/copic/" class="brand-pill"><span class="brand-pill-dot"></span>Copic</a>
+      <a href="/tag/pebeo/" class="brand-pill"><span class="brand-pill-dot"></span>Pébéo</a>
+      <a href="/tag/isabey/" class="brand-pill"><span class="brand-pill-dot"></span>Isabey</a>
+      <a href="/tag/tombow/" class="brand-pill"><span class="brand-pill-dot"></span>Tombow</a>
+      <a href="/tag/prismacolor/" class="brand-pill"><span class="brand-pill-dot"></span>Prismacolor</a>
+      <a href="/tag/akua/" class="brand-pill"><span class="brand-pill-dot"></span>Akua</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL DARK SECTION -->
+<section class="editorial">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">From the Studio</h2>
+        <p class="section-subtitle">Techniques, comparisons, and deep dives from a working artist's perspective</p>
+      </div>
+      <a href="/tips-techniques/" class="view-all">All articles →</a>
+    </div>
+    <div class="editorial-grid">
+
+      <a href="/acrylic-vs-oil-paint-a-complete-guide-to-choosing-the-right-paint/" class="editorial-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/10/Paint.png" alt="Acrylic vs Oil">
+        <div>
+          <div class="editorial-cat">Paint · Comparison</div>
+          <div class="editorial-title">Acrylic vs Oil Paint: A Complete Guide to Choosing the Right Paint</div>
+          <div class="editorial-excerpt">Drying time, layering behavior, surface compatibility — the practical differences that actually matter in the studio.</div>
+        </div>
+      </a>
+
+      <a href="/easels/a-guide-to-easel-adjustments-getting-the-perfect-angle-and-height/" class="editorial-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/how-to-choose-the-perfect-easel-for-your-art-style-and-medium.webp" alt="Easel Guide">
+        <div>
+          <div class="editorial-cat">Easels · Setup</div>
+          <div class="editorial-title">A Guide to Easel Adjustments: Getting the Perfect Angle and Height</div>
+          <div class="editorial-excerpt">The right easel position prevents fatigue, improves perspective, and keeps your brush strokes accurate. Here's how to dial it in.</div>
+        </div>
+      </a>
+
+      <a href="/linen-canvas/linen-canvas-for-acrylic-painting-everything-you-need-to-know/" class="editorial-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Linen-Canvas.jpg" alt="Linen Canvas Acrylics">
+        <div>
+          <div class="editorial-cat">Linen Canvas · Technique</div>
+          <div class="editorial-title">Linen Canvas for Acrylic Painting: Everything You Need to Know</div>
+          <div class="editorial-excerpt">Linen's tooth and absorbency changes how acrylics behave. Here's what to expect and how to prepare it correctly.</div>
+        </div>
+      </a>
+
+      <a href="/artist-tools-accessories/how-to-use-rapidograph-pens-techniques-maintenance-and-best-practices/" class="editorial-card">
+        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/12/Artist-Tools.jpg" alt="Rapidograph Pens">
+        <div>
+          <div class="editorial-cat">Artist Tools · How-to</div>
+          <div class="editorial-title">How to Use Rapidograph Pens: Techniques, Maintenance & Best Practices</div>
+          <div class="editorial-excerpt">Technical pens demand clean habits. Learn the filling, flushing, and line-weight techniques that make Rapidographs worth the effort.</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Get the guide before you buy</h2>
+    <p>New reviews and technique guides in your inbox — no fluff, no sponsored nonsense.</p>
+    <form class="newsletter-form" onsubmit="return false">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Optic <span>Art</span> Supply</div>
+        <p class="footer-tagline">Expert art supply reviews and buying guides written by a working artist. No filler — just the information you need to choose the right materials.</p>
+        <div class="footer-socials">
+          <div class="footer-social-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#8AA0C0"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </div>
+          <div class="footer-social-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#8AA0C0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="footer-social-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#8AA0C0"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/paint/">Paint</a></li>
+          <li><a href="/surfaces/">Surfaces</a></li>
+          <li><a href="/brushes/">Brushes</a></li>
+          <li><a href="/paper/">Paper</a></li>
+          <li><a href="/drawing/">Drawing</a></li>
+          <li><a href="/easels/">Easels</a></li>
+          <li><a href="/flat-files/">Flat Files</a></li>
+          <li><a href="/linen-canvas/">Linen Canvas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/tips-techniques/">Tips & Techniques</a></li>
+          <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
+          <li><a href="/brands/">Browse Brands</a></li>
+          <li><a href="/about-colin/">About Colin</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Top Brands</h4>
+        <ul>
+          <li><a href="/tag/arches/">Arches</a></li>
+          <li><a href="/tag/gamblin/">Gamblin</a></li>
+          <li><a href="/tag/holbein/">Holbein</a></li>
+          <li><a href="/tag/faber-castell/">Faber-Castell</a></li>
+          <li><a href="/tag/ampersand/">Ampersand</a></li>
+          <li><a href="/tag/copic/">Copic</a></li>
+          <li><a href="/tag/canson/">Canson</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Optic Art Supply. All rights reserved.</span>
+      <span>Built for artists, by an artist.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
