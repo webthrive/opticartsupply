@@ -3,265 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flat Files for Artists — Storage Guides & Reviews | Optic Art Supply</title>
+  <title>Flat Files Guides & Reviews | Optic Art Supply</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <style>
-    /* ─── CATEGORY HERO ─────────────────────────────────────────── */
-    .cat-hero {
-      position: relative;
-      min-height: 300px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: var(--navy-dark);
-    }
-    .cat-hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .35;
-    }
-    .cat-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(10,15,30,.92) 0%, rgba(10,15,30,.4) 100%);
-    }
-    .cat-hero-body {
-      position: relative;
-      padding: 52px 0 48px;
-    }
-    .cat-hero-eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-    .cat-hero-title {
-      font-family: var(--font-serif);
-      font-size: 44px;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-    .cat-hero-desc {
-      font-size: 16px;
-      color: #A8B8D4;
-      line-height: 1.65;
-      max-width: 560px;
-      margin-bottom: 24px;
-    }
-    .cat-hero-stats {
-      display: flex;
-      gap: 28px;
-    }
-    .cat-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .cat-stat-num {
-      font-size: 24px;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1;
-    }
-    .cat-stat-label {
-      font-size: 12px;
-      color: #8AA0C0;
-      font-weight: 500;
-    }
-
-    /* ─── FILTER BAR ────────────────────────────────────────────── */
-    .filter-bar {
-      background: #fff;
-      border-bottom: 1px solid var(--border-light);
-      padding: 14px 0;
-      position: sticky;
-      top: 68px;
-      z-index: 50;
-    }
-    .filter-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .filter-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .filter-label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--text-mid);
-      white-space: nowrap;
-    }
-    .filter-pills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .filter-pill {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: var(--text-mid);
-      background: var(--bg-warm);
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      padding: 5px 14px;
-      cursor: pointer;
-      transition: all .15s;
-      white-space: nowrap;
-    }
-    .filter-pill:hover,
-    .filter-pill.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
-    }
-    .filter-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .sort-label { font-size: 12.5px; color: var(--text-light); }
-    .sort-select {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      background: var(--bg-warm);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 6px 28px 6px 10px;
-      cursor: pointer;
-      appearance: none;
-      outline: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-    }
-    .result-count {
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    .result-count strong { color: var(--text); }
-
-    /* ─── CAT BODY ──────────────────────────────────────────────── */
-    .cat-body {
-      padding: 40px 0 64px;
-      background: var(--bg-warm);
-    }
-    .cat-layout {
-      display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 32px;
-      align-items: start;
-    }
-
-    /* ─── POST GRID ─────────────────────────────────────────────── */
-    .post-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    /* ─── SIDEBAR ───────────────────────────────────────────────── */
-    .cat-sidebar {
-      position: sticky;
-      top: 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .sidebar-box {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-    }
-    .sidebar-box-title {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 14px;
-    }
-    .sidebar-cats { display: flex; flex-direction: column; gap: 2px; }
-    .sidebar-cat-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 13.5px;
-      font-weight: 500;
-      color: var(--text-mid);
-      padding: 8px 10px;
-      border-radius: var(--radius);
-      transition: all .15s;
-    }
-    .sidebar-cat-link:hover { color: var(--navy); background: var(--bg-warm); }
-    .sidebar-cat-link.active { color: var(--accent); background: var(--accent-light); font-weight: 600; }
-    .sidebar-cat-link.active { background: #FDF0E8; }
-    .sidebar-count {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--text-light);
-      background: var(--bg-light);
-      padding: 2px 7px;
-      border-radius: 10px;
-    }
-    .sidebar-cat-link.active .sidebar-count { background: var(--accent); color: #fff; }
-
-    .subcats { display: flex; flex-wrap: wrap; gap: 7px; }
-    .subcat-tag {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-mid);
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 4px 11px;
-      transition: all .15s;
-      cursor: pointer;
-    }
-    .subcat-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
-
-    /* ─── CATEGORY INTRO CARD ───────────────────────────────────── */
-    .intro-card {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      margin-bottom: 24px;
-    }
-    .intro-card p {
-      font-size: 14.5px;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-    .intro-card p + p { margin-top: 10px; }
-  </style>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/category.css">
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
 <div class="announce">
   <strong>Expert art supply guides</strong> — in-depth reviews and buying advice, updated weekly.
   <a href="/about-colin/">Meet the author →</a>
 </div>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
@@ -284,7 +39,6 @@
   </div>
 </header>
 
-<!-- BREADCRUMB -->
 <nav class="breadcrumb">
   <div class="container">
     <div class="breadcrumb-inner">
@@ -295,282 +49,212 @@
   </div>
 </nav>
 
-<!-- CATEGORY HERO -->
 <div class="cat-hero">
-  <img class="cat-hero-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/07/Flat-Files.webp" alt="Flat Files">
+  <img class="cat-hero-img" src="/images/Flat-Files.webp" alt="Flat Files">
   <div class="cat-hero-overlay"></div>
   <div class="container">
     <div class="cat-hero-body">
-      <p class="cat-hero-eyebrow">📦 Storage & Organization</p>
+      <p class="cat-hero-eyebrow">📦 Cabinets · Storage · Organization · Steel · Wood</p>
       <h1 class="cat-hero-title">Flat Files</h1>
-      <p class="cat-hero-desc">
-        Complete buying guides and reviews for flat file cabinets, art paper storage, and portfolio storage solutions — so you can protect your work and keep your studio organized.
-      </p>
+      <p class="cat-hero-desc">Complete buying guides and reviews for flat file cabinets, art paper storage, and portfolio storage solutions — so you can protect your work and keep your studio organized.</p>
       <div class="cat-hero-stats">
-        <div class="cat-stat">
-          <span class="cat-stat-num">10</span>
-          <span class="cat-stat-label">Guides</span>
-        </div>
-        <div class="cat-stat">
-          <span class="cat-stat-num">6</span>
-          <span class="cat-stat-label">Products reviewed</span>
-        </div>
-        <div class="cat-stat">
-          <span class="cat-stat-num">2026</span>
-          <span class="cat-stat-label">Last updated</span>
-        </div>
+        <div class="cat-stat"><span class="cat-stat-num">10</span><span class="cat-stat-label">Guides</span></div>
+        <div class="cat-stat"><span class="cat-stat-num">2026</span><span class="cat-stat-label">Last updated</span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FILTER BAR -->
 <div class="filter-bar">
   <div class="container">
     <div class="filter-inner">
       <div class="filter-left">
-        <span class="filter-label">Filter:</span>
+        <span class="filter-label">Browse:</span>
         <div class="filter-pills">
           <span class="filter-pill active">All</span>
           <span class="filter-pill">Buying Guides</span>
           <span class="filter-pill">Product Reviews</span>
           <span class="filter-pill">How-to</span>
-          <span class="filter-pill">Storage Tips</span>
         </div>
       </div>
       <div class="filter-right">
-        <span class="sort-label">Sort:</span>
-        <select class="sort-select">
-          <option>Latest first</option>
-          <option>Most popular</option>
-          <option>Oldest first</option>
-        </select>
         <span class="result-count"><strong>10</strong> guides</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CATEGORY BODY -->
 <section class="cat-body">
   <div class="container">
     <div class="cat-layout">
-
-      <!-- MAIN CONTENT -->
       <div>
-        <!-- Intro card -->
-        <div class="intro-card">
-          <p>Flat file cabinets are the gold standard for storing artwork, blueprints, prints, and large paper flat — without folding, rolling, or stacking damage. Whether you're a studio artist archiving finished pieces or an architect managing plan sets, the right flat file makes retrieval fast and storage safe.</p>
-          <p>Below you'll find complete buying guides for every type of flat file, from 5-drawer steel cabinets to mobile carts and wooden studio units.</p>
-        </div>
-
-        <!-- Post grid -->
         <div class="post-grid">
-
-          <a href="/flat-files/5-drawer-flat-file-cabinet-a-complete-buying-and-setup-guide/" class="guide-card">
+          <a href="/flat-files/flat-files-vs-portfolios-which-is-the-best-storage-solution-for-your-art/" class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/5-drawer-flat-file-cabinet.jpg" alt="5 Drawer Flat File Cabinet">
+              <img src="/images/flat-file-vs-portfolio-for-artists.webp" alt="Flat Files vs. Portfolios: Which is the Best Storage Solutio" loading="lazy">
               <span class="guide-card-badge badge badge--navy">Top Pick</span>
             </div>
             <div class="guide-card-body">
-              <div class="guide-card-category">Buying Guide</div>
-              <h3 class="guide-card-title">5 Drawer Flat File Cabinet: A Complete Buying and Setup Guide</h3>
-              <p class="guide-card-excerpt">Keep artwork and documents flat with a 5 Drawer Flat File Cabinet — durable, wide storage perfect for studios, classrooms, and offices.</p>
-              <div class="guide-card-footer">
-                <span class="guide-card-meta">5 min · Nov 2025</span>
-                <span class="guide-card-cta">Read Guide →</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/flat-files/safco-flat-files-durable-professional-storage-for-artists/" class="guide-card">
-            <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Safco-Flat-Files.jpg" alt="Safco Flat Files">
-              <span class="guide-card-badge badge badge--accent">Review</span>
-            </div>
-            <div class="guide-card-body">
-              <div class="guide-card-category">Product Review</div>
-              <h3 class="guide-card-title">Safco Flat Files – Durable & Professional Storage for Artists</h3>
-              <p class="guide-card-excerpt">Store your drawings and artwork safely with Safco Flat Files — strong, stackable steel cabinets built for studio and office organization.</p>
-              <div class="guide-card-footer">
-                <span class="guide-card-meta">4 min · Nov 2025</span>
-                <span class="guide-card-cta">Read Guide →</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/flat-files/hann-mobile-art-storage-cart-organized-paper-storage-on-the-move/" class="guide-card">
-            <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Hann-Mobile-Art-Storage.jpg" alt="Hann Mobile Art Storage Cart">
-            </div>
-            <div class="guide-card-body">
-              <div class="guide-card-category">Product Review</div>
-              <h3 class="guide-card-title">Hann Mobile Art Storage Cart – Organized Paper Storage on the Move</h3>
-              <p class="guide-card-excerpt">Organize your studio with the Hann Mobile Paper Storage Cart. Strong, mobile, and made to last — perfect for artists and art educators.</p>
-              <div class="guide-card-footer">
-                <span class="guide-card-meta">4 min · Nov 2025</span>
-                <span class="guide-card-cta">Read Guide →</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/flat-files/art-paper-storage-cabinet-keep-artwork-flat-clean-ready-to-use/" class="guide-card">
-            <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Art-paper-storage-cabinet.png" alt="Art Paper Storage Cabinet">
-            </div>
-            <div class="guide-card-body">
-              <div class="guide-card-category">Buying Guide</div>
-              <h3 class="guide-card-title">Art Paper Storage Cabinet – Keep Artwork Flat, Clean & Ready to Use</h3>
-              <p class="guide-card-excerpt">A great studio runs on access, not luck. The right storage cabinet keeps sheets flat, protected, and easy to retrieve every time.</p>
-              <div class="guide-card-footer">
-                <span class="guide-card-meta">5 min · Nov 2025</span>
-                <span class="guide-card-cta">Read Guide →</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/flat-files/diversified-spaces-flat-file-reliable-storage-for-artists/" class="guide-card">
-            <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Diversified-Spaces-Flat-File--1--1.jpg" alt="Diversified Spaces Flat File">
-              <span class="guide-card-badge badge badge--gold">Wood</span>
-            </div>
-            <div class="guide-card-body">
-              <div class="guide-card-category">Product Review</div>
-              <h3 class="guide-card-title">Diversified Spaces Flat File – Reliable Storage for Artists</h3>
-              <p class="guide-card-excerpt">Diversified Spaces Flat File offers strong, wide storage for artwork and blueprints. Keep sheets flat, clean, and protected in any studio.</p>
-              <div class="guide-card-footer">
-                <span class="guide-card-meta">4 min · Nov 2025</span>
-                <span class="guide-card-cta">Read Guide →</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/flat-files/how-to-choose-the-right-flat-file-cabinet-for-art-blueprints-and-drawings/" class="guide-card">
-            <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/10/Flat-File-Cabinet--2-.jpg" alt="Flat File Cabinet Guide">
-            </div>
-            <div class="guide-card-body">
-              <div class="guide-card-category">Buying Guide</div>
-              <h3 class="guide-card-title">How to Choose the Right Flat File Cabinet for Art, Blueprints, and Drawings</h3>
-              <p class="guide-card-excerpt">Find the perfect flat file cabinet for your artwork and plans. Compare materials, sizes, and features to choose smarter.</p>
-              <div class="guide-card-footer">
-                <span class="guide-card-meta">6 min · Oct 2025</span>
-                <span class="guide-card-cta">Read Guide →</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/flat-files/flat-files-vs-portfolios-which-is-the-best-storage-solution-for-your-art/" class="guide-card">
-            <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/07/flat-file-vs-portfolio-for-artists.webp" alt="Flat Files vs Portfolios">
-            </div>
-            <div class="guide-card-body">
-              <div class="guide-card-category">Comparison</div>
               <h3 class="guide-card-title">Flat Files vs. Portfolios: Which is the Best Storage Solution for Your Art?</h3>
-              <p class="guide-card-excerpt">Not sure whether to use a flat file or a portfolio? A clear breakdown of the key differences and which fits your workflow.</p>
+              <p class="guide-card-excerpt">flat-files</p>
               <div class="guide-card-footer">
-                <span class="guide-card-meta">5 min · Jul 2025</span>
+                <span class="guide-card-meta">  ·  21 May 2025</span>
                 <span class="guide-card-cta">Read Guide →</span>
               </div>
             </div>
           </a>
-
           <a href="/flat-files/why-every-artist-needs-a-flat-file-for-storing-artwork/" class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/05/why-every-artist-needs-a-flat-file-for-storing-artwork.webp" alt="Why Artists Need Flat Files">
+              <img src="/images/why-every-artist-needs-a-flat-file-for-storing-artwork.webp" alt="Why Every Artist Needs a Flat File for Storing Artwork" loading="lazy">
+              <span class="guide-card-badge badge badge--accent">Featured</span>
             </div>
             <div class="guide-card-body">
-              <div class="guide-card-category">Guide</div>
               <h3 class="guide-card-title">Why Every Artist Needs a Flat File for Storing Artwork</h3>
-              <p class="guide-card-excerpt">Tired of damaged or curled artwork? A flat file could be the game-changer your studio needs. Discover why smart artists swear by this simple solution.</p>
+              <p class="guide-card-excerpt">flat-files</p>
               <div class="guide-card-footer">
-                <span class="guide-card-meta">4 min · May 2025</span>
+                <span class="guide-card-meta">  ·  21 May 2025</span>
                 <span class="guide-card-cta">Read Guide →</span>
               </div>
             </div>
           </a>
-
           <a href="/flat-files/how-to-properly-store-and-protect-your-artwork-in-a-flat-file/" class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/07/Store-and-Protect-Your-Artwork-in-a-Flat-File.webp" alt="Store and Protect Artwork">
+              <img src="/images/Store-and-Protect-Your-Artwork-in-a-Flat-File.webp" alt="How to Properly Store and Protect Your Artwork in a Flat Fil" loading="lazy">
+              <span class="guide-card-badge badge badge--accent">Featured</span>
             </div>
             <div class="guide-card-body">
-              <div class="guide-card-category">How-to</div>
               <h3 class="guide-card-title">How to Properly Store and Protect Your Artwork in a Flat File</h3>
-              <p class="guide-card-excerpt">Protect your artwork like a pro — learn how to use a flat file to prevent damage, fading, and clutter with simple studio tips.</p>
+              <p class="guide-card-excerpt">flat-files</p>
               <div class="guide-card-footer">
-                <span class="guide-card-meta">4 min · May 2025</span>
+                <span class="guide-card-meta">  ·  21 May 2025</span>
                 <span class="guide-card-cta">Read Guide →</span>
               </div>
             </div>
           </a>
-
           <a href="/flat-files/how-to-organize-and-archive-your-artwork-with-a-flat-file-system/" class="guide-card">
             <div class="guide-card-img-wrap">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/07/how-to-store-and-archive-art-in-flat-files-2.webp" alt="Organize Artwork with Flat Files">
+              <img src="/images/how-to-store-and-archive-art-in-flat-files-2.webp" alt="How to Organize and Archive Your Artwork with a Flat File Sy" loading="lazy">
+              
             </div>
             <div class="guide-card-body">
-              <div class="guide-card-category">How-to</div>
               <h3 class="guide-card-title">How to Organize and Archive Your Artwork with a Flat File System</h3>
-              <p class="guide-card-excerpt">Struggling with piles of loose artwork? Learn how a flat file system can help you organize, protect, and archive your art efficiently.</p>
+              <p class="guide-card-excerpt">flat-files</p>
               <div class="guide-card-footer">
-                <span class="guide-card-meta">5 min · May 2025</span>
+                <span class="guide-card-meta">  ·  21 May 2025</span>
                 <span class="guide-card-cta">Read Guide →</span>
               </div>
             </div>
           </a>
+          <a href="/flat-files/how-to-choose-the-right-flat-file-cabinet-for-art-blueprints-and-drawings/" class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="/images/Flat-File-Cabinet--2-.jpg" alt="How to Choose the Right Flat File Cabinet for Art, Blueprint" loading="lazy">
+              
+            </div>
+            <div class="guide-card-body">
+              <h3 class="guide-card-title">How to Choose the Right Flat File Cabinet for Art, Blueprints, and Drawings?</h3>
+              <p class="guide-card-excerpt">flat-files</p>
+              <div class="guide-card-footer">
+                <span class="guide-card-meta">  ·  23 Oct 2025</span>
+                <span class="guide-card-cta">Read Guide →</span>
+              </div>
+            </div>
+          </a>
+          <a href="/flat-files/safco-flat-files-durable-professional-storage-for-artists/" class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="/images/Safco-Flat-Files.jpg" alt="Safco Flat Files – Durable & Professional Storage for Artist" loading="lazy">
+              
+            </div>
+            <div class="guide-card-body">
+              <h3 class="guide-card-title">Safco Flat Files – Durable & Professional Storage for Artists</h3>
+              <p class="guide-card-excerpt">flat-files</p>
+              <div class="guide-card-footer">
+                <span class="guide-card-meta">  ·  11 Nov 2025</span>
+                <span class="guide-card-cta">Read Guide →</span>
+              </div>
+            </div>
+          </a>
+          <a href="/flat-files/hann-mobile-art-storage-cart-organized-paper-storage-on-the-move/" class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="/images/Hann-Mobile-Art-Storage.jpg" alt="Hann Mobile Art Storage Cart – Organized Paper Storage on th" loading="lazy">
+              
+            </div>
+            <div class="guide-card-body">
+              <h3 class="guide-card-title">Hann Mobile Art Storage Cart – Organized Paper Storage on the Move</h3>
+              <p class="guide-card-excerpt">flat-files</p>
+              <div class="guide-card-footer">
+                <span class="guide-card-meta">  ·  11 Nov 2025</span>
+                <span class="guide-card-cta">Read Guide →</span>
+              </div>
+            </div>
+          </a>
+          <a href="/flat-files/art-paper-storage-cabinet-keep-artwork-flat-clean-ready-to-use/" class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="/images/Art-paper-storage-cabinet.png" alt="Art Paper Storage Cabinet – Keep Artwork Flat, Clean & Ready" loading="lazy">
+              
+            </div>
+            <div class="guide-card-body">
+              <h3 class="guide-card-title">Art Paper Storage Cabinet – Keep Artwork Flat, Clean & Ready to Use</h3>
+              <p class="guide-card-excerpt">flat-files</p>
+              <div class="guide-card-footer">
+                <span class="guide-card-meta">  ·  17 Nov 2025</span>
+                <span class="guide-card-cta">Read Guide →</span>
+              </div>
+            </div>
+          </a>
+          <a href="/flat-files/diversified-spaces-flat-file-reliable-storage-for-artists/" class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="/images/Diversified-Spaces-Flat-File--1--1.jpg" alt="Diversified Spaces Flat File – Reliable Storage for Artists" loading="lazy">
+              
+            </div>
+            <div class="guide-card-body">
+              <h3 class="guide-card-title">Diversified Spaces Flat File – Reliable Storage for Artists</h3>
+              <p class="guide-card-excerpt">flat-files</p>
+              <div class="guide-card-footer">
+                <span class="guide-card-meta">  ·  17 Nov 2025</span>
+                <span class="guide-card-cta">Read Guide →</span>
+              </div>
+            </div>
+          </a>
+          <a href="/flat-files/5-drawer-flat-file-cabinet-a-complete-buying-and-setup-guide/" class="guide-card">
+            <div class="guide-card-img-wrap">
+              <img src="/images/5-drawer-flat-file-cabinet.jpg" alt="5 Drawer Flat File Cabinet: A Complete Buying and Setup Guid" loading="lazy">
+              
+            </div>
+            <div class="guide-card-body">
+              <h3 class="guide-card-title">5 Drawer Flat File Cabinet: A Complete Buying and Setup Guide</h3>
+              <p class="guide-card-excerpt">flat-files</p>
+              <div class="guide-card-footer">
+                <span class="guide-card-meta">  ·  20 Nov 2025</span>
+                <span class="guide-card-cta">Read Guide →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
 
-        </div><!-- /post-grid -->
-      </div><!-- /main -->
-
-      <!-- SIDEBAR -->
       <aside class="cat-sidebar">
-
         <div class="sidebar-box">
           <div class="sidebar-box-title">All Categories</div>
           <nav class="sidebar-cats">
-            <a href="/paint/"                     class="sidebar-cat-link">Paint              <span class="sidebar-count">28</span></a>
-            <a href="/surfaces/"                  class="sidebar-cat-link">Surfaces            <span class="sidebar-count">22</span></a>
-            <a href="/brushes/"                   class="sidebar-cat-link">Brushes             <span class="sidebar-count">18</span></a>
-            <a href="/drawing/"                   class="sidebar-cat-link">Drawing             <span class="sidebar-count">15</span></a>
-            <a href="/easels/"                    class="sidebar-cat-link">Easels              <span class="sidebar-count">12</span></a>
-            <a href="/linen-canvas/"              class="sidebar-cat-link">Linen Canvas        <span class="sidebar-count">11</span></a>
-            <a href="/flat-files/"                class="sidebar-cat-link active">Flat Files  <span class="sidebar-count">10</span></a>
-            <a href="/paper/"                     class="sidebar-cat-link">Paper               <span class="sidebar-count">14</span></a>
-            <a href="/artist-tools-accessories/"  class="sidebar-cat-link">Artist Tools        <span class="sidebar-count">20</span></a>
-            <a href="/tips-techniques/"           class="sidebar-cat-link">Tips & Techniques   <span class="sidebar-count">16</span></a>
+            <a href="/paint/" class="sidebar-cat-link">Paint</a><a href="/surfaces/" class="sidebar-cat-link">Surfaces</a><a href="/brushes/" class="sidebar-cat-link">Brushes</a><a href="/paper/" class="sidebar-cat-link">Paper</a><a href="/drawing/" class="sidebar-cat-link">Drawing</a><a href="/easels/" class="sidebar-cat-link">Easels</a><a href="/flat-files/" class="sidebar-cat-link  active">Flat Files</a><a href="/linen-canvas/" class="sidebar-cat-link">Linen Canvas</a><a href="/artist-tools-accessories/" class="sidebar-cat-link">Artist Tools & Accessories</a><a href="/tips-techniques/" class="sidebar-cat-link">Tips & Techniques</a>
           </nav>
         </div>
 
-        <div class="sidebar-box">
-          <div class="sidebar-box-title">Related Tags</div>
-          <div class="subcats">
-            <a href="/tag/flat-files/" class="subcat-tag">flat files</a>
-            <a href="/tag/art-storage/" class="subcat-tag">art storage</a>
-            <a href="/tag/safco/" class="subcat-tag">Safco</a>
-            <a href="/tag/studio-organization/" class="subcat-tag">studio organization</a>
-            <a href="/tag/large-format/" class="subcat-tag">large format</a>
-            <a href="/tag/blueprints/" class="subcat-tag">blueprints</a>
-          </div>
-        </div>
-
-        <div class="sidebar-box" style="background: var(--navy); border-color: var(--navy);">
-          <div class="sidebar-box-title" style="color: rgba(255,255,255,.5);">New Guides Weekly</div>
-          <p style="font-size:13.5px; color:#A8B8D4; line-height:1.6; margin-bottom:16px;">Get new buying guides and reviews in your inbox — no fluff.</p>
+        <div class="sidebar-box" style="background:var(--navy);border-color:var(--navy);">
+          <div class="sidebar-box-title" style="color:rgba(255,255,255,.5);">New Guides Weekly</div>
+          <p style="font-size:13.5px;color:#A8B8D4;line-height:1.6;margin-bottom:16px;">Get new buying guides and reviews in your inbox.</p>
           <input type="email" placeholder="Your email" style="width:100%;font-family:var(--font-body);font-size:13px;padding:10px 14px;border-radius:var(--radius);border:none;background:rgba(255,255,255,.12);color:#fff;outline:none;margin-bottom:10px;">
           <button style="width:100%;font-family:var(--font-body);font-size:13px;font-weight:700;padding:10px;border-radius:var(--radius);border:none;background:var(--accent);color:#fff;cursor:pointer;">Subscribe</button>
         </div>
-
       </aside>
     </div>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
 <section class="newsletter">
   <div class="container">
     <h2>Get the guide before you buy</h2>
-    <p>New reviews and technique guides in your inbox — no fluff, no sponsored nonsense.</p>
+    <p>New reviews and buying guides in your inbox — no fluff, no sponsored nonsense.</p>
     <form class="newsletter-form" onsubmit="return false">
       <input type="email" placeholder="Your email address">
       <button type="submit">Subscribe</button>
@@ -578,55 +262,33 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <div class="footer-logo">Optic <span>Art</span> Supply</div>
         <p class="footer-tagline">Expert art supply reviews and buying guides. No filler — just the information you need to choose the right materials.</p>
-        <div class="footer-socials">
-          <div class="footer-social-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#8AA0C0"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></div>
-          <div class="footer-social-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#8AA0C0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
-        </div>
       </div>
-      <div class="footer-col">
-        <h4>Categories</h4>
-        <ul>
-          <li><a href="/paint/">Paint</a></li>
-          <li><a href="/surfaces/">Surfaces</a></li>
-          <li><a href="/brushes/">Brushes</a></li>
-          <li><a href="/paper/">Paper</a></li>
-          <li><a href="/drawing/">Drawing</a></li>
-          <li><a href="/easels/">Easels</a></li>
-          <li><a href="/flat-files/">Flat Files</a></li>
-          <li><a href="/linen-canvas/">Linen Canvas</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="/tips-techniques/">Tips & Techniques</a></li>
-          <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
-          <li><a href="/brands/">Browse Brands</a></li>
-          <li><a href="/about-colin/">About Colin</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Top Brands</h4>
-        <ul>
-          <li><a href="/tag/arches/">Arches</a></li>
-          <li><a href="/tag/gamblin/">Gamblin</a></li>
-          <li><a href="/tag/holbein/">Holbein</a></li>
-          <li><a href="/tag/faber-castell/">Faber-Castell</a></li>
-          <li><a href="/tag/ampersand/">Ampersand</a></li>
-          <li><a href="/tag/copic/">Copic</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Categories</h4><ul>
+        <li><a href="/paint/">Paint</a></li><li><a href="/surfaces/">Surfaces</a></li>
+        <li><a href="/brushes/">Brushes</a></li><li><a href="/paper/">Paper</a></li>
+        <li><a href="/drawing/">Drawing</a></li><li><a href="/easels/">Easels</a></li>
+        <li><a href="/flat-files/">Flat Files</a></li><li><a href="/linen-canvas/">Linen Canvas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="/tips-techniques/">Tips &amp; Techniques</a></li>
+        <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
+        <li><a href="/brands/">Browse Brands</a></li>
+        <li><a href="/about-colin/">About Colin</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Top Brands</h4><ul>
+        <li><a href="/tag/arches/">Arches</a></li><li><a href="/tag/gamblin/">Gamblin</a></li>
+        <li><a href="/tag/holbein/">Holbein</a></li><li><a href="/tag/faber-castell/">Faber-Castell</a></li>
+        <li><a href="/tag/ampersand/">Ampersand</a></li><li><a href="/tag/copic/">Copic</a></li>
+      </ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Optic Art Supply. All rights reserved.</span>
-      <span>Built for artists, by an artist.</span>
     </div>
   </div>
 </footer>

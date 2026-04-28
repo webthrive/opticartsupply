@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Accuracy Check â€” 2026-04-27</title>
+<style>
+  :root {
+    --rh-navy: #1a2340;
+    --rh-blue: #2563eb;
+    --rh-blue-light: #eff6ff;
+    --rh-green: #16a34a;
+    --rh-green-light: #f0fdf4;
+    --rh-amber: #d97706;
+    --rh-amber-light: #fffbeb;
+    --rh-red: #dc2626;
+    --rh-red-light: #fef2f2;
+    --rh-slate: #64748b;
+    --rh-border: #e2e8f0;
+    --rh-bg: #f8fafc;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font);
+    background: var(--rh-bg);
+    color: #1e293b;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* â”€â”€ Header â”€â”€ */
+  .report-header {
+    background: var(--rh-navy);
+    color: #fff;
+    padding: 24px 32px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .report-header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .report-header .subtitle { font-size: 12px; color: #94a3b8; margin-top: 3px; }
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.5px; white-space: nowrap;
+  }
+  .status-review { background: #fbbf24; color: #1a2340; }
+  .status-pass    { background: #4ade80; color: #14532d; }
+  .status-action  { background: #f87171; color: #7f1d1d; }
+
+  /* â”€â”€ Tabs â”€â”€ */
+  .tab-bar {
+    background: #fff;
+    border-bottom: 2px solid var(--rh-border);
+    display: flex;
+    padding: 0 32px;
+    gap: 0;
+  }
+  .tab-btn {
+    padding: 12px 20px;
+    border: none; background: none; cursor: pointer;
+    font-family: var(--font); font-size: 13px; font-weight: 500;
+    color: var(--rh-slate); border-bottom: 2px solid transparent;
+    margin-bottom: -2px; transition: all 0.15s;
+  }
+  .tab-btn:hover { color: var(--rh-blue); }
+  .tab-btn.active { color: var(--rh-blue); border-bottom-color: var(--rh-blue); font-weight: 600; }
+
+  /* â”€â”€ Tab Panels â”€â”€ */
+  .tab-panel { display: none; padding: 28px 32px 40px; }
+  .tab-panel.active { display: block; }
+
+  /* â”€â”€ Summary Tab â”€â”€ */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 900px;
+  }
+  .summary-card {
+    background: #fff;
+    border: 1px solid var(--rh-border);
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .summary-card.wide { grid-column: 1 / -1; }
+  .summary-card h3 { font-size: 11px; font-weight: 600; color: var(--rh-slate); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+  .kv-row { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px solid var(--rh-bg); }
+  .kv-row:last-child { border-bottom: none; }
+  .kv-key { color: #475569; font-size: 12px; }
+  .kv-val { font-weight: 600; font-size: 13px; color: #1e293b; text-align: right; max-width: 55%; word-break: break-word; }
+
+  .metric-row { display: flex; gap: 12px; margin-top: 4px; }
+  .metric-box {
+    flex: 1; text-align: center; padding: 12px 8px; border-radius: 6px;
+    border: 1px solid var(--rh-border);
+  }
+  .metric-box .num { font-size: 28px; font-weight: 700; line-height: 1; }
+  .metric-box .lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-top: 4px; color: var(--rh-slate); }
+  .metric-verified  { background: var(--rh-green-light); border-color: #bbf7d0; }
+  .metric-verified .num  { color: var(--rh-green); }
+  .metric-flag    { background: var(--rh-amber-light); border-color: #fde68a; }
+  .metric-flag .num  { color: var(--rh-amber); }
+  .metric-suggest { background: var(--rh-blue-light); border-color: #bfdbfe; }
+  .metric-suggest .num { color: var(--rh-blue); }
+  .metric-total   { background: #f1f5f9; border-color: var(--rh-border); }
+  .metric-total .num   { color: var(--rh-navy); }
+
+  .severity-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .sev-chip {
+    padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .sev-critical { background: #fee2e2; color: var(--rh-red); }
+  .sev-high     { background: #ffedd5; color: #c2410c; }
+  .sev-medium   { background: var(--rh-amber-light); color: var(--rh-amber); }
+  .sev-low      { background: #f1f5f9; color: #475569; }
+  .sev-zero     { opacity: 0.45; }
+
+  /* â”€â”€ Tables â”€â”€ */
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%; border-collapse: collapse;
+    background: #fff; border-radius: 8px;
+    overflow: hidden; border: 1px solid var(--rh-border);
+    font-size: 12px;
+  }
+  thead th {
+    background: var(--rh-navy); color: #fff;
+    padding: 11px 14px; text-align: left;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid var(--rh-border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f8fafc; }
+  tbody td { padding: 10px 14px; vertical-align: top; line-height: 1.55; }
+  .claim-id { font-weight: 700; color: var(--rh-navy); white-space: nowrap; font-size: 11px; font-family: monospace; }
+  .claim-text { max-width: 380px; }
+  .source-ref { color: #475569; font-size: 11px; max-width: 280px; }
+  .correct-fact { color: #7c3aed; font-size: 11px; max-width: 320px; }
+  .suggestion  { color: #0369a1; font-size: 11px; max-width: 320px; }
+
+  .badge-verified { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; background:var(--rh-green-light); color:var(--rh-green); font-size:10px; font-weight:700; }
+  .badge-medium   { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; background:var(--rh-amber-light); color:var(--rh-amber); font-size:10px; font-weight:700; }
+  .badge-high     { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; background:#ffedd5; color:#c2410c; font-size:10px; font-weight:700; }
+  .badge-critical { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; background:#fee2e2; color:var(--rh-red); font-size:10px; font-weight:700; }
+  .badge-suggest  { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; background:var(--rh-blue-light); color:var(--rh-blue); font-size:10px; font-weight:700; }
+
+  .section-label { font-size: 11px; font-weight: 700; color: var(--rh-slate); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .tab-count { font-size: 11px; background: var(--rh-border); border-radius: 10px; padding: 1px 7px; margin-left: 4px; color: #475569; font-weight: 600; }
+
+  .verdict-box {
+    background: #fff; border: 1px solid var(--rh-border); border-radius: 8px; padding: 18px 22px;
+    border-left: 4px solid var(--rh-amber); max-width: 900px; margin-top: 16px; grid-column: 1/-1;
+  }
+  .verdict-box h3 { font-size: 11px; font-weight: 700; color: var(--rh-slate); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+  .verdict-box p { font-size: 12px; color: #334155; line-height: 1.6; }
+
+  .empty-state { text-align: center; padding: 40px; color: var(--rh-slate); font-style: italic; }
+
+  @media (max-width: 640px) {
+    .summary-grid { grid-template-columns: 1fr; }
+    .tab-btn { padding: 10px 12px; font-size: 12px; }
+    .report-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- â”€â”€ Report Header â”€â”€ -->
+<header class="report-header">
+  <div>
+    <h1>Product Accuracy Check</h1>
+    <div class="subtitle">Reporting Hub Â· Content Review Â· Generated 2026-04-27</div>
+  </div>
+  <span class="status-badge status-review">âš  REVIEW NEEDED</span>
+</header>
+
+<!-- â”€â”€ Tab Bar â”€â”€ -->
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('summary')">Summary</button>
+  <button class="tab-btn" onclick="showTab('verified')">Verified <span class="tab-count">20</span></button>
+  <button class="tab-btn" onclick="showTab('flag')">Flag <span class="tab-count">1</span></button>
+  <button class="tab-btn" onclick="showTab('suggest')">Suggest <span class="tab-count">2</span></button>
+</nav>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     TAB 1 â€” SUMMARY
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="tab-summary" class="tab-panel active">
+  <div class="summary-grid">
+
+    <!-- Content Details -->
+    <div class="summary-card wide">
+      <h3>Content Details</h3>
+      <div class="kv-row">
+        <span class="kv-key">Content Title</span>
+        <span class="kv-val">Embedding Power BI Is Not the Same as Delivering Governed Intelligence</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">Author</span>
+        <span class="kv-val">Brian DeLuca</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">Content URL</span>
+        <span class="kv-val" style="color:#94a3b8;font-style:italic;font-weight:400">N/A â€” Pre-publication internal review</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">Date of Review</span>
+        <span class="kv-val">2026-04-27</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">Knowledge Base Reference</span>
+        <span class="kv-val">Reporting Hub Product Accuracy KB (April 2026) Â· GTM Competitive Reference</span>
+      </div>
+    </div>
+
+    <!-- Claim Counts -->
+    <div class="summary-card">
+      <h3>Claim Counts</h3>
+      <div class="metric-row">
+        <div class="metric-box metric-total">
+          <div class="num">23</div>
+          <div class="lbl">Total</div>
+        </div>
+        <div class="metric-box metric-verified">
+          <div class="num">20</div>
+          <div class="lbl">Verified</div>
+        </div>
+        <div class="metric-box metric-flag">
+          <div class="num">1</div>
+          <div class="lbl">Flagged</div>
+        </div>
+        <div class="metric-box metric-suggest">
+          <div class="num">2</div>
+          <div class="lbl">Suggest</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flag Severity Breakdown -->
+    <div class="summary-card">
+      <h3>Flag Severity Breakdown</h3>
+      <div class="kv-row">
+        <span class="kv-key">CRITICAL</span>
+        <span class="kv-val"><span class="sev-chip sev-critical sev-zero">0</span></span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">HIGH</span>
+        <span class="kv-val"><span class="sev-chip sev-high sev-zero">0</span></span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">MEDIUM</span>
+        <span class="kv-val"><span class="sev-chip sev-medium">1</span></span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-key">LOW</span>
+        <span class="kv-val"><span class="sev-chip sev-low sev-zero">0</span></span>
+      </div>
+    </div>
+
+    <!-- Overall Status -->
+    <div class="summary-card wide">
+      <h3>Overall Status</h3>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:4px 0;">
+        <span class="status-badge status-review" style="font-size:14px;padding:8px 20px;">âš  REVIEW NEEDED</span>
+        <p style="font-size:12px;color:#475569;line-height:1.5;">Flags present (1 Ã— MEDIUM), but no CRITICAL issues detected. Correction required before publication. No ACTION REQUIRED threshold reached.</p>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+        <strong>Status Logic:</strong> PASS = 0 flags &nbsp;|&nbsp; REVIEW NEEDED = flags present, none CRITICAL &nbsp;|&nbsp; ACTION REQUIRED = any CRITICAL flag
+      </div>
+    </div>
+
+    <!-- Verdict -->
+    <div class="verdict-box">
+      <h3>Review Verdict</h3>
+      <p>CONDITIONALLY APPROVED â€” 20 of 23 claims verified. One MEDIUM flag (C011) requires correction before publication: the blog implies Copilot AI narratives reach external audiences via Power BI Embedded, which is explicitly unsupported per the KB. Two suggestions (C010, C018) would materially strengthen the post if addressed. No critical or high-severity issues. The core argument is architecturally sound and well-aligned with approved Reporting Hub positioning.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     TAB 2 â€” VERIFIED
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="tab-verified" class="tab-panel">
+  <p class="section-label">20 Verified Claims â€” Sorted by Claim ID</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:80px">Claim ID</th>
+          <th>Claim Text</th>
+          <th>Source Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="claim-id">C001</span></td>
+          <td class="claim-text">Power BI embedding provides visualization rendering within applications.</td>
+          <td class="source-ref">KB Â§01 â€” Reporting Hub integrates with Power BI via Embedded technology; KB Â§02 â€” Architecture confirms Power BI Embedded as the foundational layer for content delivery.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C002</span></td>
+          <td class="claim-text">Power BI embedding provides Row-Level Security (RLS) controls.</td>
+          <td class="source-ref">KB Â§03 â€” "Row-Level Security (RLS) â€” Applied based on authenticated user." RLS is a native Power BI feature leveraged through embedding.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C003</span></td>
+          <td class="claim-text">Power BI embedding provides embed tokens for browser-level authorization.</td>
+          <td class="source-ref">KB Â§02 â€” Architecture confirms Power BI Embedded capacity enables sharing content with unlicensed users; embed tokens are the standard Power BI Embedded authorization mechanism.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C004</span></td>
+          <td class="claim-text">Power BI embedding provides visual layers built on existing semantic models.</td>
+          <td class="source-ref">KB Â§04 (BI Genius) â€” "Connects directly to existing data models"; KB Â§02 â€” Architecture references Power BI Semantic Models as the data foundation.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C005</span></td>
+          <td class="claim-text">Power BI embedding does NOT provide approval workflows before content reaches customers.</td>
+          <td class="source-ref">KB Â§03 â€” Approval workflows and governance gates are Reporting Hub-layer capabilities, not native to Power BI Embedded. Their absence in raw embedding is the core architectural gap Reporting Hub addresses.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C006</span></td>
+          <td class="claim-text">Power BI embedding does NOT provide version control for AI-generated narratives.</td>
+          <td class="source-ref">KB Â§04 â€” BI Genius Admin & Configuration Portal supports "versioning and access controls," implying this capability is added by the Reporting Hub layer, not present in raw embedding.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C007</span></td>
+          <td class="claim-text">Power BI embedding does NOT provide audit trails documenting what customers received.</td>
+          <td class="source-ref">KB Â§03 â€” Audit Logging (capturing security changes, role changes, subscription changes, etc.) is a Reporting Hub feature stored in the customer's Azure SQL Database â€” not a native Power BI Embedded capability.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C008</span></td>
+          <td class="claim-text">Power BI embedding does NOT provide consistency enforcement across users and tenants.</td>
+          <td class="source-ref">KB Â§03 â€” Multi-Tenant Architecture with per-tenant settings is a Reporting Hub capability. Native Power BI Embedded has no equivalent multi-tenant orchestration or consistency enforcement layer.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C009</span></td>
+          <td class="claim-text">Power BI embedding does NOT provide governance separation between internal analytics and external delivery environments.</td>
+          <td class="source-ref">KB Â§01 â€” "What Reporting Hub Is: AI-native Intelligence Orchestration Platform" positioned explicitly as the layer that bridges the internal/external architectural gap. GTM Core Thesis confirms this as the foundational structural problem Reporting Hub solves.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C012</span></td>
+          <td class="claim-text">Without a governance layer, different customers may receive different AI-generated explanations for identical metrics â€” because context, phrasing, or underlying query conditions differed marginally.</td>
+          <td class="source-ref">KB Â§04 â€” BI Genius supports per-customer AI agent configuration and RBAC; Query Audit Logs provide historical query chain review. GTM Five Core Problems â€” P4 (Consistency and Audit Failure) confirms this as a documented qualification criterion.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C013</span></td>
+          <td class="claim-text">No review, logging, or approval mechanism exists in a raw embedding architecture.</td>
+          <td class="source-ref">KB Â§03 â€” Audit Logging and Application Logging are Reporting Hub-layer additions stored in the customer's Azure environment. These capabilities do not exist natively in Power BI Embedded without an orchestration layer.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C014</span></td>
+          <td class="claim-text">Data model leakage risk â€” internal data model structure is exposed directly to external surfaces via raw embedding.</td>
+          <td class="source-ref">KB Â§02 â€” Architecture confirms "Connections to data sources are established through Power BI," and Reporting Hub adds the security/governance layer between the semantic model and external users. GTM Core Thesis â€” "Internal-external architectural gap" (Gap 1) identifies this structural exposure as a core problem.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C015</span></td>
+          <td class="claim-text">Inconsistent customer experiences â€” no layer in raw embedding enforces what each external customer sees or receives.</td>
+          <td class="source-ref">KB Â§03 â€” Multi-Tenant Architecture with per-tenant settings (workspaces, authentication scheme, capacity assignments) is a Reporting Hub feature. GTM Five Core Problems â€” P4 (Consistency and Audit Failure) directly validates this gap.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C016</span></td>
+          <td class="claim-text">Propagation of internal changes â€” changes to internal analytics infrastructure propagate directly to external outputs with no review gate in a raw embedding architecture.</td>
+          <td class="source-ref">KB Â§01 â€” Reporting Hub acts as the separation layer between internal analytics (Power BI) and external delivery. GTM Core Thesis â€” "The constraint is governed intelligence delivery" confirms that unmediated change propagation is a structural risk Reporting Hub resolves.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C017</span></td>
+          <td class="claim-text">Governed intelligence delivery requires six capabilities: (1) AI output approval workflows, (2) complete audit trails for externally delivered AI content, (3) multi-tenant consistency enforcement, (4) hard separation between internal and external environments, (5) customer-layer explainability and source attribution, (6) operational scalability without manual review bottlenecks.</td>
+          <td class="source-ref">KB Â§03 â€” Audit Logging (req. 2); Multi-Tenant Architecture (reqs. 3, 4); KB Â§04 â€” BI Genius Explainability & Audit (req. 5); BI Genius Admin Portal with RBAC and versioning (reqs. 1, 3). GTM Five Core Problems confirm all six as documented organisational pain points.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C019</span></td>
+          <td class="claim-text">Ongoing annual maintenance cost for an independently built governed delivery layer: $50,000+.</td>
+          <td class="source-ref">GTM Competitive Quick Reference â€” "Internal Build | ... $50K+/yr maintenance."</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C020</span></td>
+          <td class="claim-text">Time to production for an independently built governed delivery layer: 12â€“18 months.</td>
+          <td class="source-ref">GTM Competitive Quick Reference â€” "Internal Build | ... 12â€“18 months; product roadmap delay."</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C021</span></td>
+          <td class="claim-text">Reporting Hub is a governance layer that sits between Power BI and external customers, adding approval workflows, auditability, AI governance, and multi-tenant consistency.</td>
+          <td class="source-ref">KB Â§01 â€” Official description confirms Reporting Hub as the orchestration layer between Power BI and external delivery. KB Â§03 â€” Audit Logging, Multi-Tenant Architecture, Capacity Manager confirm governance capabilities. KB Â§04 â€” BI Genius confirms AI governance layer.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C022</span></td>
+          <td class="claim-text">Reporting Hub adds governance capabilities without requiring organisations to rebuild their analytics infrastructure from scratch.</td>
+          <td class="source-ref">KB Â§01 â€” "Plug-and-play, no-code solution â€” no changes required to existing data architecture or Power BI content." Listed as a verified claim in KB Â§07.</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C023</span></td>
+          <td class="claim-text">Reporting Hub is positioned as a complement to existing Power BI investment, not a replacement for it.</td>
+          <td class="source-ref">KB Â§01 â€” "What Reporting Hub Is NOT: A BI replacement or dashboard builder." KB Â§07 â€” Approved claim: "Plug-and-play, no-code Power BI delivery platform." Three-layer architecture (Foundation: Power BI; Intelligence: BI Genius; Orchestration: Reporting Hub) confirmed in GTM Vision Statement.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     TAB 3 â€” FLAG
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="tab-flag" class="tab-panel">
+  <p class="section-label">1 Flagged Claim â€” Sorted by Severity (CRITICAL first)</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:80px">Claim ID</th>
+          <th style="width:90px">Severity</th>
+          <th>Claim Text</th>
+          <th>Correct Fact</th>
+          <th>Source Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fffbeb;">
+          <td><span class="claim-id">C011</span></td>
+          <td><span class="badge-medium">MEDIUM</span></td>
+          <td class="claim-text">With Copilot now integrated into Power BI, AI-generated narratives and explanations accompany visualizations delivered to external audiences (via embedding).</td>
+          <td class="correct-fact">
+            <strong>Microsoft Copilot for Power BI is explicitly NOT supported by Power BI Embedded</strong> (KB Â§04). The scenario described â€” Copilot-generated AI narratives reaching external audiences through an embedded Power BI delivery path â€” does not reflect current technical reality. Copilot is restricted to the Power BI web interface and requires Microsoft Fabric licensing; it cannot be surfaced via Power BI Embedded to external users.<br/><br/>
+            <strong>Recommended fix (either option):</strong><br/>
+            (a) Reframe the AI risk around native Power BI AI features (Smart Narratives, Q&amp;A) that do operate in embedded contexts, or<br/>
+            (b) Position BI Genius as the AI intelligence layer that CAN reach external users via embedding â€” and that Reporting Hub provides the governance infrastructure those outputs require. Option (b) is both accurate and commercially stronger.
+          </td>
+          <td class="source-ref">KB Â§04 â€” BI Genius vs. Microsoft Copilot for Power BI comparison table; row: "UI Independence â€” Only works within Power BI interface. Not supported by Power BI Embedded."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:20px;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;max-width:860px;">
+    <p style="font-size:12px;color:#78350f;line-height:1.6;"><strong>Note on severity:</strong> MEDIUM is assigned because the factual inaccuracy (Copilot in embedded contexts) does not make a prohibited or legally sensitive claim â€” but it does undermine the post's core argument if left uncorrected. The fix is surgical and does not require structural rewrites.</p>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     TAB 4 â€” SUGGEST
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="tab-suggest" class="tab-panel">
+  <p class="section-label">2 Suggestions â€” Sorted by Claim ID</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:80px">Claim ID</th>
+          <th>Claim Text</th>
+          <th>Suggestion</th>
+          <th>Source Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="claim-id">C010</span></td>
+          <td class="claim-text">Copilot is now integrated into Power BI (as AI capabilities expand within Power BI).</td>
+          <td class="suggestion">
+            The claim is technically correct â€” Microsoft Copilot for Power BI exists â€” but the KB explicitly states it "Requires Microsoft Fabric licensing" and is "Only works within Power BI interface. Not supported by Power BI Embedded." Adding this context prevents a reader from assuming Copilot is broadly available across all Power BI deployment modes. It also strengthens Reporting Hub's differentiated position: BI Genius is the governed AI layer for embedded external delivery precisely because Copilot cannot operate there.
+          </td>
+          <td class="source-ref">KB Â§04 â€” BI Genius vs. Microsoft Copilot for Power BI comparison table; rows: "Power BI License Dependency â€” Requires Microsoft Fabric licensing" and "UI Independence â€” Only works within Power BI interface. Not supported by Power BI Embedded."</td>
+        </tr>
+        <tr>
+          <td><span class="claim-id">C018</span></td>
+          <td class="claim-text">Organizations building a governed external delivery layer independently face an initial build cost of $150,000â€“$300,000.</td>
+          <td class="suggestion">
+            The figure is accurate and matches the GTM Competitive Quick Reference ($150Kâ€“$300K). However, the GTM reference also documents an additional $50Kâ€“$150K for AI governance infrastructure on top of the base build cost. Given this blog post is specifically about AI governance, omitting this additional line item understates the true cost of the independent build path. Citing the full range â€” <strong>$200Kâ€“$450K+ including AI governance infrastructure</strong> â€” would make a materially stronger argument that is still fully supported by approved competitive positioning.
+          </td>
+          <td class="source-ref">GTM Competitive Quick Reference â€” "Internal Build | $150Kâ€“$300K + $50Kâ€“$150K AI governance + $50K+/yr maintenance; 12â€“18 months; product roadmap delay."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- â”€â”€ Footer â”€â”€ -->
+<footer style="background:#fff;border-top:1px solid var(--rh-border);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#94a3b8;gap:16px;flex-wrap:wrap;">
+  <span>Product Accuracy Check Â· Reporting Hub Â· 2026-04-27 Â· Reviewed against KB (April 2026)</span>
+  <span>Generated by Content Writer Agent Â· Reporting Hub Workspace</span>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+</body>
+</html>
