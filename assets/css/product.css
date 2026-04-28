@@ -53,7 +53,7 @@
 .article-content li strong { color: var(--navy); }
 .article-content a  { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .article-content strong { font-weight: 700; color: var(--text); }
-.article-content img { width: 100%; border-radius: var(--radius-lg); margin: 24px 0; border: 1px solid var(--border-light); }
+.article-content img { width: 100%; height: auto; border-radius: var(--radius-lg); margin: 24px 0; border: 1px solid var(--border-light); object-fit: contain; }
 .article-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; border: 1px solid var(--border); overflow: hidden; border-radius: var(--radius); }
 .article-content th { background: var(--navy); color: #fff; font-weight: 600; padding: 11px 14px; text-align: left; font-size: 12.5px; }
 .article-content td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); color: #333; }
