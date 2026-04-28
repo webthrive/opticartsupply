@@ -7,554 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/main.css">
-  <style>
-
-    /* ─── PRODUCT HERO ──────────────────────────────────────────── */
-    .product-hero {
-      background: var(--bg-warm);
-      border-bottom: 1px solid var(--border-light);
-      padding: 36px 0 40px;
-    }
-    .product-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: flex-start;
-    }
-    .product-hero-img-wrap {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: #fff;
-      border: 1px solid var(--border-light);
-      aspect-ratio: 4/3;
-    }
-    .product-hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .product-hero-badge {
-      position: absolute;
-      top: 14px; left: 14px;
-    }
-
-    .product-hero-info {}
-    .product-hero-brand {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 8px;
-    }
-    .product-hero-title {
-      font-family: var(--font-serif);
-      font-size: 34px;
-      color: var(--navy);
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-    .product-hero-excerpt {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    /* Star rating */
-    .rating-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .stars {
-      display: flex;
-      gap: 2px;
-    }
-    .star {
-      width: 16px; height: 16px;
-      color: var(--gold);
-    }
-    .star--empty { color: var(--border); }
-    .rating-text { font-size: 13px; color: var(--text-mid); }
-    .rating-text strong { color: var(--text); }
-
-    /* Quick specs */
-    .quick-specs {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .spec-item {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .spec-icon { font-size: 18px; flex-shrink: 0; }
-    .spec-label { font-size: 11px; color: var(--text-light); font-weight: 500; }
-    .spec-value { font-size: 13px; color: var(--text); font-weight: 700; }
-
-    /* Hero buy buttons */
-    .hero-buy-btns {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-    .btn-buy-primary {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 14px 20px;
-      border-radius: var(--radius);
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: background .15s, transform .15s;
-    }
-    .btn-buy-primary:hover { background: var(--accent-hov); transform: translateY(-1px); }
-    .btn-buy-secondary {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 14px 20px;
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--navy);
-      border: 2px solid var(--border);
-      cursor: pointer;
-      transition: border-color .15s, transform .15s;
-    }
-    .btn-buy-secondary:hover { border-color: var(--navy); transform: translateY(-1px); }
-    .hero-buy-note {
-      font-size: 11.5px;
-      color: var(--text-light);
-      text-align: center;
-    }
-
-    /* ─── STICKY BUY BAR ────────────────────────────────────────── */
-    .buy-bar {
-      background: var(--navy);
-      padding: 12px 0;
-      position: sticky;
-      top: 68px;
-      z-index: 50;
-    }
-    .buy-bar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .buy-bar-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #fff;
-      white-space: nowrap;
-    }
-    .buy-bar-subtitle {
-      font-size: 12px;
-      color: #8AA0C0;
-    }
-    .buy-bar-btns {
-      display: flex;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .buy-bar-btn {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 9px 20px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      transition: all .15s;
-      white-space: nowrap;
-    }
-    .buy-bar-btn--primary { background: var(--accent); color: #fff; }
-    .buy-bar-btn--primary:hover { background: var(--accent-hov); }
-    .buy-bar-btn--ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); }
-    .buy-bar-btn--ghost:hover { background: rgba(255,255,255,.18); }
-
-    /* ─── POST BODY ─────────────────────────────────────────────── */
-    .post-body {
-      background: var(--bg-warm);
-      padding: 44px 0 72px;
-    }
-    .post-layout {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 40px;
-      align-items: start;
-    }
-
-    /* ─── ARTICLE ───────────────────────────────────────────────── */
-    .article-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    /* Section card wrapper */
-    .content-card {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 36px 40px;
-    }
-    .content-card-title {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      color: var(--navy);
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    /* Product variant card */
-    .product-variant {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .product-variant-header {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 0;
-    }
-    .product-variant-img {
-      width: 180px;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-right: 1px solid var(--border-light);
-    }
-    .product-variant-header-body {
-      padding: 22px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-variant-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 8px;
-      width: fit-content;
-    }
-    .product-variant-name {
-      font-size: 19px;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 6px;
-    }
-    .product-variant-subtitle {
-      font-size: 13.5px;
-      color: var(--text-mid);
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-    .variant-buy-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .variant-btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 9px 18px;
-      border-radius: var(--radius);
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: background .15s;
-    }
-    .variant-btn-primary:hover { background: var(--accent-hov); }
-    .variant-btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 9px 16px;
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--text-mid);
-      border: 1.5px solid var(--border);
-      cursor: pointer;
-      transition: all .15s;
-    }
-    .variant-btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
-
-    .product-variant-body {
-      padding: 20px 24px 22px;
-      border-top: 1px solid var(--border-light);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .variant-highlights h4,
-    .variant-best-for h4 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 10px;
-    }
-    .variant-highlights ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .variant-highlights li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 13.5px;
-      color: var(--text-mid);
-      line-height: 1.45;
-    }
-    .variant-highlights li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 12px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .variant-best-for p {
-      font-size: 13.5px;
-      color: var(--text-mid);
-      line-height: 1.6;
-    }
-
-    /* Pros / Cons */
-    .pros-cons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .pros-box, .cons-box {
-      border-radius: var(--radius-lg);
-      padding: 20px 22px;
-    }
-    .pros-box { background: #F0FBF4; border: 1px solid #C3E6CB; }
-    .cons-box { background: #FFF8F0; border: 1px solid #F5D5B0; }
-    .pros-box h4 { color: #2D7A47; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
-    .cons-box h4 { color: #B86B1A; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
-    .pros-box ul, .cons-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .pros-box li { display: flex; gap: 8px; font-size: 13.5px; color: #2D5A3D; line-height: 1.45; }
-    .cons-box li { display: flex; gap: 8px; font-size: 13.5px; color: #7A4010; line-height: 1.45; }
-    .pros-box li::before { content: '+'; font-weight: 800; flex-shrink: 0; color: #2D7A47; }
-    .cons-box li::before { content: '–'; font-weight: 800; flex-shrink: 0; color: #B86B1A; }
-
-    /* Quick pick table */
-    .quick-pick-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .quick-pick-table th {
-      background: var(--navy);
-      color: #fff;
-      font-weight: 600;
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 12px;
-      letter-spacing: .04em;
-    }
-    .quick-pick-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border-light);
-      color: var(--text-mid);
-      vertical-align: top;
-      line-height: 1.5;
-    }
-    .quick-pick-table tr:last-child td { border-bottom: none; }
-    .quick-pick-table tr:nth-child(even) td { background: var(--bg-warm); }
-    .quick-pick-table td:first-child { font-weight: 700; color: var(--navy); }
-    .pick-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 3px;
-      background: var(--accent);
-      color: #fff;
-      margin-left: 6px;
-    }
-
-    /* Article typography (for intro/body sections) */
-    .article-content p {
-      font-size: 15px;
-      color: #333;
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .article-content h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 24px;
-      margin-bottom: 10px;
-    }
-    .article-content ul {
-      margin: 0 0 16px 18px;
-      list-style: disc;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .article-content li {
-      font-size: 15px;
-      color: #333;
-      line-height: 1.65;
-    }
-    .article-content li strong { color: var(--navy); }
-    .article-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-
-    /* FAQ */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; }
-    .faq-item {
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .faq-question {
-      width: 100%;
-      background: var(--bg-warm);
-      border: none;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: var(--font-body);
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--navy);
-      cursor: pointer;
-      text-align: left;
-      gap: 16px;
-      transition: background .15s;
-    }
-    .faq-question:hover { background: var(--bg-light); }
-    .faq-question.open { background: #fff; }
-    .faq-icon {
-      font-size: 20px;
-      color: var(--text-light);
-      flex-shrink: 0;
-      transition: transform .2s;
-      line-height: 1;
-    }
-    .faq-question.open .faq-icon { transform: rotate(45deg); color: var(--accent); }
-    .faq-answer {
-      display: none;
-      padding: 0 20px 18px;
-      background: #fff;
-    }
-    .faq-answer p {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-    .faq-item.open .faq-answer { display: block; }
-
-    /* ─── SIDEBAR ───────────────────────────────────────────────── */
-    .post-sidebar {
-      position: sticky;
-      top: 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .sidebar-box {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-    }
-    .sidebar-box-title {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 14px;
-    }
-    .buy-box { background: linear-gradient(135deg, var(--navy) 0%, #2A3D6B 100%); border: none; }
-    .buy-box .sidebar-box-title { color: rgba(255,255,255,.5); }
-    .buy-box-title { font-family: var(--font-serif); font-size: 18px; color: #fff; margin-bottom: 6px; }
-    .buy-box-sub { font-size: 12.5px; color: #8AA0C0; margin-bottom: 18px; line-height: 1.5; }
-    .buy-links { display: flex; flex-direction: column; gap: 9px; }
-    .buy-link {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 14px; border-radius: var(--radius);
-      font-size: 13.5px; font-weight: 600; transition: all .15s; cursor: pointer;
-    }
-    .buy-link--primary { background: var(--accent); color: #fff; }
-    .buy-link--primary:hover { background: var(--accent-hov); }
-    .buy-link--secondary { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.15); }
-    .buy-link--secondary:hover { background: rgba(255,255,255,.18); }
-    .buy-note { font-size: 11px; color: rgba(255,255,255,.4); text-align: center; margin-top: 12px; line-height: 1.5; }
-
-    .toc { display: flex; flex-direction: column; gap: 2px; }
-    .toc-item {
-      display: flex; align-items: flex-start; gap: 8px;
-      font-size: 13px; color: var(--text-mid); padding: 6px 8px;
-      border-radius: var(--radius); transition: all .15s; line-height: 1.4;
-    }
-    .toc-item:hover { color: var(--navy); background: var(--bg-warm); }
-    .toc-num { font-size: 11px; font-weight: 700; color: var(--text-light); flex-shrink: 0; margin-top: 1px; min-width: 16px; }
-
-    /* ─── RELATED POSTS ─────────────────────────────────────────── */
-    .related-posts { padding: 56px 0 64px; background: var(--bg); }
-    .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .related-card { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; transition: transform .2s, box-shadow .2s; }
-    .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-    .related-card-body { padding: 14px 16px 16px; }
-    .related-card-cat { font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .related-card-title { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 10px; }
-    .related-card-meta { font-size: 12px; color: var(--text-light); }
-
-  </style>
+  <link rel="stylesheet" href="../../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../../assets/css/post.css">
+  <link rel="stylesheet" href="../../../../assets/css/product.css">
 </head>
 <body>
 
@@ -586,94 +41,47 @@
     </div>
   </div>
 </header>
-
-<!-- BREADCRUMB -->
 <nav class="breadcrumb">
   <div class="container">
     <div class="breadcrumb-inner">
       <a href="/">Home</a>
       <span class="breadcrumb-sep">›</span>
-      <a href="/flat-files/">Flat Files</a>
-      <span class="breadcrumb-sep">›</span>
-      <span class="breadcrumb-current">Safco Flat Files</span>
+      <a href='/flat-files/'>Flat Files</a><span class='breadcrumb-sep'>›</span>
+      <span class="breadcrumb-current">Safco Flat Files – Durable & Professional Storage for Artist…</span>
     </div>
   </div>
 </nav>
 
-<!-- PRODUCT HERO -->
 <div class="product-hero">
   <div class="container">
     <div class="product-hero-grid">
-
-      <!-- Image -->
       <div class="product-hero-img-wrap">
-        <img class="product-hero-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w1200/2025/11/Safco-Flat-Files.jpg" alt="Safco Flat Files">
+        <img class="product-hero-img" src="/images/Safco-Flat-Files.jpg" alt="Safco Flat Files – Durable & Professional Storage for Artists" loading="eager">
         <div class="product-hero-badge"><span class="badge badge--navy">Product Review</span></div>
       </div>
-
-      <!-- Info -->
       <div class="product-hero-info">
-        <div class="product-hero-brand">Safco · Flat File Storage</div>
+        <div class="product-hero-brand">Flat Files</div>
         <h1 class="product-hero-title">Safco Flat Files – Durable & Professional Storage for Artists</h1>
-        <p class="product-hero-excerpt">From welded-steel cabinets to modular stacking trays and vertical art racks — a model-by-model breakdown to help you choose the right Safco setup for your space.</p>
-
-        <!-- Rating -->
-        <div class="rating-row">
-          <div class="stars">
-            <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <span class="rating-text"><strong>4 models reviewed</strong> · Updated Nov 2025</span>
-        </div>
-
-        <!-- Quick specs -->
-        <div class="quick-specs">
-          <div class="spec-item">
-            <span class="spec-icon">🏗️</span>
-            <div><div class="spec-label">Material</div><div class="spec-value">Steel & Wood</div></div>
-          </div>
-          <div class="spec-item">
-            <span class="spec-icon">📐</span>
-            <div><div class="spec-label">Sheet Sizes</div><div class="spec-value">Up to 30×42"</div></div>
-          </div>
-          <div class="spec-item">
-            <span class="spec-icon">📦</span>
-            <div><div class="spec-label">Stackable</div><div class="spec-value">Yes — with base</div></div>
-          </div>
-          <div class="spec-item">
-            <span class="spec-icon">🔒</span>
-            <div><div class="spec-label">Locking</div><div class="spec-value">Available</div></div>
-          </div>
-        </div>
-
-        <!-- Buy buttons -->
+        <p class="product-hero-excerpt">Store your drawings and artwork safely with Safco Flat Files - strong, stackable steel cabinets built for studio and office organization.</p>
         <div class="hero-buy-btns">
           <a href="#" class="btn-buy-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
             Shop at Blick
           </a>
-          <a href="#" class="btn-buy-secondary">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-            Amazon
-          </a>
+          <a href="#" class="btn-buy-secondary">Amazon →</a>
         </div>
         <p class="hero-buy-note">Affiliate links — helps support this site at no extra cost to you</p>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- STICKY BUY BAR -->
 <div class="buy-bar">
   <div class="container">
     <div class="buy-bar-inner">
       <div>
-        <div class="buy-bar-title">Safco Flat Files</div>
-        <div class="buy-bar-subtitle">4 models · Storage for artists, studios & classrooms</div>
+        <div class="buy-bar-title">Safco Flat Files – Durable & Professional Storage …</div>
+        <div class="buy-bar-subtitle">11 Nov 2025 · 4 min read</div>
       </div>
       <div class="buy-bar-btns">
         <a href="#" class="buy-bar-btn buy-bar-btn--primary">Shop at Blick →</a>
@@ -683,391 +91,43 @@
   </div>
 </div>
 
-<!-- POST BODY -->
 <div class="post-body">
   <div class="container">
     <div class="post-layout">
 
-      <!-- MAIN CONTENT -->
       <div class="article-wrap">
-
-        <!-- INTRO CARD -->
         <div class="content-card">
           <div class="article-content">
-            <p>Give your studio a clean, professional backbone with Safco flat files. From welded-steel flat file cabinets to modular stacking trays and vertical art racks, these pieces are built for daily handling, clear labelling, and fast retrieval. Below you'll find model-by-model guidance to help you choose the right Safco setup for your space and the way you work.</p>
-          </div>
-
-          <!-- Pros / Cons -->
-          <div class="pros-cons" style="margin-top: 8px;">
-            <div class="pros-box">
-              <h4>What We Like</h4>
-              <ul>
-                <li>Welded steel builds that handle daily use without flexing</li>
-                <li>Full-extension drawers keep sheets protected during retrieval</li>
-                <li>Stackable with compatible bases — easy to expand</li>
-                <li>Label holders on every drawer for fast indexing</li>
-                <li>Multiple models cover every budget and workflow</li>
-              </ul>
-            </div>
-            <div class="cons-box">
-              <h4>Worth Knowing</h4>
-              <ul>
-                <li>Steel units are heavy — plan delivery access carefully</li>
-                <li>Stacking trays lack locking — not ideal for secure storage</li>
-                <li>Facil model has lighter construction than the steel line</li>
-                <li>Art Rack is vertical only — doesn't replace flat drawers</li>
-              </ul>
-            </div>
+            <html><body><section class="gh-content gh-canvas is-body">
+<p>Give your studio a clean, professional backbone with Safco flat files. From welded-steel flat files to modular stacking trays and vertical art racks, these pieces are built for daily handling, clear labelling, and fast retrieval. Below you'll find model-by-model guidance to help you choose the right Safco setup for your space and the way you work.</p><h2 id="safco-5-drawer-steel-flat-files"><strong>Safco 5-Drawer Steel Flat Files</strong></h2><h3 id="built-for-heavy-use"><strong>Built for heavy use</strong></h3><p><a class="affiliate-link" href="#"><strong><u>Safco's 5-drawer steel flat files</u></strong></a> are the classic choice when you need strong, stable storage that opens and closes smoothly throughout the day. Drawers glide smoothly even under a full load, edges stay protected as you slide sheets in and out, and the steel case resists flexing. Stack two units with a base to create a waist-high work surface that doubles as a layout or framing bench.</p><h3 id="highlights"><strong>Highlights</strong></h3><ul><li>Rigid steel case for long service life</li><li>Full-extension drawers for easy viewing and gentle handling</li><li>Protective depressors and back stops to keep stacks flat and aligned</li><li>Label holders for quick identification across multiple drawers</li><li>Stackable with compatible bases for vertical growth</li></ul><h3 id="best-for"><strong>Best for</strong></h3><p>Archival-minded storage of drawings, editioned prints, posters, maps, large photographs, and works-in-progress that should lie flat between sessions.</p><h2 id="safco-facil-flat-files"><strong>Safco Facil Flat Files</strong></h2><h3 id="the-budget-savvy-steel-option"><strong>The budget-savvy steel option</strong></h3><p><a class="affiliate-link" href="#"><strong><u>Safco Facil</u></strong></a> delivers the essentials: smooth drawers, clean labelling, and stackable flexibility at a more affordable price. It's a smart fit for classrooms, shared studios, and designers who want dependable flat storage without the added weight.</p><h3 id="highlights-1"><strong>Highlights</strong></h3><ul><li>Durable steel construction with a lighter footprint</li><li>Labelable drawers to separate classes, projects, or clients</li><li>Stackable design with optional bases for height control</li><li>Clean, simple hardware that blends with mixed studio furniture</li></ul><h3 id="best-for-1"><strong>Best for</strong></h3><p>Schools, community studios, and budget-conscious artists who need reliable flat storage, quick indexing, and room to expand over time.</p><h2 id="safco-giant-stacking-trays"><strong>Safco Giant Stacking Trays</strong></h2><h3 id="modular-flat-storage-that-grows-with-you"><strong>Modular flat storage that grows with you</strong></h3><p><a class="affiliate-link" href="#"><strong><u>Giant Stacking Trays</u></strong></a> build a flat-file style system one layer at a time. They're perfect when you need capacity quickly or want to keep works-in-progress near a press, drawing table, or printer.</p><h3 id="why-artists-choose-them"><strong>Why artists choose them</strong></h3><ul><li>Rigid trays stack securely into space-saving towers</li><li>Generous internal clearance for interleaving sheets and proofs</li><li>Strong load capacity per tier for heavy paper and mounted work</li><li>Easy to break down for moves, pop-ups, or reconfigurations</li></ul><h3 id="best-for-2"><strong>Best for</strong></h3><p>Print shops, student studios, and any workspace that benefits from reconfigurable, low-cost flat storage you can place exactly where it's needed.</p><h2 id="safco-art-rack"><strong>Safco Art Rack</strong></h2><h3 id="upright-organization-for-rigid-materials"><strong>Upright Organization For Rigid Materials</strong></h3><p><a class="affiliate-link" href="#"><strong><u>Safco's Art Rack</u></strong></a> stores boards, panels, and portfolios vertically, making them easier to sort and less likely to warp. Individual bays keep jobs, clients, or series clearly separated and ready to grab.</p><h3 id="highlights-2"><strong>Highlights</strong></h3><ul><li>Multiple vertical compartments formed by sturdy dividers</li><li>Label-friendly channels for glanceable organisation</li><li>Stable footprint for shared or high-traffic spaces</li><li>Ideal companion to a flat-file bank: flat for paper, vertical for boards</li></ul><h3 id="best-for-3"><strong>Best for</strong></h3><p>Framing shops, photographers with mounting workflows, and artists who keep large boards or panels staged between sessions.</p><h2 id="how-to-choose-the-right-safco-flat-files-for-your-workflow"><strong>How to Choose the Right Safco Flat Files for Your Workflow?</strong></h2><h3 id="quick-recommendations"><strong>Quick recommendations</strong></h3><ul><li><strong>Opt for welded steel</strong> if you frequently open drawers and require long-term rigidity: select the <strong>5-Drawer Steel Flat Files</strong>.</li><li><strong>Choose Facil</strong> for dependable, everyday flat storage on a budget, with labelable drawers and stackable growth.</li><li><strong>Pick Giant Stacking Trays</strong> for modular capacity, proofing cycles, and flexible placement near equipment.</li><li><strong>Add an Art Rack</strong> when you also store foam-core, mount boards, panels, or portfolio cases upright.</li></ul><h3 id="space-planning-tips"><strong>Space planning tips</strong></h3><ul><li>Use a <strong>riser base</strong> under stacked 5-drawer units for ergonomic height and toe clearance.</li><li>Combine <strong>one shallow stack</strong> for editions with <strong>one deeper area</strong> (or a tray tower) for folders and backers.</li><li>Park an <strong>Art Rack</strong> at the end of your flat-file row to stage boards for framing, mounting, or packaging.</li></ul><h2 id="buying-checklist-for-safco-flat-files"><strong>Buying Checklist for Safco Flat Files</strong></h2><h3 id="confirm-your-formats"><strong>Confirm Your Formats</strong></h3><ul><li>Primary sheet sizes (18×24, 22×30, 24×36, 30×42, A-series)</li><li>Clearance for interleaving (glassine/Mylar) and rigid backers</li><li>Need for oversize storage or occasional large sheets</li></ul><h3 id="choose-your-build"><strong>Choose Your Build</strong></h3><ul><li><strong>5-Drawer Steel</strong> for premium strength and daily access</li><li><strong>Facil</strong> for cost-effective, stackable flat storage</li><li><strong>Stacking Trays</strong> for modular tiers and WIP staging</li><li><strong>Art Rack</strong> for vertical boards, panels, and cases</li></ul><h3 id="plan-the-footprint"><strong>Plan the Footprint</strong></h3><ul><li>Floor space and full-extension clearance in front of drawers</li><li>Desired working height if stacking two 5-drawer units with a base</li><li>Access lanes for carts, presses, or large-format printers</li></ul><h3 id="labeling-inventory"><strong>Labeling &amp; Inventory</strong></h3><ul><li>Consistent drawer labels (size/series/date) and a master map card</li><li>Colour dots to code projects or media at a glance</li><li>A simple inventory in Excel, Airtable, or Notion to track location and status</li></ul><h2 id="how-to-set-up-care"><strong>How to Set Up &amp; Care?</strong></h2><h3 id="assembly-placement"><strong>Assembly &amp; Placement</strong></h3><p>Set cabinets on a level floor so drawers track smoothly. If stacking, align the corner guides or manufacturer tabs and secure as instructed. Keep the top clear so dusting is easy and visitors don't treat it as a shelf.</p><h3 id="protecting-surfaces"><strong>Protecting Surfaces</strong></h3><p>Interleave charcoal, pastel, and richly inked pieces with glassine. The folder features small works inside rigid sleeves, preventing anything from sliding under larger sheets. Let varnishes and inks cure fully before filing to prevent sticking.</p><h3 id="cleaning-maintenance"><strong>Cleaning &amp; Maintenance</strong></h3><p>Wipe steel exteriors with a soft, barely damp cloth and dry immediately. Gently dust wood finishes; avoid using abrasives. Vacuum beneath and behind units to limit dust migration. If a drawer drags, clear the slide rather than forcing it to move.</p><h2 id="where-to-buy-safco-flat-files"><strong>Where to buy Safco flat files?</strong></h2><p>Blick Art Materials and Amazon offer a distinct variety of Safco flat files, providing consistent delivery and easy reordering, which helps meet the expansion of studio and classroom requirements.</p><ul><li><strong>Blick Art Materials</strong> offers a broad line of products from Safco. On the product pages, you can find specifications and photos. Educator pricing is given to institutional buyers. Freight coordination is done for studios and schools.</li><li><a class="affiliate-link" href="#"><strong><u>Amazon</u></strong></a> offers a wide Safco distribution. The majority of the listings include quick delivery. Reviews on aggregate influence selection. The return policies support small orders and replacements.</li></ul><h2 id="faqs"><strong>FAQs</strong></h2><h3 id="which-safco-flat-file-is-best-for-constant-daily-access"><strong>Which Safco Flat File Is Best for Constant Daily Access?</strong></h3><p>Choose the <strong>5-Drawer Steel Flat Files</strong> for the smoothest action, robust rigidity, and stackable growth with riser bases.</p><h3 id="whats-a-smart-starter-choice-for-a-classroom"><strong>What's a Smart Starter Choice for a Classroom?</strong></h3><p><strong>Facil Flat Files</strong> balance cost, durability, and labelling. Start with one stack and add another as storage needs expand.</p><h3 id="how-do-i-store-rigid-materials-such-as-foam-core-and-panels"><strong>How Do I Store Rigid Materials, Such as Foam-Core and Panels?</strong></h3><p>Add a <strong>Safco Art Rack</strong> beside your flat files. Label each compartment so that jobs and clients are kept separate and easily accessible.</p>
+</section></body></html>
           </div>
         </div>
+      </div>
 
-        <!-- PRODUCT VARIANTS -->
-
-        <!-- 5-Drawer Steel -->
-        <div class="product-variant" id="5-drawer-steel">
-          <div class="product-variant-header">
-            <img class="product-variant-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/5-drawer-flat-file-cabinet.jpg" alt="Safco 5-Drawer Steel Flat Files">
-            <div class="product-variant-header-body">
-              <div>
-                <div class="product-variant-tag">⭐ Top Pick</div>
-                <div class="product-variant-name">Safco 5-Drawer Steel Flat Files</div>
-                <div class="product-variant-subtitle">The classic choice for strong, stable storage that opens and closes smoothly throughout the day.</div>
-              </div>
-              <div class="variant-buy-row">
-                <a href="#" class="variant-btn-primary">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                  Shop at Blick
-                </a>
-                <a href="#" class="variant-btn-secondary">Amazon →</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-variant-body">
-            <div class="variant-highlights">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Rigid steel case for long service life</li>
-                <li>Full-extension drawers with protective depressors</li>
-                <li>Back stops keep stacks flat and aligned</li>
-                <li>Label holders for quick identification</li>
-                <li>Stackable with compatible riser bases</li>
-              </ul>
-            </div>
-            <div class="variant-best-for">
-              <h4>Best For</h4>
-              <p>Archival-minded storage of drawings, editioned prints, posters, maps, large photographs, and works-in-progress that should lie flat between sessions. Ideal for busy studios and architecture offices.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Facil -->
-        <div class="product-variant" id="facil">
-          <div class="product-variant-header">
-            <img class="product-variant-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Safco-Flat-Files.jpg" alt="Safco Facil Flat Files">
-            <div class="product-variant-header-body">
-              <div>
-                <div class="product-variant-tag" style="background:#EBF4FF; color: var(--navy);">💰 Budget Pick</div>
-                <div class="product-variant-name">Safco Facil Flat Files</div>
-                <div class="product-variant-subtitle">Delivers the essentials — smooth drawers, clean labelling, and stackable flexibility at a more accessible price.</div>
-              </div>
-              <div class="variant-buy-row">
-                <a href="#" class="variant-btn-primary">Shop at Blick</a>
-                <a href="#" class="variant-btn-secondary">Amazon →</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-variant-body">
-            <div class="variant-highlights">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Durable steel construction with a lighter footprint</li>
-                <li>Labelable drawers for projects, classes, or clients</li>
-                <li>Stackable design with optional bases</li>
-                <li>Clean hardware that blends with mixed studio furniture</li>
-              </ul>
-            </div>
-            <div class="variant-best-for">
-              <h4>Best For</h4>
-              <p>Schools, community studios, and budget-conscious artists who need reliable flat storage, quick indexing, and room to expand over time without the premium price tag.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Giant Stacking Trays -->
-        <div class="product-variant" id="stacking-trays">
-          <div class="product-variant-header">
-            <img class="product-variant-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Art-paper-storage-cabinet.png" alt="Safco Giant Stacking Trays">
-            <div class="product-variant-header-body">
-              <div>
-                <div class="product-variant-tag" style="background:#F0FBF4; color: #2D7A47;">🔧 Most Flexible</div>
-                <div class="product-variant-name">Safco Giant Stacking Trays</div>
-                <div class="product-variant-subtitle">Build a flat-file style system one layer at a time — perfect when you need capacity quickly or want storage near your equipment.</div>
-              </div>
-              <div class="variant-buy-row">
-                <a href="#" class="variant-btn-primary">Shop at Blick</a>
-                <a href="#" class="variant-btn-secondary">Amazon →</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-variant-body">
-            <div class="variant-highlights">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Rigid trays stack securely into space-saving towers</li>
-                <li>Generous internal clearance for interleaving and proofs</li>
-                <li>Strong load capacity per tier for heavy paper</li>
-                <li>Easy to break down for moves or pop-up configurations</li>
-              </ul>
-            </div>
-            <div class="variant-best-for">
-              <h4>Best For</h4>
-              <p>Print shops, student studios, and any workspace that benefits from reconfigurable, low-cost flat storage you can place exactly where it's needed — near a press, printer, or drawing table.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Art Rack -->
-        <div class="product-variant" id="art-rack">
-          <div class="product-variant-header">
-            <img class="product-variant-img" src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/2025/12/Artist-Tools.jpg" alt="Safco Art Rack">
-            <div class="product-variant-header-body">
-              <div>
-                <div class="product-variant-tag" style="background:#F8F0FF; color: #6B2D9E;">↕ Vertical Storage</div>
-                <div class="product-variant-name">Safco Art Rack</div>
-                <div class="product-variant-subtitle">Stores boards, panels, and portfolios upright — keeping rigid materials sorted, separated, and ready to grab.</div>
-              </div>
-              <div class="variant-buy-row">
-                <a href="#" class="variant-btn-primary">Shop at Blick</a>
-                <a href="#" class="variant-btn-secondary">Amazon →</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-variant-body">
-            <div class="variant-highlights">
-              <h4>Highlights</h4>
-              <ul>
-                <li>Multiple vertical compartments with sturdy dividers</li>
-                <li>Label-friendly channels for glanceable organisation</li>
-                <li>Stable footprint for shared or high-traffic spaces</li>
-                <li>Ideal companion to a flat-file bank</li>
-              </ul>
-            </div>
-            <div class="variant-best-for">
-              <h4>Best For</h4>
-              <p>Framing shops, photographers with mounting workflows, and artists who keep large boards or panels staged between sessions. Pairs perfectly alongside a flat-file cabinet.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- QUICK PICK TABLE -->
-        <div class="content-card">
-          <h2 class="content-card-title">Quick Pick: Which Safco Model Is Right for You?</h2>
-          <table class="quick-pick-table">
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th>Best For</th>
-                <th>Build</th>
-                <th>Stackable</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>5-Drawer Steel <span class="pick-badge">Top Pick</span></td>
-                <td>Busy studios, daily access, archival storage</td>
-                <td>Welded steel</td>
-                <td>Yes + riser base</td>
-              </tr>
-              <tr>
-                <td>Facil</td>
-                <td>Schools, shared studios, budget setups</td>
-                <td>Lighter steel</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>Giant Stacking Trays</td>
-                <td>Print shops, WIP staging, flexible placement</td>
-                <td>Rigid trays</td>
-                <td>Tower style</td>
-              </tr>
-              <tr>
-                <td>Art Rack</td>
-                <td>Boards, panels, portfolios, framing prep</td>
-                <td>Steel dividers</td>
-                <td>Standalone</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- WHERE TO BUY -->
-        <div class="content-card">
-          <h2 class="content-card-title">Where to Buy Safco Flat Files</h2>
-          <div class="article-content">
-            <p><strong>Blick Art Materials</strong> offers the broadest Safco selection with full specifications, photos, and educator pricing for institutional buyers. Freight coordination is available for studios and schools ordering large units.</p>
-            <p><strong>Amazon</strong> carries a wide Safco range with fast delivery and aggregated reviews that help narrow down your choice. Return policies are clear and useful for smaller orders or replacements.</p>
-          </div>
-        </div>
-
-        <!-- SETUP & CARE -->
-        <div class="content-card">
-          <h2 class="content-card-title">Setup & Care Tips</h2>
-          <div class="article-content">
-            <h3>Assembly & Placement</h3>
-            <p>Set cabinets on a level floor so drawers track smoothly. If stacking, align the corner guides and secure as instructed. Keep the top clear — it's useful as a layout surface, not a shelf.</p>
-            <h3>Protecting Your Artwork</h3>
-            <p>Interleave charcoal, pastel, and richly inked pieces with glassine. Use folders to keep small works inside rigid sleeves so nothing slides under larger sheets. Let varnishes and inks cure fully before filing to prevent sticking.</p>
-            <h3>Cleaning & Maintenance</h3>
-            <p>Wipe steel exteriors with a soft, barely damp cloth and dry immediately. Vacuum beneath and behind units to limit dust migration. If a drawer drags, clear the slide rather than forcing it.</p>
-          </div>
-        </div>
-
-        <!-- FAQ -->
-        <div class="content-card">
-          <h2 class="content-card-title">Frequently Asked Questions</h2>
-          <div class="faq-list">
-
-            <div class="faq-item open">
-              <button class="faq-question open" onclick="this.classList.toggle('open'); this.parentElement.classList.toggle('open');">
-                Which Safco flat file is best for constant daily access?
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>The <strong>5-Drawer Steel Flat Files</strong> — the welded steel case gives you the smoothest action, the most rigidity, and the cleanest stackable growth path with riser bases. It's built for drawers that get opened dozens of times a day.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" onclick="this.classList.toggle('open'); this.parentElement.classList.toggle('open');">
-                What's the best starter choice for a classroom?
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>The <strong>Facil Flat Files</strong> strike the right balance of cost, durability, and labelling for educational settings. Start with one stack and add another unit as storage needs grow across semesters.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" onclick="this.classList.toggle('open'); this.parentElement.classList.toggle('open');">
-                How do I store rigid materials like foam-core and panels?
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>Add a <strong>Safco Art Rack</strong> alongside your flat files. Label each vertical compartment by job or client to keep boards separate and accessible. Flat files handle paper; the Art Rack handles everything rigid.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" onclick="this.classList.toggle('open'); this.parentElement.classList.toggle('open');">
-                Can I stack two 5-drawer units on top of each other?
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>Yes — Safco makes compatible riser bases and stacking hardware specifically for this. Two stacked 5-drawer units plus a riser base creates a waist-high work surface that doubles as a layout or framing bench.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div><!-- /article-wrap -->
-
-      <!-- SIDEBAR -->
       <aside class="post-sidebar">
-
         <div class="sidebar-box buy-box">
-          <div class="sidebar-box-title">Shop Safco Flat Files</div>
-          <div class="buy-box-title">Find the Right Model</div>
-          <div class="buy-box-sub">All models reviewed in this guide are available at these retailers.</div>
+          <div class="sidebar-box-title">Shop This Review</div>
+          <div class="buy-box-title">Safco Flat Files – Durable & Professiona…</div>
+          <div class="buy-box-sub">Find all products reviewed here at trusted retailers.</div>
           <div class="buy-links">
             <a href="#" class="buy-link buy-link--primary">Blick Art Materials <span>→</span></a>
             <a href="#" class="buy-link buy-link--secondary">Amazon <span>→</span></a>
           </div>
           <p class="buy-note">Affiliate links help support this site at no extra cost to you.</p>
         </div>
-
         <div class="sidebar-box">
-          <div class="sidebar-box-title">Jump To Model</div>
-          <nav class="toc">
-            <a href="#5-drawer-steel" class="toc-item"><span class="toc-num">01</span>5-Drawer Steel — Top Pick</a>
-            <a href="#facil"          class="toc-item"><span class="toc-num">02</span>Facil — Budget Pick</a>
-            <a href="#stacking-trays" class="toc-item"><span class="toc-num">03</span>Giant Stacking Trays</a>
-            <a href="#art-rack"       class="toc-item"><span class="toc-num">04</span>Art Rack — Vertical</a>
-          </nav>
-        </div>
-
-        <div class="sidebar-box">
-          <div class="sidebar-box-title">More in Flat Files</div>
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <a href="/flat-files/5-drawer-flat-file-cabinet-a-complete-buying-and-setup-guide/" style="display:flex;gap:10px;align-items:flex-start;">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/5-drawer-flat-file-cabinet.jpg" style="width:56px;height:56px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid var(--border-light);">
-              <span style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">5 Drawer Flat File: Complete Buying Guide</span>
-            </a>
-            <a href="/flat-files/diversified-spaces-flat-file-reliable-storage-for-artists/" style="display:flex;gap:10px;align-items:flex-start;">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Diversified-Spaces-Flat-File--1--1.jpg" style="width:56px;height:56px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid var(--border-light);">
-              <span style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">Diversified Spaces Flat File Review</span>
-            </a>
-            <a href="/flat-files/hann-mobile-art-storage-cart-organized-paper-storage-on-the-move/" style="display:flex;gap:10px;align-items:flex-start;">
-              <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Hann-Mobile-Art-Storage.jpg" style="width:56px;height:56px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid var(--border-light);">
-              <span style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">Hann Mobile Art Storage Cart</span>
-            </a>
-            <a href="/flat-files/" style="font-size:13px;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:4px;margin-top:4px;">All Flat File guides →</a>
+          <div class="sidebar-box-title">About the Author</div>
+          <div style="font-size:13.5px;color:var(--text-mid);line-height:1.6;">
+            <strong style="color:var(--navy);">Colin</strong> — Founder of Optic Art Supply. Writes in-depth buying guides and reviews for artists at every level.
           </div>
         </div>
-
       </aside>
     </div>
   </div>
 </div>
 
-<!-- RELATED POSTS -->
-<section class="related-posts">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">More Storage Guides</h2>
-        <p class="section-subtitle">Find the right storage solution for every part of your studio</p>
-      </div>
-      <a href="/flat-files/" class="view-all">All Flat File guides →</a>
-    </div>
-    <div class="related-grid">
-      <a href="/flat-files/5-drawer-flat-file-cabinet-a-complete-buying-and-setup-guide/" class="related-card">
-        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/5-drawer-flat-file-cabinet.jpg" alt="5 Drawer Flat File">
-        <div class="related-card-body">
-          <div class="related-card-cat">Flat Files · Buying Guide</div>
-          <div class="related-card-title">5 Drawer Flat File Cabinet: A Complete Buying and Setup Guide</div>
-          <div class="related-card-meta">5 min · Nov 2025</div>
-        </div>
-      </a>
-      <a href="/flat-files/diversified-spaces-flat-file-reliable-storage-for-artists/" class="related-card">
-        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Diversified-Spaces-Flat-File--1--1.jpg" alt="Diversified Spaces">
-        <div class="related-card-body">
-          <div class="related-card-cat">Flat Files · Product Review</div>
-          <div class="related-card-title">Diversified Spaces Flat File – Reliable Storage for Artists</div>
-          <div class="related-card-meta">4 min · Nov 2025</div>
-        </div>
-      </a>
-      <a href="/flat-files/hann-mobile-art-storage-cart-organized-paper-storage-on-the-move/" class="related-card">
-        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/11/Hann-Mobile-Art-Storage.jpg" alt="Hann Mobile Cart">
-        <div class="related-card-body">
-          <div class="related-card-cat">Flat Files · Product Review</div>
-          <div class="related-card-title">Hann Mobile Art Storage Cart – Paper Storage on the Move</div>
-          <div class="related-card-meta">4 min · Nov 2025</div>
-        </div>
-      </a>
-      <a href="/flat-files/flat-files-vs-portfolios-which-is-the-best-storage-solution-for-your-art/" class="related-card">
-        <img src="https://storage.ghost.io/c/65/dd/65dd59e4-b31d-4b1d-b041-bdce962a9719/content/images/size/w600/2025/07/flat-file-vs-portfolio-for-artists.webp" alt="Flat Files vs Portfolios">
-        <div class="related-card-body">
-          <div class="related-card-cat">Flat Files · Comparison</div>
-          <div class="related-card-title">Flat Files vs. Portfolios: Which is the Best Storage Solution?</div>
-          <div class="related-card-meta">5 min · Jul 2025</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
-<!-- NEWSLETTER -->
 <section class="newsletter">
   <div class="container">
     <h2>Get the guide before you buy</h2>
@@ -1078,26 +138,40 @@
     </form>
   </div>
 </section>
-
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <div class="footer-logo">Optic <span>Art</span> Supply</div>
         <p class="footer-tagline">Expert art supply reviews and buying guides. No filler — just the information you need to choose the right materials.</p>
-        <div class="footer-socials">
-          <div class="footer-social-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#8AA0C0"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></div>
-          <div class="footer-social-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#8AA0C0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
-        </div>
       </div>
-      <div class="footer-col"><h4>Categories</h4><ul><li><a href="/paint/">Paint</a></li><li><a href="/surfaces/">Surfaces</a></li><li><a href="/brushes/">Brushes</a></li><li><a href="/paper/">Paper</a></li><li><a href="/drawing/">Drawing</a></li><li><a href="/easels/">Easels</a></li><li><a href="/flat-files/">Flat Files</a></li><li><a href="/linen-canvas/">Linen Canvas</a></li></ul></div>
-      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/tips-techniques/">Tips & Techniques</a></li><li><a href="/artist-tools-accessories/">Artist Tools</a></li><li><a href="/brands/">Browse Brands</a></li><li><a href="/about-colin/">About Colin</a></li></ul></div>
-      <div class="footer-col"><h4>Top Brands</h4><ul><li><a href="/tag/arches/">Arches</a></li><li><a href="/tag/gamblin/">Gamblin</a></li><li><a href="/tag/holbein/">Holbein</a></li><li><a href="/tag/faber-castell/">Faber-Castell</a></li><li><a href="/tag/ampersand/">Ampersand</a></li><li><a href="/tag/copic/">Copic</a></li></ul></div>
+      <div class="footer-col"><h4>Categories</h4><ul>
+        <li><a href="/paint/">Paint</a></li>
+        <li><a href="/surfaces/">Surfaces</a></li>
+        <li><a href="/brushes/">Brushes</a></li>
+        <li><a href="/paper/">Paper</a></li>
+        <li><a href="/drawing/">Drawing</a></li>
+        <li><a href="/easels/">Easels</a></li>
+        <li><a href="/flat-files/">Flat Files</a></li>
+        <li><a href="/linen-canvas/">Linen Canvas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="/tips-techniques/">Tips &amp; Techniques</a></li>
+        <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
+        <li><a href="/brands/">Browse Brands</a></li>
+        <li><a href="/about-colin/">About Colin</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Top Brands</h4><ul>
+        <li><a href="/tag/arches/">Arches</a></li>
+        <li><a href="/tag/gamblin/">Gamblin</a></li>
+        <li><a href="/tag/holbein/">Holbein</a></li>
+        <li><a href="/tag/faber-castell/">Faber-Castell</a></li>
+        <li><a href="/tag/ampersand/">Ampersand</a></li>
+        <li><a href="/tag/copic/">Copic</a></li>
+      </ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Optic Art Supply. All rights reserved.</span>
-      <span>Built for artists, by an artist.</span>
     </div>
   </div>
 </footer>
