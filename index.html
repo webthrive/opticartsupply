@@ -72,18 +72,35 @@
     .badge--navy   { background: var(--navy);   color: #fff; }
     .badge--gold   { background: var(--gold);   color: #fff; }
 
-    /* ─── ANNOUNCEMENT BAR ───────────────────────────────────────── */
-    .announce {
-      background: var(--navy-dark);
-      color: #CBD5E8;
-      font-size: 13px;
-      font-weight: 500;
-      text-align: center;
-      padding: 9px 24px;
-      letter-spacing: .01em;
+    /* ─── TOP PROMO BANNER (Blick affiliate) ─────────────────────── */
+    .top-promo-banner {
+      background: linear-gradient(90deg, #4360E0 0%, #5C7BEE 45%, #7B93F2 100%);
+      padding: 10px 20px;
     }
-    .announce a { color: #F0E0C8; text-decoration: underline; }
-    .announce strong { color: #fff; }
+    .top-promo-banner-content {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; flex-wrap: wrap; max-width: var(--max-w); margin: 0 auto;
+    }
+    .top-promo-banner-icon {
+      display: flex; align-items: center; gap: 3px;
+      font-size: 15px; line-height: 1; flex-shrink: 0;
+    }
+    .top-promo-banner-text {
+      font-size: 15px; font-weight: 700; color: #fff; letter-spacing: .005em;
+    }
+    .top-promo-banner-button {
+      flex-shrink: 0; display: inline-block; font-size: 13.5px; font-weight: 600;
+      color: #fff; border: 1.5px solid rgba(255,255,255,.85); border-radius: 6px;
+      padding: 5px 16px; transition: background .15s, border-color .15s; white-space: nowrap;
+    }
+    .top-promo-banner-button:hover { background: #fff; color: #4360E0; border-color: #fff; }
+    @media (max-width: 720px) {
+      .top-promo-banner { padding: 9px 14px; }
+      .top-promo-banner-content { gap: 10px; }
+      .top-promo-banner-text { font-size: 13px; }
+      .top-promo-banner-button { font-size: 12.5px; padding: 4px 12px; }
+      .top-promo-banner-icon { display: none; }
+    }
 
     /* ─── HEADER ─────────────────────────────────────────────────── */
     .site-header {
@@ -773,10 +790,13 @@
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce">
-  <strong>Expert art supply guides</strong> — in-depth reviews and buying advice, updated weekly.
-  <a href="/about-colin/">Meet the author →</a>
+<!-- TOP PROMO BANNER -->
+<div class="top-promo-banner">
+  <div class="top-promo-banner-content">
+    <span class="top-promo-banner-icon">📗🖌️🎨</span>
+    <span class="top-promo-banner-text">Save 40%+ on the biggest selection of art supplies at Blick</span>
+    <a class="top-promo-banner-button" href="https://www.awin1.com/cread.php?awinmid=88183&amp;awinaffid=2188383&amp;clickref=global-home&amp;ued=https%3A%2F%2Fwww.dickblick.com%2F" target="_blank" rel="noopener noreferrer">Shop Now</a>
+  </div>
 </div>
 
 <!-- HEADER -->
