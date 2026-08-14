@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Colin | Optic Art Supply</title>
+  <meta name="description" content="Colin is the founder of Optic Art Supply — a Long Beach, California artist with a BFA from Cal Poly San Luis Obispo, writing in-depth art supply guides and reviews.">
+  <link rel="canonical" href="https://opticartsupply.vercel.app/about-colin/">
+  <!-- Open Graph -->
+  <meta property="og:type"        content="profile">
+  <meta property="og:site_name"   content="Optic Art Supply">
+  <meta property="og:title"       content="About Colin | Optic Art Supply">
+  <meta property="og:description" content="Colin is the founder of Optic Art Supply — a Long Beach, California artist with a BFA from Cal Poly San Luis Obispo.">
+  <meta property="og:url"         content="https://opticartsupply.vercel.app/about-colin/">
+  <meta property="og:image"       content="https://opticartsupply.vercel.app/images/what-once-was.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="About Colin | Optic Art Supply">
+  <meta name="twitter:description" content="Colin is the founder of Optic Art Supply — a Long Beach, California artist with a BFA from Cal Poly San Luis Obispo.">
+  <meta name="twitter:image"       content="https://opticartsupply.vercel.app/images/what-once-was.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ─── ABOUT HERO ────────────────────────────────────────────── */
+    .about-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, #2A3D6B 100%);
+      padding: 56px 0 52px;
+    }
+    .about-hero-inner {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 32px;
+      align-items: center;
+      max-width: 860px;
+    }
+    .about-avatar {
+      width: 128px; height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,.18);
+    }
+    .about-hero-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .about-hero-title {
+      font-family: var(--font-serif); font-size: 42px;
+      color: #fff; line-height: 1.1; margin-bottom: 12px;
+    }
+    .about-hero-sub { font-size: 16px; color: #A8B8D4; line-height: 1.6; }
+
+    /* ─── ABOUT BODY ────────────────────────────────────────────── */
+    .about-body { background: var(--bg-warm); padding: 48px 0 64px; }
+    .about-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 40px 44px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .about-card p {
+      font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 18px;
+    }
+    .about-card p:last-of-type { margin-bottom: 0; }
+
+    .about-socials { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+    .about-social {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 600; color: var(--navy);
+      background: var(--bg-warm); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 9px 18px; transition: all .15s;
+    }
+    .about-social:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+    /* ─── PORTFOLIO ─────────────────────────────────────────────── */
+    .portfolio { background: var(--bg); padding: 56px 0 72px; }
+    .portfolio-head { max-width: 860px; margin: 0 auto 28px; }
+    .portfolio-head h2 {
+      font-family: var(--font-serif); font-size: 30px;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .portfolio-head p { font-size: 14.5px; color: var(--text-mid); }
+
+    .portfolio-grid {
+      max-width: 860px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .portfolio-item {
+      background: #fff; border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .portfolio-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .portfolio-item img { width: 100%; height: auto; display: block; }
+    .portfolio-caption {
+      padding: 12px 16px 14px;
+      font-size: 13.5px; font-weight: 600; color: var(--navy);
+      border-top: 1px solid var(--border-light);
+    }
+    @media (max-width: 720px) {
+      .about-hero-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; justify-items: center; }
+      .about-hero-title { font-size: 32px; }
+      .about-card { padding: 28px 22px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP PROMO BANNER -->
+<div class="top-promo-banner">
+  <div class="top-promo-banner-content">
+    <span class="top-promo-banner-icon">📗🖌️🎨</span>
+    <span class="top-promo-banner-text">Save 40%+ on the biggest selection of art supplies at Blick</span>
+    <a class="top-promo-banner-button" href="https://www.awin1.com/cread.php?awinmid=88183&amp;awinaffid=2188383&amp;clickref=global-home&amp;ued=https%3A%2F%2Fwww.dickblick.com%2F" target="_blank" rel="noopener noreferrer">Shop Now</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-logo">Optic <span>Art</span> Supply</a>
+      <div class="search-bar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search guides, supplies, brands…">
+      </div>
+      <nav class="header-nav">
+        <a href="/drawing/">Drawing</a>
+        <a href="/paint/">Paint</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/brushes/">Brushes</a>
+        <a href="/paper/">Paper</a>
+        <a href="/easels/">Easels</a>
+        <a href="/flat-files/">Flat Files</a>
+        <a href="/brands/">Brands</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">About Colin</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+      <img class="about-avatar" src="/images/colin.jpg" alt="Colin">
+      <div>
+        <p class="about-hero-eyebrow">Founder &amp; Editor</p>
+        <h1 class="about-hero-title">About Colin</h1>
+        <p class="about-hero-sub">Long Beach, California · BFA, Cal Poly San Luis Obispo</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<section class="about-body">
+  <div class="container">
+    <div class="about-card">
+      <p>Hi there! My name is Colin. I'm from Long Beach, California, and hold a Bachelor of Fine Arts degree from Cal Poly San Luis Obispo.</p>
+      <p>While my professional journey has led me deeper into the world of technology, my passion has always remained rooted in the creative process — where brushes, pigments, and ideas spark something real.</p>
+      <p>I created Optic Art Supply for artists, designers, students, and creative professionals to explore new techniques, discover innovative tools, and find inspiration to enhance their unique style or message.</p>
+      <p>Below is some of my work from the early 2010's! Thank you for visiting, and drop me a line if you want to connect!</p>
+
+      <div class="about-socials">
+        <a href="https://www.linkedin.com/in/colin-harbut-52719112/" target="_blank" rel="noopener noreferrer" class="about-social">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://x.com/colinharbut" target="_blank" rel="noopener noreferrer" class="about-social">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zm-1.29 19.482h2.039L6.486 3.24H4.298z"/></svg>
+          Twitter / X
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio">
+  <div class="container">
+    <div class="portfolio-head">
+      <h2>Portfolio</h2>
+      <p>Selected work from the early 2010s — oil, acrylic, graphite, and digital.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <img src="/images/what-once-was.jpg" alt="What Once Was" loading="lazy">
+        <div class="portfolio-caption">What Once Was</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/oil-on-canvas-painting-abstract.jpg" alt="Oil on Canvas Abstract" loading="lazy">
+        <div class="portfolio-caption">Oil on Canvas Abstract</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/monhumant-oil-on-canvas-painting.jpg" alt="Monhumant" loading="lazy">
+        <div class="portfolio-caption">Monhumant — Oil on Canvas</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/graphite-pencil-on-illustration-board-decomposition-of-memory.jpg" alt="Decomposition of Memory" loading="lazy">
+        <div class="portfolio-caption">Decomposition of Memory — Graphite on Illustration Board</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/infoxication-oil-on-panel-painting.jpg" alt="Infoxication" loading="lazy">
+        <div class="portfolio-caption">Infoxication — Oil on Panel</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/disquitude-oil-on-canvas-painting.jpg" alt="Disquitude" loading="lazy">
+        <div class="portfolio-caption">Disquitude — Oil on Canvas</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/acrylic-on-panel-painting-21st-century-panopticism.jpg" alt="21st Century Panopticism" loading="lazy">
+        <div class="portfolio-caption">21st Century Panopticism — Acrylic on Panel</div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/Abstract-Digital-Drawing.jpg" alt="Abstract Digital Drawing" loading="lazy">
+        <div class="portfolio-caption">Abstract Digital Drawing</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Get the guide before you buy</h2>
+    <p>New reviews and buying guides in your inbox — no fluff, no sponsored nonsense.</p>
+    <form class="newsletter-form" onsubmit="return false">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Optic <span>Art</span> Supply</div>
+        <p class="footer-tagline">Expert art supply reviews and buying guides. No filler — just the information you need to choose the right materials.</p>
+      </div>
+      <div class="footer-col"><h4>Categories</h4><ul>
+        <li><a href="/paint/">Paint</a></li><li><a href="/surfaces/">Surfaces</a></li>
+        <li><a href="/brushes/">Brushes</a></li><li><a href="/paper/">Paper</a></li>
+        <li><a href="/drawing/">Drawing</a></li><li><a href="/easels/">Easels</a></li>
+        <li><a href="/flat-files/">Flat Files</a></li><li><a href="/linen-canvas/">Linen Canvas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="/tips-techniques/">Tips &amp; Techniques</a></li>
+        <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
+        <li><a href="/brands/">Browse Brands</a></li>
+        <li><a href="/about-colin/">About Colin</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Top Brands</h4><ul>
+        <li><a href="/tag/arches/">Arches</a></li><li><a href="/tag/gamblin/">Gamblin</a></li>
+        <li><a href="/tag/holbein/">Holbein</a></li><li><a href="/tag/faber-castell/">Faber-Castell</a></li>
+        <li><a href="/tag/ampersand/">Ampersand</a></li><li><a href="/tag/copic/">Copic</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Optic Art Supply. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
