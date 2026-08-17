@@ -33,6 +33,12 @@
 .sidebar-box { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px; }
 .sidebar-box-title { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 14px; }
 .sidebar-cats { display: flex; flex-direction: column; gap: 2px; }
-.sidebar-cat-link { display: block; font-size: 13.5px; font-weight: 500; color: var(--text-mid); padding: 8px 10px; border-radius: var(--radius); transition: all .15s; }
+.sidebar-cat-link { display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-size: 13.5px; font-weight: 500; color: var(--text-mid); padding: 8px 10px;
+  border-radius: var(--radius); transition: all .15s; }
+.sidebar-count { font-size: 11.5px; font-weight: 600; color: var(--text-light);
+  background: var(--bg-light); padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+.sidebar-count:empty { display: none; }
+.sidebar-cat-link.active .sidebar-count { background: var(--accent); color: #fff; }
 .sidebar-cat-link:hover  { color: var(--navy); background: var(--bg-warm); }
 .sidebar-cat-link.active { color: var(--accent); background: #FDF0E8; font-weight: 600; }

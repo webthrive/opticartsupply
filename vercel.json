@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/tips-techniques/:slug",
+      "destination": "/buying-guides/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/tips-techniques",
+      "destination": "/buying-guides",
+      "permanent": true
+    }
+  ]
+}
