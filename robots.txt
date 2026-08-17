@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Affiliate redirects carry no crawlable content
+Disallow: /*?clickref=
+
+Sitemap: https://www.opticartsupply.com/sitemap.xml
