@@ -143,52 +143,81 @@
     }
     .sidebar-buy-btn:hover { background: var(--orange-hov); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(217,95,43,.3); }
 
+    /* ── MOBILE OPTIMIZED ── */
     @media(max-width:768px){
-      /* Hero grid stacks */
-      .pp-hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      /* Kill ALL horizontal overflow at root */
+      html, body { overflow-x: hidden; max-width: 100%; }
+      *, *::before, *::after { box-sizing: border-box; }
+
+      /* Container full width with safe padding */
+      .container { width: 100%; padding-left: 16px; padding-right: 16px; max-width: 100%; }
+
+      /* Header: hide nav and search on mobile */
+      .header-nav { display: none; }
+      .search-bar { display: none; }
+      .header-inner { justify-content: center; }
+
+      /* Hero */
+      .pp-hero { padding: 24px 0 32px; }
+      .pp-hero-grid { grid-template-columns: 1fr; gap: 20px; }
       .pp-title { font-size: 1.4rem; }
-      .pp-info-spacer { display: none !important; }
+      .pp-info-spacer { display: none !important; height: 0 !important; }
 
-      /* Prevent horizontal overflow globally */
-      body { overflow-x: hidden; }
-      .container { padding-left: 16px; padding-right: 16px; }
-
-      /* Hero padding */
-      .pp-hero { padding: 28px 0 36px; }
-
-      /* Gallery full width */
-      .pp-gallery-main { aspect-ratio: 4/3; }
+      /* Gallery */
+      .pp-gallery-main { aspect-ratio: 4/3; width: 100%; }
       .pp-gallery-thumbs { gap: 6px; }
-      .pp-gallery-thumb { width: 60px; height: 60px; }
+      .pp-gallery-thumb { width: 58px; height: 58px; }
 
-      /* Price row wrap nicely */
-      .pp-price-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+      /* Features */
+      .pp-features-label { font-size: .68rem; }
+      .pp-features li { font-size: .88rem; }
 
-      /* Buy button full width already, just ensure padding */
-      .pp-btn-primary { padding: 14px 20px; font-size: .95rem; }
+      /* Price + buy */
+      .pp-price-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .pp-price-val { font-size: 1.05rem; }
+      .pp-btn-primary { padding: 14px 20px; font-size: .95rem; margin-top: 12px; }
 
-      /* Tables scroll horizontally within their container only */
-      .specs-table { font-size: .78rem; }
+      /* Tables — scroll inside wrapper only, never page */
+      .specs-table { font-size: .78rem; min-width: 420px; }
       .specs-table th, .specs-table td { padding: 8px 10px; }
+      [style*="overflow-x:auto"] { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
 
-      /* Apps grid single column */
+      /* Apps grid */
       .apps-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .app-card { font-size: .78rem; padding: 10px 12px; }
 
-      /* Post layout stack */
-      .post-layout { flex-direction: column; }
-      .post-sidebar { width: 100%; }
-      .article-wrap { width: 100%; }
+      /* Article layout stacks */
+      .post-layout { flex-direction: column !important; gap: 24px; }
+      .post-sidebar { width: 100% !important; max-width: 100%; }
+      .article-wrap { width: 100% !important; max-width: 100%; }
+
+      /* Content card padding */
+      .content-card { padding: 20px 16px; }
 
       /* Modal */
-      .modal-box { padding: 24px 20px; }
+      .modal-box { padding: 24px 18px; border-radius: 10px; }
+      .modal-title { font-size: 1.2rem; }
+
+      /* Breadcrumb */
+      .breadcrumb-inner { font-size: .78rem; flex-wrap: wrap; gap: 4px; }
+
+      /* Newsletter */
+      .newsletter { padding: 32px 0; }
+      .newsletter-form { flex-direction: column; gap: 10px; }
+      .newsletter-form input,
+      .newsletter-form button { width: 100%; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
     }
 
     @media(max-width:480px){
+      .pp-title { font-size: 1.2rem; }
       .apps-grid { grid-template-columns: 1fr; }
-      .pp-title { font-size: 1.25rem; }
+      .app-card { font-size: .8rem; }
       .specs-table { font-size: .72rem; }
-      .specs-table th, .specs-table td { padding: 7px 8px; }
+      .specs-table th, .specs-table td { padding: 6px 8px; }
+      .pp-gallery-thumb { width: 52px; height: 52px; }
     }
   </style>
 </head>
@@ -600,6 +629,7 @@ function toggleFaq(btn) {
 
 </body>
 </html>
+
 
 
 
