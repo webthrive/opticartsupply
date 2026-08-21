@@ -57,64 +57,49 @@
     .pp-stars { color: #f59e0b; font-size: .9rem; letter-spacing: 1px; }
 
     .pp-gallery-main { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
-    .pp-gallery-main img { width: 100%; height: 100%; object-fit: contain; padding: 16px; transition: opacity .25s; }
+    .pp-gallery-main img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
     .pp-gallery-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
     .pp-gallery-thumb { width: 72px; height: 72px; border: 2px solid var(--border); border-radius: 6px; overflow: hidden; cursor: pointer; background: #fff; display: flex; align-items: center; justify-content: center; transition: border-color .2s; }
     .pp-gallery-thumb.active, .pp-gallery-thumb:hover { border-color: var(--orange); }
     .pp-gallery-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
 
-    /* Right info column - aligned to top of image */
+    /* Right info column */
     .pp-info { display: flex; flex-direction: column; gap: 0; }
+    .pp-info-spacer { flex-shrink: 0; }
 
-    /* Spacer to push features down level with the image (past the brand/title/rating height above gallery) */
-    .pp-info-spacer {
-      /* brand tag ~18px + title ~50px + rating ~22px + gap 12px + margin 14px = ~116px */
-      height: 116px;
-      flex-shrink: 0;
-    }
-
-    /* Key Features section */
+    /* Key Features */
     .pp-features-wrap { margin-bottom: 20px; }
     .pp-features-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; margin-bottom: 10px; }
     .pp-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
     .pp-features li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: #333; line-height: 1.4; }
     .pp-features li::before { content: '•'; color: var(--orange); font-size: 1.1rem; flex-shrink: 0; line-height: 1.3; }
 
-    /* Price + rating row */
+    /* Price row */
     .pp-price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0 0; border-top: 1px solid var(--border); margin-top: 4px; flex-wrap: wrap; }
     .pp-price-val { font-size: 1.15rem; font-weight: 800; color: var(--navy); }
     .pp-price-rating { display: flex; align-items: center; gap: 5px; font-size: .78rem; color: #555; white-space: nowrap; }
     .pp-price-stars { color: #f59e0b; font-size: .78rem; letter-spacing: .5px; }
 
-    /* Buy-from modal */
+    /* Modal */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 9000; align-items: center; justify-content: center; }
     .modal-overlay.open { display: flex; }
-    .modal-box { background: #fff; border-radius: 14px; padding: 32px; max-width: 420px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
-    .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--navy); margin: 0 0 6px; }
-    .modal-sub { font-size: .85rem; color: #777; margin: 0 0 24px; }
+    .modal-box { background: #fff; border-radius: 14px; padding: 32px; max-width: 440px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+    .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--navy); margin: 0 0 20px; }
     .modal-options { display: flex; flex-direction: column; gap: 12px; }
-    .modal-option { display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--navy); transition: border-color .2s, background .2s; }
+    .modal-option {
+      display: flex; align-items: center; gap: 16px;
+      border: 2px solid var(--border); border-radius: 10px; padding: 16px 18px;
+      text-decoration: none; color: var(--navy);
+      transition: border-color .2s, background .2s;
+    }
     .modal-option:hover { border-color: var(--orange); background: var(--orange-lt); }
-    .modal-option-logo { font-weight: 800; font-size: 1rem; min-width: 56px; }
-    .modal-option-logo.blick { color: #e50914; }
-    .modal-option-logo.amazon { color: #ff9900; }
-    .modal-option-info { flex: 1; }
-    .modal-option-name { font-weight: 700; font-size: .95rem; }
-    .modal-option-desc { font-size: .78rem; color: #888; margin-top: 2px; }
-    .modal-option-arrow { color: #aaa; font-size: 1.1rem; }
+    .modal-option-logo { flex-shrink: 0; display: flex; align-items: center; }
+    .modal-option-logo img { height: 28px; width: auto; display: block; object-fit: contain; }
+    .modal-option-arrow { color: #bbb; font-size: 1.1rem; margin-left: auto; flex-shrink: 0; }
     .modal-close { display: block; text-align: center; margin-top: 20px; color: #aaa; font-size: .85rem; cursor: pointer; background: none; border: none; }
     .modal-close:hover { color: #555; }
 
-    /* Sticky buy bar */
-    .buy-bar { position: sticky; top: 0; z-index: 800; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-    .buy-bar-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; gap: 16px; }
-    .buy-bar-name { font-size: .9rem; font-weight: 700; color: var(--navy); }
-    .buy-bar-btn {
-      background: var(--orange); color: #fff; border: none; border-radius: 7px;
-      padding: 10px 24px; font-size: .92rem; font-weight: 700; cursor: pointer;
-      transition: background .2s, transform .15s, box-shadow .15s; white-space: nowrap;
-    }
-    .buy-bar-btn:hover { background: var(--orange-hov); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(217,95,43,.3); }
+    /* NO sticky buy bar - removed */
 
     /* Specs table */
     .specs-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
@@ -127,7 +112,7 @@
     .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 16px; }
     .app-card { background: var(--orange-lt); border-radius: 8px; padding: 14px 16px; font-size: .85rem; color: var(--navy); font-weight: 600; display: flex; align-items: center; gap: 8px; }
 
-    /* FAQ accordion */
+    /* FAQ */
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 16px 0; font-size: .95rem; font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: color .2s; }
     .faq-q:hover { color: var(--orange); }
@@ -136,7 +121,7 @@
     .faq-a { display: none; padding: 0 0 16px; font-size: .9rem; color: #555; line-height: 1.65; }
     .faq-item.open .faq-a { display: block; }
 
-    /* Sidebar */
+    /* Sidebar buy button */
     .sidebar-buy-btn {
       display: block; width: 100%; background: var(--orange); color: #fff; border: none;
       border-radius: 7px; padding: 13px 20px; font-size: .95rem; font-weight: 700;
@@ -160,27 +145,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BUY-FROM MODAL -->
 <div class="modal-overlay" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
-    <p class="modal-title" id="modalTitle">Where would you like to buy?</p>
-    <p class="modal-sub">Choose your preferred retailer - both are affiliate links that help support this site.</p>
+    <p class="modal-title" id="modalTitle">Choose your preferred retailer</p>
     <div class="modal-options">
       <a class="modal-option" href="https://www.awin1.com/cread.php?awinmid=88183&awinaffid=2188383&clickref=facil-flat-file&ued=https%3A%2F%2Fwww.dickblick.com%2Fproducts%2Fsafco-facil-flat-files%2F" target="_blank" rel="noopener noreferrer sponsored">
-        <span class="modal-option-logo blick">Blick</span>
-        <span class="modal-option-info">
-          <span class="modal-option-name">Blick Art Materials</span>
-          <span class="modal-option-desc">Best selection - Educator pricing - Freight shipping</span>
+        <span class="modal-option-logo">
+          <img src="https://www.dickblick.com/staticroot/images/blick-logo.svg" alt="Blick Art Materials" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:1.1rem;color:#e50914;\'>Blick</span>'">
         </span>
-        <span class="modal-option-arrow">-></span>
+        <span class="modal-option-arrow">→</span>
       </a>
       <a class="modal-option" href="https://www.amazon.com/s?k=safco+facil+flat+file&tag=opticartsupply0b-20" target="_blank" rel="noopener noreferrer sponsored">
-        <span class="modal-option-logo amazon">Amazon</span>
-        <span class="modal-option-info">
-          <span class="modal-option-name">Amazon</span>
-          <span class="modal-option-desc">Fast delivery - Easy returns - Prime eligible</span>
+        <span class="modal-option-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:1.1rem;color:#ff9900;\'>amazon</span>'">
         </span>
-        <span class="modal-option-arrow">-></span>
+        <span class="modal-option-arrow">→</span>
       </a>
     </div>
-    <button class="modal-close" onclick="closeModal()">x Close</button>
+    <button class="modal-close" onclick="closeModal()">✕ Close</button>
   </div>
 </div>
 
@@ -255,11 +235,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- RIGHT: spacer to align with image, then features, price, buy -->
+      <!-- RIGHT: spacer then features then price -->
       <div class="pp-info">
         <div class="pp-info-spacer" id="infoSpacer"></div>
 
-        <!-- KEY FEATURES -->
         <div class="pp-features-wrap">
           <div class="pp-features-label">Key Features</div>
           <ul class="pp-features">
@@ -275,9 +254,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ul>
         </div>
 
-        <!-- PRICE + RATING -->
         <div class="pp-price-row">
-          <span class="pp-price-val">$145.60 - $1,313.54</span>
+          <span class="pp-price-val">From $145.60</span>
           <span class="pp-price-rating">
             <span class="pp-price-stars">★★★★★</span>
             <span>4.9</span>
@@ -288,16 +266,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
-
-<!-- STICKY BUY BAR -->
-<div class="buy-bar">
-  <div class="container">
-    <div class="buy-bar-inner">
-      <span class="buy-bar-name">Safco Facil Flat File</span>
-      <button class="buy-bar-btn" onclick="openModal()">Buy Now</button>
-    </div>
-  </div>
-</div>
 
 <!-- MAIN CONTENT -->
 <div class="post-body">
@@ -455,7 +423,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="sidebar-box buy-box">
           <div class="sidebar-box-title">Buy This Product</div>
           <div class="buy-box-title">Safco Facil Flat File</div>
-          <div style="font-size:.9rem;font-weight:700;color:var(--navy);margin:8px 0 4px;">$145.60 - $1,313.54</div>
+          <div style="font-size:.9rem;font-weight:700;color:var(--navy);margin:8px 0 4px;">From $145.60</div>
           <div style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:#555;margin-bottom:14px;">
             <span style="color:#f59e0b;">★★★★★</span><span>4.9</span>
           </div>
@@ -533,14 +501,16 @@ function setImg(thumb, src, alt) {
   thumb.classList.add('active');
 }
 
-/* Sync right-col spacer to exact height of left-col meta block */
+/* Sync spacer to meta block height */
 function syncSpacer() {
   var meta = document.querySelector('.pp-gallery-meta');
   var spacer = document.getElementById('infoSpacer');
-  if (meta && spacer && window.innerWidth > 768) {
-    spacer.style.height = meta.offsetHeight + 12 + 'px';
-  } else if (spacer) {
-    spacer.style.height = '0';
+  if (meta && spacer) {
+    if (window.innerWidth > 768) {
+      spacer.style.height = (meta.offsetHeight + 12) + 'px';
+    } else {
+      spacer.style.height = '0';
+    }
   }
 }
 window.addEventListener('load', syncSpacer);
