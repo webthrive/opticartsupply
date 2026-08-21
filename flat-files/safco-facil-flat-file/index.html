@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="/assets/css/responsive.css">
 
   <style>
+    * { box-sizing: border-box; }
+    img { max-width: 100%; height: auto; }
     :root {
       --navy:       #1A2744;
       --navy-dark:  #111B30;
@@ -142,9 +144,51 @@
     .sidebar-buy-btn:hover { background: var(--orange-hov); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(217,95,43,.3); }
 
     @media(max-width:768px){
-      .pp-hero-grid { grid-template-columns: 1fr; gap: 28px; }
-      .pp-title { font-size: 1.5rem; }
-      .pp-info-spacer { display: none; }
+      /* Hero grid stacks */
+      .pp-hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pp-title { font-size: 1.4rem; }
+      .pp-info-spacer { display: none !important; }
+
+      /* Prevent horizontal overflow globally */
+      body { overflow-x: hidden; }
+      .container { padding-left: 16px; padding-right: 16px; }
+
+      /* Hero padding */
+      .pp-hero { padding: 28px 0 36px; }
+
+      /* Gallery full width */
+      .pp-gallery-main { aspect-ratio: 4/3; }
+      .pp-gallery-thumbs { gap: 6px; }
+      .pp-gallery-thumb { width: 60px; height: 60px; }
+
+      /* Price row wrap nicely */
+      .pp-price-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+      /* Buy button full width already, just ensure padding */
+      .pp-btn-primary { padding: 14px 20px; font-size: .95rem; }
+
+      /* Tables scroll horizontally within their container only */
+      .specs-table { font-size: .78rem; }
+      .specs-table th, .specs-table td { padding: 8px 10px; }
+
+      /* Apps grid single column */
+      .apps-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .app-card { font-size: .78rem; padding: 10px 12px; }
+
+      /* Post layout stack */
+      .post-layout { flex-direction: column; }
+      .post-sidebar { width: 100%; }
+      .article-wrap { width: 100%; }
+
+      /* Modal */
+      .modal-box { padding: 24px 20px; }
+    }
+
+    @media(max-width:480px){
+      .apps-grid { grid-template-columns: 1fr; }
+      .pp-title { font-size: 1.25rem; }
+      .specs-table { font-size: .72rem; }
+      .specs-table th, .specs-table td { padding: 7px 8px; }
     }
   </style>
 </head>
