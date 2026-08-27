@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<!--
+=============================================================
+  OPTIC ART SUPPLY - PRODUCT PAGE TEMPLATE
+=============================================================
+  HOW TO USE:
+  1. Copy this file to your product folder, rename to index.html
+  2. Find and replace all {{PLACEHOLDER}} values below:
+
+  {{PRODUCT_TITLE}}       e.g. "Safco Facil Flat File"
+  {{PRODUCT_SUBTITLE}}    e.g. "5-Drawer Steel Storage for Large Documents"
+  {{META_DESCRIPTION}}    150-160 char page description
+  {{CATEGORY}}            URL slug e.g. "flat-files"
+  {{CATEGORY_LABEL}}      Display name e.g. "Flat Files"
+  {{PRODUCT_SLUG}}        URL slug e.g. "safco-facil-flat-file"
+  {{BRAND}}               e.g. "Safco"
+  {{OG_IMAGE}}            filename e.g. "Safco-Flat-Files.jpg"
+  {{MAIN_IMAGE}}          filename e.g. "Safco-Flat-Files.jpg"
+  {{IMAGE_ALT}}           short alt text for main image
+  {{PRICE_FROM}}          e.g. "$145.60"
+  {{BLICK_URL_ENCODED}}   URL-encoded Blick product page
+  {{AMAZON_SEARCH_QUERY}} e.g. "safco+facil+flat+file"
+  {{PUBLISH_DATE}}        e.g. "Aug 2026"
+
+  CONTENT TO REPLACE:
+  - Key Features list (ul.pp-features)
+  - Sidebar size-at-a-glance box
+  - All article body content (h2s, tables, FAQs)
+  - Add extra gallery thumbs by duplicating .pp-gallery-thumb divs
+
+  CHECKLIST:
+  [ ] All {{PLACEHOLDERS}} replaced
+  [ ] noindex removed (already removed in this template)
+  [ ] Correct affiliate links for Blick and Amazon
+  [ ] Product images uploaded to /images/
+  [ ] Canonical URL correct
+=============================================================
+-->
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NHTXLMJ');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PRODUCT_TITLE}} - {{PRODUCT_SUBTITLE}} | Optic Art Supply</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <link rel="canonical" href="https://opticartsupply.com/{{CATEGORY}}/{{PRODUCT_SLUG}}/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Optic Art Supply">
+  <meta property="og:title" content="{{PRODUCT_TITLE}} - {{PRODUCT_SUBTITLE}} | Optic Art Supply">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:url" content="https://opticartsupply.com/{{CATEGORY}}/{{PRODUCT_SLUG}}/">
+  <meta property="og:image" content="https://opticartsupply.com/images/Safco-Facil-Flat-File.avif">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{PRODUCT_TITLE}} - {{PRODUCT_SUBTITLE}} | Optic Art Supply">
+  <meta name="twitter:description" content="The Safco Facil Flat File stores architectural drawings, artwork, and large documents in five wide steel drawers. Available in Small and Medium.">
+  <meta name="twitter:image" content="https://opticartsupply.com/images/Safco-Facil-Flat-File.avif">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/post.css">
+  <link rel="stylesheet" href="/assets/css/product.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+
+  <style>
+    * { box-sizing: border-box; }
+    img { max-width: 100%; height: auto; }
+    :root {
+      --navy:       #1A2744;
+      --navy-dark:  #111B30;
+      --orange:     #D95F2B;
+      --orange-hov: #C04E1F;
+      --orange-lt:  #FDF0E8;
+      --border:     #E2DDD7;
+      --bg-warm:    #F8F7F3;
+    }
+
+    /* Hero */
+    .pp-hero { background: var(--bg-warm); border-bottom: 1px solid var(--border); padding: 48px 0 56px; }
+    .pp-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+    /* Gallery column */
+    .pp-gallery { display: flex; flex-direction: column; gap: 12px; }
+    .pp-gallery-meta { margin-bottom: 4px; }
+    .pp-brand-tag { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); display: block; margin-bottom: 6px; }
+    .pp-title { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1.2; color: var(--navy); margin: 0 0 8px; }
+    .pp-rating { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: #555; }
+    .pp-stars { color: #f59e0b; font-size: .9rem; letter-spacing: 1px; }
+
+    .pp-gallery-main { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .pp-gallery-main img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
+    .pp-gallery-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pp-gallery-thumb { width: 72px; height: 72px; border: 2px solid var(--border); border-radius: 6px; overflow: hidden; cursor: pointer; background: #fff; display: flex; align-items: center; justify-content: center; transition: border-color .2s; }
+    .pp-gallery-thumb.active, .pp-gallery-thumb:hover { border-color: var(--orange); }
+    .pp-gallery-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+
+    /* Right info column */
+    .pp-info { display: flex; flex-direction: column; gap: 0; }
+    .pp-info-spacer { flex-shrink: 0; }
+
+    /* Key Features */
+    .pp-features-wrap { margin-bottom: 20px; }
+    .pp-features-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #888; margin-bottom: 10px; }
+    .pp-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+    .pp-features li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: #333; line-height: 1.4; }
+    .pp-features li::before { content: '•'; color: var(--orange); font-size: 1.1rem; flex-shrink: 0; line-height: 1.3; }
+
+    /* Price row */
+    .pp-price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0 0; border-top: 1px solid var(--border); margin-top: 4px; flex-wrap: wrap; }
+    .pp-price-val { font-size: 1.15rem; font-weight: 800; color: var(--navy); }
+    .pp-price-rating { display: flex; align-items: center; gap: 5px; font-size: .78rem; color: #555; white-space: nowrap; }
+    .pp-price-stars { color: #f59e0b; font-size: .78rem; letter-spacing: .5px; }
+
+    /* CTA button */
+    .pp-btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--orange); color: #fff; border: none; border-radius: 8px;
+      padding: 15px 24px; font-size: 1rem; font-weight: 700; cursor: pointer;
+      width: 100%; margin-top: 16px;
+      transition: background .2s, transform .15s, box-shadow .15s;
+    }
+    .pp-btn-primary:hover { background: var(--orange-hov); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(217,95,43,.35); }
+    .pp-btn-primary:active { transform: translateY(0); }
+
+    /* Modal */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 9000; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 14px; padding: 32px; max-width: 440px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+    .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--navy); margin: 0 0 20px; }
+    .modal-options { display: flex; flex-direction: column; gap: 12px; }
+    .modal-option {
+      display: flex; align-items: center; gap: 16px;
+      border: 2px solid var(--border); border-radius: 10px; padding: 16px 18px;
+      text-decoration: none; color: var(--navy);
+      transition: border-color .2s, background .2s;
+    }
+    .modal-option:hover { border-color: var(--orange); background: var(--orange-lt); }
+    .modal-option-logo { flex-shrink: 0; display: flex; align-items: center; }
+    .modal-option-logo img { height: 28px; width: auto; display: block; object-fit: contain; }
+    .modal-option-arrow { color: #bbb; font-size: 1.1rem; margin-left: auto; flex-shrink: 0; }
+    .modal-close { display: block; text-align: center; margin-top: 20px; color: #aaa; font-size: .85rem; cursor: pointer; background: none; border: none; }
+    .modal-close:hover { color: #555; }
+
+    /* NO sticky buy bar - removed */
+
+    /* Specs table */
+    .specs-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .specs-table th { background: var(--bg-warm); text-align: left; padding: 10px 14px; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--border); }
+    .specs-table td { padding: 9px 14px; border-bottom: 1px solid #ede9e1; color: #444; }
+    .specs-table tr:last-child td { border-bottom: none; }
+    .specs-table tr:nth-child(even) td { background: #faf9f7; }
+
+    /* Applications grid */
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 16px; }
+    .app-card { background: var(--orange-lt); border-radius: 8px; padding: 14px 16px; font-size: .85rem; color: var(--navy); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 16px 0; font-size: .95rem; font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: color .2s; }
+    .faq-q:hover { color: var(--orange); }
+    .faq-icon { font-size: 1.2rem; flex-shrink: 0; transition: transform .2s; color: var(--orange); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 0 16px; font-size: .9rem; color: #555; line-height: 1.65; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* Sidebar buy button */
+    .sidebar-buy-btn {
+      display: block; width: 100%; background: var(--orange); color: #fff; border: none;
+      border-radius: 7px; padding: 13px 20px; font-size: .95rem; font-weight: 700;
+      cursor: pointer; text-align: center; margin-bottom: 8px;
+      transition: background .2s, transform .15s, box-shadow .15s;
+    }
+    .sidebar-buy-btn:hover { background: var(--orange-hov); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(217,95,43,.3); }
+
+    /* ── MOBILE OPTIMIZED ── */
+    @media(max-width:768px){
+      /* Kill ALL horizontal overflow at root */
+      html, body { overflow-x: hidden; max-width: 100%; }
+      *, *::before, *::after { box-sizing: border-box; }
+
+      /* Container full width with safe padding */
+      .container { width: 100%; padding-left: 16px; padding-right: 16px; max-width: 100%; }
+
+      /* Header: hide nav and search on mobile */
+      .header-nav { display: none; }
+      .search-bar { display: none; }
+      .header-inner { justify-content: center; }
+
+      /* Hero */
+      .pp-hero { padding: 24px 0 32px; }
+      .pp-hero-grid { grid-template-columns: 1fr; gap: 20px; }
+      .pp-title { font-size: 1.4rem; }
+      .pp-info-spacer { display: none !important; height: 0 !important; }
+
+      /* Gallery */
+      .pp-gallery-main { aspect-ratio: 4/3; width: 100%; }
+      .pp-gallery-thumbs { gap: 6px; }
+      .pp-gallery-thumb { width: 58px; height: 58px; }
+
+      /* Features */
+      .pp-features-label { font-size: .68rem; }
+      .pp-features li { font-size: .88rem; }
+
+      /* Price + buy */
+      .pp-price-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .pp-price-val { font-size: 1.05rem; }
+      .pp-btn-primary { padding: 14px 20px; font-size: .95rem; margin-top: 12px; }
+
+      /* Tables — scroll inside wrapper only, never page */
+      .specs-table { font-size: .78rem; min-width: 420px; }
+      .specs-table th, .specs-table td { padding: 8px 10px; }
+      [style*="overflow-x:auto"] { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+
+      /* Apps grid */
+      .apps-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .app-card { font-size: .78rem; padding: 10px 12px; }
+
+      /* Article layout stacks */
+      .post-layout { flex-direction: column !important; gap: 24px; }
+      .post-sidebar { width: 100% !important; max-width: 100%; }
+      .article-wrap { width: 100% !important; max-width: 100%; }
+
+      /* Content card padding */
+      .content-card { padding: 20px 16px; }
+
+      /* Modal */
+      .modal-box { padding: 24px 18px; border-radius: 10px; }
+      .modal-title { font-size: 1.2rem; }
+
+      /* Breadcrumb */
+      .breadcrumb-inner { font-size: .78rem; flex-wrap: wrap; gap: 4px; }
+
+      /* Newsletter */
+      .newsletter { padding: 32px 0; }
+      .newsletter-form { flex-direction: column; gap: 10px; }
+      .newsletter-form input,
+      .newsletter-form button { width: 100%; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    @media(max-width:480px){
+      .pp-title { font-size: 1.2rem; }
+      .apps-grid { grid-template-columns: 1fr; }
+      .app-card { font-size: .8rem; }
+      .specs-table { font-size: .72rem; }
+      .specs-table th, .specs-table td { padding: 6px 8px; }
+      .pp-gallery-thumb { width: 52px; height: 52px; }
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHTXLMJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- BUY-FROM MODAL -->
+<div class="modal-overlay" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <p class="modal-title" id="modalTitle">Choose your preferred retailer</p>
+    <div class="modal-options">
+      <a class="modal-option" href="https://www.awin1.com/cread.php?awinmid=88183&awinaffid=2188383&clickref={{PRODUCT_SLUG}}&ued={{BLICK_URL_ENCODED}}" target="_blank" rel="noopener noreferrer sponsored">
+        <span class="modal-option-logo">
+          <img src="https://www.dickblick.com/staticroot/images/blick-logo.svg" alt="Blick Art Materials" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:1.1rem;color:#e50914;\'>Blick</span>'">
+        </span>
+        <span class="modal-option-arrow">→</span>
+      </a>
+      <a class="modal-option" href="https://www.amazon.com/s?k={{AMAZON_SEARCH_QUERY}}&tag=opticartsupply0b-20" target="_blank" rel="noopener noreferrer sponsored">
+        <span class="modal-option-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:1.1rem;color:#ff9900;\'>amazon</span>'">
+        </span>
+        <span class="modal-option-arrow">→</span>
+      </a>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕ Close</button>
+  </div>
+</div>
+
+<!-- TOP PROMO BANNER -->
+<div class="top-promo-banner">
+  <div class="top-promo-banner-content">
+    <span class="top-promo-banner-icon">📗🖌️🎨</span>
+    <span class="top-promo-banner-text">Save 40%+ on the biggest selection of art supplies at Blick</span>
+    <a class="top-promo-banner-button" href="https://www.awin1.com/cread.php?awinmid=88183&awinaffid=2188383&clickref=global-home&ued=https%3A%2F%2Fwww.dickblick.com%2F" target="_blank" rel="noopener noreferrer">Shop Now</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-logo">Optic <span>Art</span> Supply</a>
+      <div class="search-bar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search guides, supplies, brands...">
+      </div>
+      <nav class="header-nav">
+        <a href="/buying-guides/">Guides</a>
+        <a href="/drawing/">Drawing</a>
+        <a href="/paint/">Paint</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/brushes/">Brushes</a>
+        <a href="/paper/">Paper</a>
+        <a href="/easels/">Easels</a>
+        <a href="/{{CATEGORY}}/" class="active">{{CATEGORY_LABEL}}</a>
+        <a href="/brands/">Brands</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/{{CATEGORY}}/">{{CATEGORY_LABEL}}</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">{{PRODUCT_TITLE}}</span>
+    </div>
+  </div>
+</nav>
+
+<!-- PRODUCT HERO -->
+<section class="pp-hero">
+  <div class="container">
+    <div class="pp-hero-grid">
+
+      <!-- LEFT: meta above image, then gallery -->
+      <div class="pp-gallery">
+        <div class="pp-gallery-meta">
+          <span class="pp-brand-tag">{{BRAND}} · {{CATEGORY_LABEL}}</span>
+          <h1 class="pp-title">{{PRODUCT_TITLE}}</h1>
+          <div class="pp-rating">
+            <span class="pp-stars">★★★★★</span>
+            <span>4.9</span>
+          </div>
+        </div>
+        <div class="pp-gallery-main">
+          <img id="mainImg" src="/images/Safco-Facil-Flat-File.avif" alt="Safco Facil Flat File - 5-drawer steel flat file cabinet" loading="eager">
+        </div>
+        <div class="pp-gallery-thumbs">
+          <div class="pp-gallery-thumb active" onclick="setImg(this,'/images/Safco-Facil-Flat-File.avif','Safco Facil Flat File')">
+            <img src="/images/Safco-Facil-Flat-File.avif" alt="Safco Facil Flat File front view">
+          </div>
+          <div class="pp-gallery-thumb" onclick="setImg(this,'/images/Safco-Facil-Flat-File-2.avif','Safco Facil Flat File - angle view')">
+            <img src="/images/Safco-Facil-Flat-File-2.avif" alt="Safco Facil Flat File angle view">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: spacer then features then price -->
+      <div class="pp-info">
+        <div class="pp-info-spacer" id="infoSpacer"></div>
+
+        <div class="pp-features-wrap">
+          <div class="pp-features-label">Key Features</div>
+          <ul class="pp-features">
+            <li>Five drawers for large-format document storage</li>
+            <li>Strong 22-gauge steel cabinet construction</li>
+            <li>Heavy-duty nylon drawer rollers</li>
+            <li>Chrome drawer handles and label holders</li>
+            <li>Rear hood and hinged front depressor</li>
+            <li>Courtesy stops on each drawer</li>
+            <li>Stackable cabinet design</li>
+            <li>Small and Medium sizes available</li>
+            <li>Matching high and closed bases available</li>
+          </ul>
+        </div>
+
+        <div class="pp-price-row">
+          <span class="pp-price-val">From {{PRICE_FROM}}</span>
+          <span class="pp-price-rating">
+            <span class="pp-price-stars">★★★★★</span>
+            <span>4.9</span>
+          </span>
+        </div>
+
+        <button class="pp-btn-primary" onclick="openModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          Buy Now
+        </button>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="post-body">
+  <div class="container">
+    <div class="post-layout">
+
+      <div class="article-wrap">
+        <div class="content-card">
+          <div class="article-author">
+            <img class="article-author-img" src="/images/colin.jpg" alt="Colin">
+            <div class="article-author-text">
+              <span class="article-author-name"><a href="/about-colin/">Colin</a></span>
+              <span class="article-author-meta">{{PUBLISH_DATE}} - Product Guide</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <section class="gh-content gh-canvas is-body">
+
+              <p>Keep large drawings, plans, artwork, and project documents organized in the Safco Facil Flat File. Five wide drawers provide horizontal storage for documents that are difficult to keep in standard filing cabinets.</p>
+              <p>The steel cabinet is available in Small and Medium sizes for different document formats. Each drawer includes a rear hood and hinged front depressor to help keep stored sheets flat, while a courtesy stop prevents the drawer from pulling completely out during regular use.</p>
+
+              <h2 id="choose-size">Choose Between Small and Medium Facil Flat Files</h2>
+              <p>Safco offers the Facil Steel Flat File in two sizes. The Small 4969LG has 37-inch-wide drawers with 25.25 inches of drawer depth, while the Medium 4972LG increases drawer depth to 31.5 inches and width to 43 inches.</p>
+
+              <div style="overflow-x:auto; margin: 24px 0;">
+                <table class="specs-table">
+                  <thead>
+                    <tr>
+                      <th>Specification</th>
+                      <th>Small - 4969LG</th>
+                      <th>Medium - 4972LG</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Number of Drawers</td><td>5</td><td>5</td></tr>
+                    <tr><td>Overall Width</td><td>40.25"</td><td>46.25"</td></tr>
+                    <tr><td>Overall Depth</td><td>26"</td><td>32"</td></tr>
+                    <tr><td>Overall Height</td><td>16.5"</td><td>16.5"</td></tr>
+                    <tr><td>Drawer Width</td><td>37"</td><td>43"</td></tr>
+                    <tr><td>Drawer Depth</td><td>25.25"</td><td>31.5"</td></tr>
+                    <tr><td>Drawer Height</td><td>1.125"</td><td>1.25"</td></tr>
+                    <tr><td>Cabinet Material</td><td>Steel</td><td>Steel</td></tr>
+                    <tr><td>Cabinet Thickness</td><td>22 gauge</td><td>22 gauge</td></tr>
+                    <tr><td>Product Weight</td><td>98 lbs.</td><td>126 lbs.</td></tr>
+                    <tr><td>Stackable</td><td>Yes</td><td>Yes</td></tr>
+                    <tr><td>Assembly Required</td><td>Yes</td><td>Yes</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2 id="storage">Store Drawings, Plans, Artwork, and Other Large Documents</h2>
+              <p>Standard vertical filing cabinets aren't built for oversized sheets. The Safco Facil Flat File provides wide horizontal storage for materials that need to remain flat and accessible.</p>
+              <p>Architectural drawings, engineering documents, artwork, maps, plans, and other large sheets can be separated across five drawers. Teams working on several projects can assign individual drawers to specific jobs instead of mixing active documents in one large storage area.</p>
+              <p>The rear hood and hinged front depressor help hold sheets in position inside each drawer. These parts also help limit curling along document edges during storage.</p>
+
+              <h2 id="capacity">Five Drawers for Active and Archived Files</h2>
+              <p>Each Safco Facil cabinet can hold up to 300 sheets under Safco's active filing capacity. Capacity increases to 450 sheets for semi-active filing and 600 sheets for inactive material.</p>
+              <p>The different capacities allow the cabinet to serve both working files and longer-term document storage. A design team might keep current project drawings in frequently opened drawers while using other drawers for completed plans or reference material.</p>
+              <p>The Small model lists a 60-pound drawer capacity. For heavier collections, document weight and distribution should be considered alongside the available drawer dimensions before loading the cabinet.</p>
+
+              <h2 id="access">Built for Regular Access to Large Files</h2>
+              <p>Large sheets can become difficult to manage when drawers are heavy or opened throughout the day. Safco equips the Facil Flat File with heavy-duty nylon rollers to support drawer movement during regular filing and retrieval.</p>
+              <p>Courtesy stops prevent drawers from rolling completely open when users pull them forward. Chrome handles run across the drawer fronts, giving users an easy grip without handling the stored documents.</p>
+              <p>Each drawer also includes a label holder. Offices can label files by project number, client, year, department, drawing type, or another system that matches their workflow.</p>
+
+              <h2 id="stacking">Stack Safco Facil Flat Files for More Storage</h2>
+              <p>Safco Facil Flat Files can be stacked when a single five-drawer cabinet does not provide enough storage. Multiple cabinets can add drawer capacity vertically without requiring a separate footprint for every unit.</p>
+              <p>Safco states that Facil units can be stacked up to two high when used with the matching closed base. A high base supports one flat file and raises the cabinet to a more accessible working height.</p>
+              <p>The Small and Medium cabinets use different matching bases, so the base should be selected according to the flat file model. Safco offers closed and high-base options for both cabinet sizes.</p>
+
+              <h3>Small Facil Flat File Base Options</h3>
+              <p>The 4970LG Closed Base is made for the Small 4969LG flat file. It measures 40.25 inches wide, 24 inches deep, and 4.75 inches high.</p>
+              <p>The 4971LG High Base is also designed for the Small model. Its 20.5-inch height raises a single cabinet farther from the floor while maintaining the 40.25-inch cabinet width.</p>
+
+              <h3>Medium Facil Flat File Base Options</h3>
+              <p>The 4973LG Closed Base pairs with the Medium 4972LG cabinet. It measures 46.25 inches wide, 30 inches deep, and 4.75 inches high.</p>
+              <p>The 4974LG High Base provides a taller setup for one Medium cabinet. It measures 46.25 inches wide, 31.75 inches deep, and 20.75 inches high.</p>
+
+              <h2 id="who-its-for">Where to Use a Safco Facil Flat File</h2>
+              <p>Safco Facil Flat Files fit workspaces where oversized documents need to stay organized without being folded or rolled. Their horizontal drawer layout is especially useful when teams regularly retrieve, review, update, and return large sheets.</p>
+              <p>Common applications include:</p>
+              <div class="apps-grid">
+                <div class="app-card">🏛️ Architecture firms storing plans and working drawings</div>
+                <div class="app-card">⚙️ Engineering offices organizing technical documents</div>
+                <div class="app-card">🏗️ Construction teams keeping project drawings accessible</div>
+                <div class="app-card">🎨 Design studios storing layouts and presentation materials</div>
+                <div class="app-card">🖼️ Art departments protecting large paper-based work</div>
+                <div class="app-card">🏫 Schools storing drawings and classroom materials</div>
+                <div class="app-card">🗺️ Offices maintaining maps and oversized records</div>
+              </div>
+              <p style="margin-top:16px;">The five-drawer format also works for teams that need separation between active projects. Labels on each drawer can turn one cabinet into a simple project-based filing system.</p>
+
+              <h2 id="full-specs">Safco Facil Flat File Specifications</h2>
+              <div style="overflow-x:auto; margin: 24px 0;">
+                <table class="specs-table">
+                  <thead><tr><th>Specification</th><th>Detail</th></tr></thead>
+                  <tbody>
+                    <tr><td>Construction</td><td>Metal and steel</td></tr>
+                    <tr><td>Cabinet thickness</td><td>22 gauge</td></tr>
+                    <tr><td>Number of drawers</td><td>5</td></tr>
+                    <tr><td>Drawer rollers</td><td>Heavy-duty nylon</td></tr>
+                    <tr><td>Drawer stops</td><td>Courtesy stops</td></tr>
+                    <tr><td>Drawer identification</td><td>Label holders</td></tr>
+                    <tr><td>Drawer handles</td><td>Chrome</td></tr>
+                    <tr><td>Rear document support</td><td>Rear hood</td></tr>
+                    <tr><td>Front document support</td><td>Hinged front depressor</td></tr>
+                    <tr><td>Stackable</td><td>Yes</td></tr>
+                    <tr><td>Assembly required</td><td>Yes</td></tr>
+                    <tr><td>Shipping method</td><td>LTL freight</td></tr>
+                    <tr><td>Available models</td><td>4969LG Small and 4972LG Medium</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2 id="faq">Safco Facil Flat File FAQs</h2>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">What is a Safco Facil Flat File used for? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">The Safco Facil Flat File stores large documents horizontally inside five wide drawers. For example: architectural drawings, engineering plans, artwork, maps, construction documents, and other sheets that are difficult to store in standard filing cabinets.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">What are the Safco Facil Flat File dimensions? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">The Small 4969LG measures 40.25 inches wide, 26 inches deep, and 16.5 inches high. The Medium 4972LG measures 46.25 inches wide, 32 inches deep, and 16.5 inches high.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">How many drawers does the Safco Facil Flat File have? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">Both Safco Facil Flat File models have five drawers. The Small model has 37-by-25.25-inch drawers, while the Medium model has 43-by-31.5-inch drawers.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">How many sheets can a Safco Facil Flat File hold? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">Safco lists capacity at 300 sheets for active filing, 450 sheets for semi-active filing, and 600 sheets for inactive storage. Actual loading should also account for the thickness and weight of the stored material.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">Does the Safco Facil Flat File come with a base? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">Matching bases are separate products. Small cabinets work with the 4970LG closed base or 4971LG high base, while Medium cabinets use the 4973LG closed base or 4974LG high base.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">Does the Safco Facil Flat File require assembly? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">Yes. Safco lists assembly and tools as required for both the Small 4969LG and Medium 4972LG models.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">How do the drawers keep documents flat? <span class="faq-icon">+</span></button>
+                  <div class="faq-a">Each drawer includes a rear hood and hinged front depressor. The two components hold large sheets inside the drawer and help limit curling during horizontal storage.</div>
+                </div>
+              </div>
+
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="post-sidebar">
+        <div class="sidebar-box buy-box">
+          <div class="sidebar-box-title">Buy This Product</div>
+          <div class="buy-box-title">{{PRODUCT_TITLE}}</div>
+          <div style="font-size:.9rem;font-weight:700;color:#fff;margin:8px 0 4px;">From {{PRICE_FROM}}</div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:#555;margin-bottom:14px;">
+            <span style="color:#f59e0b;">★★★★★</span><span>4.9</span>
+          </div>
+          <button onclick="openModal()" class="sidebar-buy-btn">Buy Now</button>
+        </div>
+
+        <div class="sidebar-box" style="background:var(--orange-lt);border:1px solid #f5cdb0;border-radius:10px;padding:18px;">
+          <div class="sidebar-box-title" style="color:var(--navy);">Size at a Glance</div>
+          <p style="font-size:.82rem;color:var(--navy);margin:8px 0 0;line-height:1.6;"><strong>Small 4969LG</strong><br>40.25"W x 26"D x 16.5"H<br>Drawer: 37" x 25.25"</p>
+          <p style="font-size:.82rem;color:var(--navy);margin:10px 0 0;line-height:1.6;"><strong>Medium 4972LG</strong><br>46.25"W x 32"D x 16.5"H<br>Drawer: 43" x 31.5"</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Get the guide before you buy</h2>
+    <p>New reviews and buying guides in your inbox - no fluff, no sponsored nonsense.</p>
+    <form class="newsletter-form" onsubmit="return false">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Optic <span>Art</span> Supply</div>
+        <p class="footer-tagline">Expert art supply reviews and buying guides. No filler - just the information you need to choose the right materials.</p>
+      </div>
+      <div class="footer-col"><h4>Categories</h4><ul>
+        <li><a href="/paint/">Paint</a></li>
+        <li><a href="/surfaces/">Surfaces</a></li>
+        <li><a href="/brushes/">Brushes</a></li>
+        <li><a href="/paper/">Paper</a></li>
+        <li><a href="/drawing/">Drawing</a></li>
+        <li><a href="/easels/">Easels</a></li>
+        <li><a href="/{{CATEGORY}}/">{{CATEGORY_LABEL}}</a></li>
+        <li><a href="/linen-canvas/">Linen Canvas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="/artist-tools-accessories/">Artist Tools</a></li>
+        <li><a href="/brands/">Browse Brands</a></li>
+        <li><a href="/about-colin/">About Colin</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Top Brands</h4><ul>
+        <li><a href="/tag/arches/">Arches</a></li>
+        <li><a href="/tag/gamblin/">Gamblin</a></li>
+        <li><a href="/tag/holbein/">Holbein</a></li>
+        <li><a href="/tag/faber-castell/">Faber-Castell</a></li>
+        <li><a href="/tag/ampersand/">Ampersand</a></li>
+        <li><a href="/tag/copic/">Copic</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Optic Art Supply. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Gallery */
+function setImg(thumb, src, alt) {
+  document.getElementById('mainImg').src = src;
+  document.getElementById('mainImg').alt = alt;
+  document.querySelectorAll('.pp-gallery-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+/* Sync spacer to meta block height */
+function syncSpacer() {
+  var meta = document.querySelector('.pp-gallery-meta');
+  var spacer = document.getElementById('infoSpacer');
+  if (meta && spacer) {
+    if (window.innerWidth > 768) {
+      spacer.style.height = (meta.offsetHeight + 12) + 'px';
+    } else {
+      spacer.style.height = '0';
+    }
+  }
+}
+window.addEventListener('load', syncSpacer);
+window.addEventListener('resize', syncSpacer);
+
+/* Modal */
+function openModal() {
+  document.getElementById('buyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('buyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('buyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+/* FAQ */
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
