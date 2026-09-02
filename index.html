@@ -24,6 +24,7 @@
   <!-- End Google Tag Manager - Deferred -->
 
   <meta charset="UTF-8">
+  <link rel="preload" href="/images/Art-Supply.webp" as="image" type="image/webp">
   <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-serif-display-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -156,7 +157,7 @@
     }
     .top-promo-banner-button:hover { background: #fff; color: #4360E0; border-color: #fff; }
     @media (max-width: 720px) {
-      .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 32px; }
+      
       .hero-featured-card { width: 100%; }
       .hero-card-img { height: 200px; aspect-ratio: 16/9; }
       .hero-headline { font-size: 30px; }
@@ -880,7 +881,7 @@
   <style>
     /* ─── HERO REDESIGN ─────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, #2A3D6B 50%, #1E3058 100%);
+      background: linear-gradient(rgba(14,22,44,.72), rgba(14,22,44,.72)), url('/images/Art-Supply.webp') center/cover no-repeat;
       padding: 80px 0 72px;
       position: relative;
       overflow: hidden;
@@ -894,11 +895,12 @@
     }
     .hero-inner {
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 64px;
-      align-items: center;
-      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 680px;
+      min-height: 240px;
+      justify-content: center;
     }
     .hero-headline {
       font-family: var(--font-serif);
@@ -931,35 +933,10 @@
     .btn--ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
 
     /* Stats grid in hero */
-    .hero-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(255,255,255,.06);
-    }
-    .hero-stat {
-      background: rgba(255,255,255,.05);
-      padding: 24px 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .hero-stat-num {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 400;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 12px;
-      color: #8BA3C4;
-      font-weight: 500;
-      letter-spacing: .02em;
-    }
+    
+    
+    
+    
 
     /* ─── FEATURED PICKS ────────────────────────────────────────── */
     .featured-picks { background: var(--bg); padding: 72px 0; }
@@ -1016,10 +993,10 @@
 
     /* ─── MOBILE ────────────────────────────────────────────────── */
     @media(max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
-      .hero-stats-grid { grid-template-columns: repeat(4, 1fr); }
-      .hero-stat { padding: 16px 12px; }
-      .hero-stat-num { font-size: 26px; }
+      
+      
+      
+      
       .hero-headline { font-size: 34px; min-height: auto; }
       .picks-grid { grid-template-columns: 1fr; gap: 16px; }
       .why-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -1027,7 +1004,7 @@
     @media(max-width: 560px) {
       .hero { padding: 48px 0 52px; }
       .hero-headline { font-size: 28px; }
-      .hero-stats-grid { grid-template-columns: 1fr 1fr; }
+      
       .why-grid { grid-template-columns: 1fr; }
       .picks-grid { grid-template-columns: 1fr; }
     }
@@ -1065,6 +1042,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager - Deferred -->
 
   <meta charset="UTF-8">
+  <link rel="preload" href="/images/Art-Supply.webp" as="image" type="image/webp">
   <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-serif-display-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -1197,7 +1175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     .top-promo-banner-button:hover { background: #fff; color: #4360E0; border-color: #fff; }
     @media (max-width: 720px) {
-      .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 32px; }
+      
       .hero-featured-card { width: 100%; }
       .hero-card-img { height: 200px; aspect-ratio: 16/9; }
       .hero-headline { font-size: 30px; }
@@ -1921,7 +1899,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <style>
     /* ─── HERO REDESIGN ─────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, #2A3D6B 50%, #1E3058 100%);
+      background: linear-gradient(rgba(14,22,44,.72), rgba(14,22,44,.72)), url('/images/Art-Supply.webp') center/cover no-repeat;
       padding: 80px 0 72px;
       position: relative;
       overflow: hidden;
@@ -1935,11 +1913,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     .hero-inner {
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 64px;
-      align-items: center;
-      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 680px;
+      min-height: 240px;
+      justify-content: center;
     }
     .hero-headline {
       font-family: var(--font-serif);
@@ -1972,35 +1951,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .btn--ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
 
     /* Stats grid in hero */
-    .hero-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(255,255,255,.06);
-    }
-    .hero-stat {
-      background: rgba(255,255,255,.05);
-      padding: 24px 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .hero-stat-num {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 400;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 12px;
-      color: #8BA3C4;
-      font-weight: 500;
-      letter-spacing: .02em;
-    }
+    
+    
+    
+    
 
     /* ─── FEATURED PICKS ────────────────────────────────────────── */
     .featured-picks { background: var(--bg); padding: 72px 0; }
@@ -2057,10 +2011,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     /* ─── MOBILE ────────────────────────────────────────────────── */
     @media(max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
-      .hero-stats-grid { grid-template-columns: repeat(4, 1fr); }
-      .hero-stat { padding: 16px 12px; }
-      .hero-stat-num { font-size: 26px; }
+      
+      
+      
+      
       .hero-headline { font-size: 34px; min-height: auto; }
       .picks-grid { grid-template-columns: 1fr; gap: 16px; }
       .why-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -2068,7 +2022,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     @media(max-width: 560px) {
       .hero { padding: 48px 0 52px; }
       .hero-headline { font-size: 28px; }
-      .hero-stats-grid { grid-template-columns: 1fr 1fr; }
+      
       .why-grid { grid-template-columns: 1fr; }
       .picks-grid { grid-template-columns: 1fr; }
     }
@@ -2081,19 +2035,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1 class="hero-headline">Find the right art supplies.</h1>
-        <p class="hero-sub">We compare specs, test products, and cut through marketing copy — so you spend less time researching and more time creating.</p>
+        <h1 class="hero-headline">Find the Best Art Supplies, at the best price.</h1>
         <div class="hero-ctas">
           <a href="/buying-guides/" class="btn btn--primary">Browse Products</a>
           <a href="/paint/" class="btn btn--ghost">Shop by Category</a>
         </div>
-      </div>
-      <div class="hero-stats-grid">
-        <div class="hero-stat">
-          <span class="hero-stat-num">236</span>
-          <span class="hero-stat-label">Guides &amp; Reviews</span>
-        </div>
-        <div class="hero-stat">
+      </div><div class="hero-stat">
           <span class="hero-stat-num">10</span>
           <span class="hero-stat-label">Categories</span>
         </div>
