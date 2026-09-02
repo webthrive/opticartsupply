@@ -32,9 +32,10 @@
   <meta name="twitter:image"       content="https://www.opticartsupply.com/images/5-drawer-flat-file-cabinet.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://c.statcounter.com">
+  <link rel="preconnect" href="https://c.statcounter.com" crossorigin>
   <link rel="preconnect" href="https://www.statcounter.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"></noscript>
   <style>
     /* ─── DESIGN TOKENS ──────────────────────────────────────────── */
     :root {
@@ -801,7 +802,8 @@
       margin: 0;
     }
   </style>
-  <link rel="stylesheet" href="/assets/css/responsive.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/responsive.css"></noscript>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -921,7 +923,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cat-grid">
 
       <a href="/paint/" class="cat-card cat-card--wide">
-        <img src="/images/Paint.png" alt="Paint">
+        <img src="/images/Paint.webp" alt="Paint">
         <div class="cat-card-overlay"></div>
         <div class="cat-card-body">
           <div class="cat-card-name">Paint</div>
@@ -1005,7 +1007,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
 
       <a href="/paper/" class="cat-card">
-        <img src="/images/Acrylic-Paint.png" alt="Paper">
+        <img src="/images/Acrylic-Paint.webp" alt="Paper">
         <div class="cat-card-overlay"></div>
         <div class="cat-card-body">
           <div class="cat-card-name">Paper</div>
@@ -1200,7 +1202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="pick-side">
         <a href="/paint/5-best-watercolor-pencils-to-buy-in-2026-tested-by-artists/" class="pick-mini">
-          <img class="pick-mini-img" src="/images/Acrylic-Paint.png" alt="Watercolor Pencils">
+          <img class="pick-mini-img" src="/images/Acrylic-Paint.webp" alt="Watercolor Pencils">
           <div class="pick-mini-body">
             <div class="pick-mini-cat">Paint</div>
             <div class="pick-mini-title">5 Best Watercolor Pencils to Buy in 2026 — Tested by Artists</div>
@@ -1211,7 +1213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </a>
         <a href="/acrylic-vs-oil-paint-a-complete-guide-to-choosing-the-right-paint/" class="pick-mini">
-          <img class="pick-mini-img" src="/images/Paint.png" alt="Acrylic vs Oil Paint">
+          <img class="pick-mini-img" src="/images/Paint.webp" alt="Acrylic vs Oil Paint">
           <div class="pick-mini-body">
             <div class="pick-mini-cat">Paint</div>
             <div class="pick-mini-title">Acrylic vs Oil Paint: A Complete Guide to Choosing the Right Paint</div>
@@ -1279,7 +1281,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="editorial-grid">
 
       <a href="/acrylic-vs-oil-paint-a-complete-guide-to-choosing-the-right-paint/" class="editorial-card">
-        <img src="/images/Paint.png" alt="Acrylic vs Oil">
+        <img src="/images/Paint.webp" alt="Acrylic vs Oil">
         <div>
           <div class="editorial-cat">Paint · Comparison</div>
           <div class="editorial-title">Acrylic vs Oil Paint: A Complete Guide to Choosing the Right Paint</div>
