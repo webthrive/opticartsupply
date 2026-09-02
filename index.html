@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NHTXLMJ');</script>
-  <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager - Deferred -->
+  <script>
+    function loadGTM() {
+      if (window._gtmLoaded) return;
+      window._gtmLoaded = true;
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NHTXLMJ');
+    }
+    // Load GTM after page is interactive - on first user interaction or after 3s
+    var _gtmDelay = setTimeout(loadGTM, 3000);
+    ['click','scroll','keydown','touchstart','mouseover'].forEach(function(e) {
+      window.addEventListener(e, function() {
+        clearTimeout(_gtmDelay);
+        loadGTM();
+      }, {once: true, passive: true});
+    });
+  </script>
+  <!-- End Google Tag Manager - Deferred -->
 
   <meta charset="UTF-8">
   <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
