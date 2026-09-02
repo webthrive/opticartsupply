@@ -31,6 +31,7 @@
   <meta name="twitter:description" content="Research-backed art supply buying guides. We compare specs, aggregate reviews, and cut through marketing copy so you can choose the right materials.">
   <meta name="twitter:image"       content="https://www.opticartsupply.com/images/5-drawer-flat-file-cabinet.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="font" crossorigin href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://c.statcounter.com" crossorigin>
   <link rel="preconnect" href="https://www.statcounter.com">
@@ -109,6 +110,10 @@
     }
     .top-promo-banner-button:hover { background: #fff; color: #4360E0; border-color: #fff; }
     @media (max-width: 720px) {
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 32px; }
+      .hero-featured-card { width: 100%; }
+      .hero-card-img { height: 200px; aspect-ratio: 16/9; }
+      .hero-headline { font-size: 30px; }
       .top-promo-banner { padding: 9px 14px; }
       .top-promo-banner-content { gap: 10px; }
       .top-promo-banner-text { font-size: 13px; }
@@ -184,6 +189,16 @@
     .header-nav a:hover { color: var(--navy); background: var(--bg-warm); }
     .header-nav a.active { color: var(--navy); font-weight: 600; }
 
+    /* ─── FONT DISPLAY ────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Inter';
+      font-display: optional;
+    }
+    @font-face {
+      font-family: 'DM Serif Display';
+      font-display: optional;
+    }
+
     /* ─── HERO ───────────────────────────────────────────────────── */
     .hero {
       background: linear-gradient(135deg, var(--navy-dark) 0%, #2A3D6B 50%, #1E3058 100%);
@@ -203,6 +218,7 @@
       grid-template-columns: 1fr 440px;
       gap: 56px;
       align-items: center;
+      min-height: 320px;
     }
     .hero-copy {}
     .hero-eyebrow {
@@ -259,7 +275,9 @@
     .hero-card-img {
       width: 100%;
       height: 220px;
+      aspect-ratio: 16/9;
       object-fit: cover;
+      display: block;
     }
     .hero-card-body { padding: 20px 22px 22px; }
     .hero-card-body .badge { margin-bottom: 10px; }
